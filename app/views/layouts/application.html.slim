@@ -1,0 +1,34 @@
+doctype 5
+html
+  head
+    title MythicalWell
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    = stylesheet_link_tag :application, :media => "all"
+    = javascript_include_tag :application
+    = csrf_meta_tags
+  body data-offset="50"
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          .brand Mythical Well
+          ul.nav
+            li.active = link_to "Home", "#"
+            li = link_to "Link1", "#"
+            li = link_to "Link2", "#"
+          ul.nav.pull-right
+            li.dropdown
+              = link_to "#", :class => "dropdown-toggle", :'data-toggle' => "dropdown" do
+                | User
+                b.caret
+              ul.dropdown-menu
+                li 1
+                li 2
+                li 3
+  
+    .container
+      .row
+        .span3.box
+          = render 'layouts/sidebars/user', :user => "Tony"
+        .span8.box
+          = yield
+      
