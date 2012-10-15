@@ -14,7 +14,7 @@ html
           ul.nav
             li.active = link_to "Home", "#"
             li = link_to "Link1", "#"
-            li = link_to "Link2", "#"
+            li = link_to "ui", "/ui"
           ul.nav.pull-right
             li.dropdown
               = link_to "#", :class => "dropdown-toggle", :'data-toggle' => "dropdown" do
@@ -29,6 +29,7 @@ html
       .row
         .span3.box
           = render 'layouts/sidebars/user', :user => "Tony"
+
         .span8.box
           = yield
       

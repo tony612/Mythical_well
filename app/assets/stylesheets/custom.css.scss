@@ -24,3 +24,55 @@ body {
   -moz-box-shadow: 0 0px 2px rgba(0,0,0,0.1);
   box-shadow: 0 0px 2px rgba(0, 0, 0, 0.05);
 }
+
+////////////////UI
+
+.mini_profile {
+  .profile_pic {
+    margin-top:20px;
+    img {
+      width: 64px;
+      height: 64px;
+    }
+  }
+  .profile_meta {
+    float: right;
+  }
+}
+
+#new_message {
+  margin-bottom: 50px;
+  textarea {
+    width: 97.5%;
+  }
+  button {
+    float: right;
+    margin-left: 10px;
+  }
+  select {
+    float: right;
+    width: 80px;
+  }
+}
+
+#messages {
+  li {
+    margin-bottom: 20px;
+    img {
+      width: 60px;
+      height: 60px;
+    }
+    span {
+      float:right;
+      margin-left:5px;
+      margin-top: 15px;
+    }
+
+  }
+}
+
+.setting{
+  .nav-header {
+    font-size: 20px;
+  }
+}

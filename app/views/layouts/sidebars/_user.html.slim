@@ -1,0 +1,20 @@
+.mini_profile
+  .row
+    .profile_pic.span1
+      img.img-rounded src="/assets/rails.png"
+
+    .profile_meta.span2
+      h2
+        = link_to "Tony", "#"
+      ul#user_info.unstyled
+        li Info 1
+        li Info 2
+hr
+
+.setting
+  ul.nav.nav-list
+    li.nav-header Setting
+    li.active = link_to "Profile", "/ui/profile"
+    li = link_to "Account", "/ui/account"
+    li = link_to "Password", "/ui/password"
+    li = link_to "Subject Info", "/ui/subject_info"
