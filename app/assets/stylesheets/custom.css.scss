@@ -10,6 +10,11 @@ body {
   right: 0;
   left: 0;
   margin-bottom: 20px;
+  #btn_new_activity {
+    button {
+      margin-top:-3px;
+    }
+  }
 }
 
 .box {
@@ -55,7 +60,7 @@ body {
   }
 }
 
-#messages {
+#messages, #friends {
   li {
     margin-bottom: 20px;
     img {
@@ -71,7 +76,7 @@ body {
   }
 }
 
-.setting{
+.setting, .nav_activity{
   .nav-header {
     font-size: 20px;
   }
