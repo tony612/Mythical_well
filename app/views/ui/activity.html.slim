@@ -1,0 +1,10 @@
+h2 Activities
+table.table.table-striped
+  - (1..6).each do |activity|
+    tr
+      td.span6
+        = link_to "Title of activity-#{activity}", "/ui/activity_single"
+      td.span2
+        = "2012-10-#{activity}"
+    /hr
+
