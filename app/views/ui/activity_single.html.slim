@@ -1,24 +1,38 @@
 .main
   .box.single_activity
     .base
-      img src="/assets/rails.png"
-      h3 Activity
+      img src="/assets/linux.png"
+      h2 Activity
       .info
         span 时间：
         | 2012-10-20
       .info
         span 地点：
-        | 大学城中心胡
+        | 大学城中心湖
+      .info
+        span 费用：
+        | 0
       .info
         span 分类：
-        | 生活
+        = link_to "生活", "#"
       .info
         span 发起人：
-        = link_to "Tony", "#"
+        = link_to "Tony", "profile"
+      .info
+        span 标签：
+        - (1..3).each do |index|
+          = link_to "Tag#{index}"
+          '
+      
       br
       .info
-        span 3人喜欢
-
+        = link_to "关注"
+        '
+        = link_to "喜欢"
+        
+    br
+    br
+    h5 详细描述
     .desc
       p
         | This is the description.<br/>

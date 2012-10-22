@@ -121,3 +121,34 @@ body {
   }
 }
 
+///////////
+
+.activity_brief {
+  img {
+    width: 70px;
+    height: 90px;
+  }
+  .photo {
+    float:left;
+    margin-right: 10px;
+  }
+}
+
+////////////
+
+.single_activity {
+  .base img {
+    width: 175px;
+    height: 260px;
+    float: left;
+    margin-right: 5px;
+  }
+  .comments img {
+    width: 48px;
+    height: 48px; 
+  }
+  .base .info {
+    margin-bottom: 5px;
+  }
+
+}
