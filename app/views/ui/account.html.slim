@@ -1,12 +1,16 @@
-.row
-  .span3.box
-    = render 'layouts/sidebars/user', :user => "Tony"
-          /= render 'layouts/sidebars/'
+.left_sidebar
+  = render "user_sidebar"
+  .box
+    ul.nav.nav-list
+      li.nav-header 设置
+      li.active = link_to "基本资料", "/ui/base_setting"
+      li = link_to "账户资料", "/ui/account"
+      li = link_to "主观信息", "/ui/subject_info"
 
-  .span8.box
-
+.main.main-right
+  .box
     form.account.form-horizontal
-      legend Accound
+      legend Account
       .control-group
         label.control-label Username
         .controls

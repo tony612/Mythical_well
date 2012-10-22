@@ -1,0 +1,30 @@
+.box#user_sidebar
+    dl
+      dt
+        img src="/assets/avatar.png"
+      dd
+        h4
+          = link_to "Tony", "/ui/profile"
+        ul.unstyled
+          li 这是一个签名
+          li 
+            | 在
+            = link_to "广州", "#"
+            | 求学
+    table.table
+      tr
+        td
+          = link_to "#" do
+            span 10
+            br
+            span 我的活动
+        td style="border-left: 1px solid rgba(100, 100, 100, 0.4);border-right: 1px solid rgba(100, 100, 100, 0.4);"
+          = link_to "/activity_user" do
+            span 20
+            br
+            span 参与活动
+        td
+          = link_to "#" do
+            span 10
+            br
+            span 收藏活动

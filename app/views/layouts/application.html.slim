@@ -19,7 +19,7 @@ html
             input.search-query type="text" placeholder="Search..."
           ul.nav.pull-right
             li
-              = link_to "我的活动", "/ui/profile"
+              = link_to "我的活动", "/ui/activity_user"
             /li#btn_new_activity
               = link_to "#new_activity", :'data-toggle' => "modal" do
                 button.btn.btn-primary.btn-small New Activity
@@ -28,13 +28,24 @@ html
                 | Tony
                 b.caret
               ul.dropdown-menu
-                li
-                  = link_to "Setting"
-                li 2
-                li 3
-          /#new_activity.modal.hide.fade
-            = render 'new_activity'
+                li = link_to "我的主页", "/ui/profile"
+                li = link_to "基本资料设置", "/ui/base_setting"
+                li = link_to "账户设置", "/ui/account"
               
     .container
+      ul.breadcrumb.box
+        li 
+          = link_to "广州", "#"
+          '
+          span.divider = '/'
+        li 
+          = link_to "番禺", "#"
+          '
+          span.divider = '/'
+        li 
+          = link_to "华工", "#"
+          '
+          span.divider = '/'
+
       = yield
       

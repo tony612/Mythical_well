@@ -17,14 +17,20 @@ body {
   }
 }
 
+//a:hover {
+//  text-decoration:none;
+//  color: #0033bb;
+//}
+
 .box {
   background-color: white;
   padding: 10px;
   margin-bottom: 20px;
-  margin-left: 20px;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
+  margin-right: 0;
+  //margin-left: 20px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
   -webkit-box-shadow: 0 0px 2px rgba(0, 0, 0, 0.05);
   -moz-box-shadow: 0 0px 2px rgba(0,0,0,0.1);
   box-shadow: 0 0px 2px rgba(0, 0, 0, 0.05);
@@ -32,18 +38,6 @@ body {
 
 ////////////////UI
 
-.mini_profile {
-  .profile_pic {
-    margin-top:20px;
-    img {
-      width: 64px;
-      height: 64px;
-    }
-  }
-  .profile_meta {
-    float: right;
-  }
-}
 
 #new_message {
   margin-bottom: 50px;
@@ -88,3 +82,42 @@ body {
     //float: right;
   }
 }
+
+.right_sidebar {
+  width:270px;
+  float: right;
+}
+
+.left_sidebar {
+  width: 270px;
+  float: left;
+}
+
+.main {
+  width: 670px;
+  margin-right: 0;
+  position: absolute;
+}
+.main-right {
+  margin-left: 290px;
+}
+
+/////////
+
+#user_sidebar {
+  dt, dt img{
+    width: 64px;
+    height: 64px;
+    //float: left;
+    margin: 0;
+    position: absolute;
+  }
+  dd {
+    margin-left: 80px;
+    //float:right;
+  }
+  table a:hover {
+    text-decoration:none;
+  }
+}
+

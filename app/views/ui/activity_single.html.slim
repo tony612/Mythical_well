@@ -1,34 +1,68 @@
-.box.single_activity
-  .base
-    img src="/assets/rails.png"
-    h3 Activity
-    .info
-      span 时间：
-      | 2012-10-20
-    .info
-      span 地点：
-      | 大学城中心胡
-    .info
-      span 分类：
-      | 生活
-    .info
-      span 发起人：
-      = link_to "Tony", "#"
-    br
-    .info
-      span 3人喜欢
+.main
+  .box.single_activity
+    .base
+      img src="/assets/rails.png"
+      h3 Activity
+      .info
+        span 时间：
+        | 2012-10-20
+      .info
+        span 地点：
+        | 大学城中心胡
+      .info
+        span 分类：
+        | 生活
+      .info
+        span 发起人：
+        = link_to "Tony", "#"
+      br
+      .info
+        span 3人喜欢
 
-  .desc
-    p
-      | This is the description.<br/>
-        This is the description.<br/>
-        This is the description.<br/>
-        This is the description.<br/>
-        This is the description.<br/>
-        This is the description.<br/>
-        This is the description.<br/>
-        This is the description.<br/>
-        This is the description.<br/>
-  = render "comment"
+    .desc
+      p
+        | This is the description.<br/>
+          This is the description.<br/>
+          This is the description.<br/>
+          This is the description.<br/>
+          This is the description.<br/>
+          This is the description.<br/>
+          This is the description.<br/>
+          This is the description.<br/>
+          This is the description.<br/>
+    = render "comment"
 
-.box.span3
+.right_sidebar
+  .box
+    table.table
+      tr
+        td 
+          b 热门活动
+      - (1..5).each do |hot_act|
+        tr
+          td = link_to "Title of activity#{hot_act}"
+    table.table
+      thead
+        tr
+          th 时间
+      tbody
+        tr
+          td = link_to "三天内", "#"
+        tr
+          td = link_to "一周内", "#"
+        tr
+          td = link_to "周末", "#"
+        tr
+          td = link_to "更多", "#"
+    table.table
+      thead
+        tr
+          th 分类
+      tbody
+        tr
+          td = link_to "讲座"
+        tr
+          td = link_to "娱乐"
+        tr
+          td = link_to "演出"
+
