@@ -1,10 +1,41 @@
-h2 Activities
-table.table.table-striped
-  - (1..6).each do |activity|
+.box.span8
+  b 广州
+  br
+  - (1..10).each do |tag|
+    = link_to "分类#{tag}", "#"
+    '
+  table.table.table-striped
+    - (1..10).each do |activity|
+      tr
+        = render 'activity_brief', :activity => activity
+.box.span3    
+  table.table
     tr
-      td.span6
-        = link_to "Title of activity-#{activity}", "/ui/activity_single"
-      td.span2
-        = "2012-10-#{activity}"
-    /hr
+      td 
+        b 热门活动
+    - (1..5).each do |hot_act|
+      tr
+        td = link_to "Title of activity#{hot_act}"
+  table.table
+    tr
+      td 
+        b 过滤
+    tr
+      td 时间
+    tr
+      td = link_to "三天内", "#"
+    tr
+      td = link_to "一周内", "#"
+    tr
+      td = link_to "周末", "#"
+    tr
+      td = link_to "更多", "#"
+    tr
+      td 地点
+    tr
+      td = link_to "大学城中心湖"
+    tr
+      td = link_to "华工"
+    tr
+      td = link_to "中大"
 

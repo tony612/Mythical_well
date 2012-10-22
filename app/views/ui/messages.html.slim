@@ -1,16 +1,17 @@
-#new_message
-  h3 New message
-  textarea rows="5"
+.box
+  #new_message
+    h3 New message
+    textarea rows="5"
 
-  button.btn.btn-primary Post
+    button.btn.btn-primary Post
 
-  select
-    option 类型1
-    option 类型2
-    option 类型3
+    select
+      option 类型1
+      option 类型2
+      option 类型3
 
-ul#messages.unstyled
-  - @messages = (1..3).to_a
-  = render :partial => "message", :collection => @messages
-  /- (1..3).each do |index|
-    
+  ul#messages.unstyled
+    - @messages = (1..3).to_a
+    = render :partial => "message", :collection => @messages
+    /- (1..3).each do |index|
+      

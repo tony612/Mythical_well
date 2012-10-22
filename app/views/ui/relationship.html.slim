@@ -1,4 +1,5 @@
-ul#friends.unstyled
-  - @friends = (1..3).to_a
-  = render :partial => "friend", :collection => @friends
+.box
+  ul#friends.unstyled
+    - @friends = (1..3).to_a
+    = render :partial => "friend", :collection => @friends
 

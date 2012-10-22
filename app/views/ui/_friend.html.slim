@@ -1,9 +1,18 @@
 li.friend.row
   img.img-rounded.span1 src="/assets/rails.png"
-  p.span7 = "Friend #{friend}"
+  p.span7 
+    = "Friend #{friend}"
+    '
+    '
+    button.btn.btn-primary.btn-small Follow
+    br
+    | 备注名
+    '
+    i.icon-pencil
+      '
   
-  span = link_to "取消关注"
   span
+    | 分组
     select.span2
       option 1
       option 2

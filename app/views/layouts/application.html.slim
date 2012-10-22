@@ -12,14 +12,15 @@ html
         .container
           .brand Mythical Well
           ul.nav
-            li.active = link_to "Home", "#"
+            li.active = link_to "Home", "/ui/activity"
             li = link_to "Relationships", "/ui/relationship"
-            li = link_to "Activity", "/ui/activity"
             li = link_to "ui", "/ui"
           /form.navbar-search
             input.search-query type="text" placeholder="Search..."
           ul.nav.pull-right
-            li#btn_new_activity
+            li
+              = link_to "我的活动", "/ui/profile"
+            /li#btn_new_activity
               = link_to "#new_activity", :'data-toggle' => "modal" do
                 button.btn.btn-primary.btn-small New Activity
             li.dropdown
@@ -31,16 +32,9 @@ html
                   = link_to "Setting"
                 li 2
                 li 3
-          #new_activity.modal.hide.fade
+          /#new_activity.modal.hide.fade
             = render 'new_activity'
               
     .container
-      .row
-        .span3.box
-          = render 'layouts/sidebars/user', :user => "Tony"
-          /= render 'layouts/sidebars/'
-
-        .span8.box
-          = yield
+      = yield
       
-

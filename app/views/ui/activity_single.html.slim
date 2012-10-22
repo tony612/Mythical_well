@@ -1,17 +1,34 @@
-h2 Actitity
-span 2012-10-20
-br
-br
-p
-  | This is the description.<br/>
-    This is the description.<br/>
-    This is the description.<br/>
-    This is the description.<br/>
-    This is the description.<br/>
-    This is the description.<br/>
-    This is the description.<br/>
-    This is the description.<br/>
-    This is the description.<br/>
+.box.single_activity
+  .base
+    img src="/assets/rails.png"
+    h3 Activity
+    .info
+      span 时间：
+      | 2012-10-20
+    .info
+      span 地点：
+      | 大学城中心胡
+    .info
+      span 分类：
+      | 生活
+    .info
+      span 发起人：
+      = link_to "Tony", "#"
+    br
+    .info
+      span 3人喜欢
 
-= render "comment"
+  .desc
+    p
+      | This is the description.<br/>
+        This is the description.<br/>
+        This is the description.<br/>
+        This is the description.<br/>
+        This is the description.<br/>
+        This is the description.<br/>
+        This is the description.<br/>
+        This is the description.<br/>
+        This is the description.<br/>
+  = render "comment"
 
+.box.span3
