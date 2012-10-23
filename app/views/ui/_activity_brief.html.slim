@@ -3,11 +3,11 @@ td.activity_brief
     = link_to "/ui/activity_single" do
       img src="/assets/linux.png"
   .info
-    = link_to "Title of activity-#{activity}", "/ui/activity_single"
+    span.title = link_to "Title of activity-#{activity}", "/ui/activity_single"
     br
-    span = "2012-10-#{activity} 周X 12:00-18:00 | 大学城中心湖"
+    span.info = "2012-10-#{activity} 周X 12:00-18:00 | 大学城中心湖"
     br
-    span 
+    span.meta 
       = link_to "标签#{activity}", "#"
       '
       = link_to "Tony", "/ui/profile"

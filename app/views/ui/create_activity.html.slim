@@ -1,0 +1,64 @@
+.main.main-left
+  .box
+    form.form-horizontal#create_activity
+      legend 创建活动
+      .control-group
+        label.control-label 活动标题
+        .controls
+          input.span4 type="text"
+      .control-group
+        label.control-label 活动分类
+        .controls
+          select
+            option 讲座
+            option 生活
+      .control-group
+        label.control-label 活动周期
+        .controls
+          select
+            option 一天内
+            option 连续多天
+            option 每周
+            option 每月
+            option 自定义
+      .control-group
+        label.control-label 活动时间
+        .controls.date
+          input type="text" placeholder="日期"
+          input type="text" placeholder="开始"
+          input type="text" placeholder="结束"
+      .control-group
+        label.control-label 活动地点
+        .controls.place
+          select.city 
+            option 城市
+            option 广州
+            option 深圳
+            option 上海
+          select.area
+            option 城区
+            option 番禺区
+            option 天河区
+            option 海珠区
+          select.school 
+            option 学校(可选)
+            option 华工
+            option 中大
+            option 华农
+          input.place_detail type="text" placeholder="详细"
+      .control-group
+        label.control-label 活动详情
+        .controls.detail
+          textarea.span5 rows="12"
+      .control-group
+        .controls
+          label.radio
+            input type="radio" name="fee" id="fee" value="free" checked=true 免费
+          label.radio
+            input type="radio" name="fee" id="fee" value="charged" 收费
+      .control-group
+        label.control-label 标签
+        .controls.detail
+          input type="text"
+      .form-actions
+        button.btn.btn-primary type="submit" 提交

@@ -18,3 +18,16 @@
         dd = link_to "XXX.com", "#"
         dt 签名
         dd 这是一个签名
+
+.box
+    h4 最近发起的活动
+    ul.unstyled
+      - (1..5).each do |index|
+        li = link_to "Title of activity #{index}", "/ui/activity"
+
+    hr
+    h4 最近参与讨论的活动 
+    ul.unstyled
+      -(1..5).each do |index|
+        li = link_to "Title of activity #{index}", "/ui/activity"
+

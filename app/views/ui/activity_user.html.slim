@@ -1,4 +1,4 @@
-.main
+.main.main-left
   .box
     h4 最近发起的活动
     ul.unstyled
@@ -20,4 +20,4 @@
           b 热门活动
       - (1..5).each do |hot_act|
         tr
-          td = link_to "Title of activity#{hot_act}"
+          td = link_to "Title of activity#{hot_act}", "/ui/activity_single"

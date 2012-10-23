@@ -1,10 +1,14 @@
-.main
+.main.main-left
   .box
     br
     /- (1..10).each do |tag|
       = link_to "分类#{tag}", "#"
       '
     table.table.table-striped
+      tr
+        td
+          =link_to "/ui/create_activity" do
+            button.create_activity.btn.btn-primary 创建活动
       - (1..10).each do |activity|
         tr
           = render 'activity_brief', :activity => activity
@@ -16,7 +20,7 @@
           b 热门活动
       - (1..5).each do |hot_act|
         tr
-          td = link_to "Title of activity#{hot_act}"
+          td = link_to "Title of activity#{hot_act}", "/ui/activity_single"
     table.table
       thead
         tr

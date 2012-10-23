@@ -86,6 +86,7 @@ body {
 .right_sidebar {
   width:270px;
   float: right;
+  //margin-left: 690px;
 }
 
 .left_sidebar {
@@ -95,11 +96,15 @@ body {
 
 .main {
   width: 670px;
-  margin-right: 0;
-  position: absolute;
+  margin: 0px;
+  //position: absolute;
+}
+.main-left {
+  float: left;
 }
 .main-right {
-  margin-left: 290px;
+  //margin-left: 290px;
+  float:right;
 }
 
 /////////
@@ -132,6 +137,10 @@ body {
     float:left;
     margin-right: 10px;
   }
+  .title {
+    font-size: 17px;
+  }
+  
 }
 
 ////////////
@@ -143,12 +152,69 @@ body {
     float: left;
     margin-right: 5px;
   }
-  .comments img {
-    width: 48px;
-    height: 48px; 
+  .comments {
+    
+    img { 
+      width: 48px;
+      height: 48px; 
+      margin-right: 5px;
+    }
+    .comment_content {
+      width: 580px;
+      margin-left: 56px;
+      margin-top: -48px;
+      margin-bottom: 35px;   
+    }
   }
   .base .info {
     margin-bottom: 5px;
   }
+}
 
+/////////////////////
+
+.base_info {
+  
+  img {
+    width: 96px;
+    height: 96px;
+  }
+}
+
+.footer {
+  position: absolute;
+  margin-top: 400px;
+}
+
+button.create_activity {
+  float: right;
+}
+
+#create_activity {
+  .date {
+    input {
+      width: 70px;
+      margin-right: 10px;
+    }
+  }
+  .place {
+    select {
+      margin-right: 10px;
+    }
+    .city {
+      width: 70px;
+    }
+    .area {
+      width: 100px;
+    }
+    .school {
+      width: auto;
+      margin-bottom: 10px;
+    }
+    .detail {
+      textarea {
+        width: 300px;
+      }
+    }
+  }
 }
