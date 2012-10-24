@@ -1,4 +1,5 @@
 .box#user_sidebar
+  - unless meta[:profile]
     dl
       dt
         img src="/assets/avatar.png"
@@ -11,20 +12,34 @@
             | 在
             = link_to "广州", "#"
             | 求学
-    table.table
-      tr
-        td
-          = link_to "#" do
-            span 10
-            br
-            span 我的活动
-        td style="border-left: 1px solid rgba(100, 100, 100, 0.4);border-right: 1px solid rgba(100, 100, 100, 0.4);"
-          = link_to "/activity_user" do
-            span 20
-            br
-            span 参与活动
-        td
-          = link_to "#" do
-            span 10
-            br
-            span 收藏活动
+  ul.unstyled
+    li
+      | 发起了
+      = link_to "20个活动", "/ui/created_activity"
+    li
+      | 讨论过
+      = link_to "10个活动", "/ui/created_activity"
+    li
+      | 关注了
+      = link_to "15个活动", "/ui/created_activity"
+  hr
+  - if meta[:profile]
+    ul.unstyled
+      li
+        | 关注了
+        = link_to "20个同学", "/ui/relationship"
+      li 
+        | 被
+        = link_to "30个同学", "/ui/relationship"
+        | 关注
+
+- if meta[:profile]
+  .box.push_follow
+    h5 推荐关注
+    table.table.table-condensed
+      - (1..7).each do |index|
+        tr
+          td
+            img src="/assets/avatar.png"
+            = link_to "User #{index}", "/ui/profile"
+

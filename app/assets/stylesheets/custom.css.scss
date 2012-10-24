@@ -152,24 +152,32 @@ body {
     float: left;
     margin-right: 5px;
   }
-  .comments {
-    
-    img { 
-      width: 48px;
-      height: 48px; 
-      margin-right: 5px;
-    }
-    .comment_content {
-      width: 580px;
-      margin-left: 56px;
-      margin-top: -48px;
-      margin-bottom: 35px;   
-    }
-  }
   .base .info {
     margin-bottom: 5px;
   }
 }
+
+.comments {
+    
+  form textarea {
+    width: 635px; 
+  }
+  form button {
+    float: right;
+  }
+  img { 
+    width: 48px;
+    height: 48px; 
+    margin-right: 5px;
+  }
+  .comment_content {
+    width: 580px;
+    margin-left: 56px;
+    margin-top: -48px;
+    margin-bottom: 35px;   
+  }
+}
+
 
 /////////////////////
 
@@ -209,12 +217,37 @@ button.create_activity {
     }
     .school {
       width: auto;
-      margin-bottom: 10px;
     }
-    .detail {
-      textarea {
-        width: 300px;
-      }
+    .place_detail {
+      margin-top: 10px;
+    }
+  }
+  .detail {
+    textarea {
+      width: 400px;
     }
   }
 }
+
+.profile {
+  .span2 {
+    float: left;
+  }
+  .info {
+    float: left;
+    margin-left: -70px;
+  }
+  .action {
+    float: right;
+    margin-right: 60px;
+    margin-top: 20px;
+  }
+}
+
+.push_follow {
+  img {
+    height: 24px;
+    width: 24px;
+  }
+}
+

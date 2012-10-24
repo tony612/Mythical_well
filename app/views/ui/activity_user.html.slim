@@ -12,12 +12,5 @@
         li = link_to "Title of activity #{index}", "/ui/activity"
 
 .right_sidebar
-  = render "user_sidebar"
-  .box
-    table.table
-      tr
-        td 
-          b 热门活动
-      - (1..5).each do |hot_act|
-        tr
-          td = link_to "Title of activity#{hot_act}", "/ui/activity_single"
+  = render "user_sidebar", meta: {}
+  = render "hot_activity"
