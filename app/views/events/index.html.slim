@@ -1,13 +1,10 @@
 .main.main-left
   .box
     br
-    /- (1..10).each do |tag|
-      = link_to "分类#{tag}", "#"
-      '
     table.table.table-striped
       tr
         td
-          =link_to "/ui/create_event" do
+          =link_to  do
             button.create_activity.btn.btn-primary 创建活动
     = render 'events_table', events: @events
           /= render 'activity_brief', :activity => activity

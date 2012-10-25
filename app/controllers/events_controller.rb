@@ -6,6 +6,6 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @comments = @event.comments
-    p @comments
+    p @comments, @event.user
   end
 end

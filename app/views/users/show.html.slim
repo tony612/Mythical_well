@@ -1,0 +1,39 @@
+.main.main-left
+  .box.profile
+    .row
+      .span2
+        img src="/assets/avatar.png"
+      .info
+        dl.dl-horizontal
+          dt 用户名
+          dd = @user.username
+          dt 姓名
+          dd = @user.name
+          dt 城市
+          dd = link_to @user.city, "#"
+          dt 学校
+          dd = link_to @user.school, "#"
+          dt 邮件
+          dd = @user.email
+          /dt 博客
+          /dd = link_to @user.website, @user.website
+          dt 签名
+          dd 这是一个签名
+      .action
+        button.btn.btn-primary 关注
+
+
+  .box
+      h4 最近发起的活动
+      ul.unstyled
+        - (1..5).each do |index|
+          li = link_to "Title of activity #{index}", "/ui/activity"
+
+      hr
+      h4 最近参与讨论的活动 
+      ul.unstyled
+        -(1..5).each do |index|
+          li = link_to "Title of activity #{index}", "/ui/activity"
+
+.right_sidebar
+  = render "user_sidebar", meta: {profile: true}

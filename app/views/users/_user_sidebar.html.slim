@@ -1,0 +1,45 @@
+.box#user_sidebar
+  - unless meta[:profile]
+    dl
+      dt
+        img src="/assets/avatar.png"
+      dd
+        h4
+          = link_to "Tony", "/ui/profile"
+        ul.unstyled
+          li 这是一个签名
+          li 
+            | 在
+            = link_to "广州", "#"
+            | 求学
+  ul.unstyled
+    li
+      | 发起了
+      = link_to "20个活动", "/ui/created_activity"
+    li
+      | 讨论过
+      = link_to "10个活动", "/ui/created_activity"
+    li
+      | 关注了
+      = link_to "15个活动", "/ui/created_activity"
+  hr
+  - if meta[:profile]
+    ul.unstyled
+      li
+        | 关注了
+        = link_to "20个同学", "/ui/relationship"
+      li 
+        | 被
+        = link_to "30个同学", "/ui/relationship"
+        | 关注
+
+- if meta[:profile]
+  .box.push_follow
+    h5 推荐关注
+    table.table.table-condensed
+      - (1..7).each do |index|
+        tr
+          td
+            img src="/assets/avatar.png"
+            = link_to "User #{index}", "/ui/profile"
+
