@@ -1,14 +1,10 @@
-.box.comments
-  h3 评论
+ul.unstyled
+  - @comments.each do |comment|
+    li
+      img src="/assets/avatar.png"
+      .comment_content
+        p = comment.content
 
-  /= render "create_comment"
-  ul.unstyled
-    - comments.each do |comment|
-      li
-        img src="/assets/avatar.png"
-        .comment_content
-          p = comment.content
-
-      hr
+    hr
 
 

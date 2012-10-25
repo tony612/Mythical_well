@@ -4,7 +4,7 @@
     table.table.table-striped
       tr
         td
-          =link_to  do
+          =link_to new_event_path do
             button.create_activity.btn.btn-primary 创建活动
     = render 'events_table', events: @events
           /= render 'activity_brief', :activity => activity

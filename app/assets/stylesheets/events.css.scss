@@ -19,3 +19,33 @@
   }
   
 }
+
+#create_event {
+  .date {
+    select {
+      width: auto;
+    }
+  }
+  .place {
+    select {
+      margin-right: 10px;
+    }
+    .city {
+      width: 70px;
+    }
+    .area {
+      width: 100px;
+    }
+    .school {
+      width: auto;
+    }
+    .place_detail {
+      margin-top: 10px;
+    }
+  }
+  .detail {
+    textarea {
+      width: 400px;
+    }
+  }
+}

@@ -1,0 +1,3 @@
+= form_for [@event, @comment], :html => {class: 'form'} do |f|
+  = f.text_area :content, rows: '5'
+  = f.submit "评论", class: 'btn btn-primary'
