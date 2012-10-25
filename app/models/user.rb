@@ -6,11 +6,13 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
-  attr_accessible :city, :email, :name, :password_digest, :school, :username
+  attr_accessible :city, :email, :name, :school, :username
   
   #Use email or username to login
   attr_accessor :login
   attr_accessible :login
+
+  validates :username, presence: true, length: {maximum: 50}, uniqueness: true
 
   has_many :events
 

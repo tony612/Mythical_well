@@ -7,7 +7,6 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @comments = @event.comments
     @comment = Comment.new
-    p @comments, @event.user
   end
 
   def new
