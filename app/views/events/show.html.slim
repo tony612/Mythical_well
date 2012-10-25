@@ -1,0 +1,72 @@
+.main.main-left
+  .box.single_activity
+    .base
+      img src="/assets/linux.png"
+      h2 Activity
+      .info
+        span = "时间： #{@event.start_date}"
+      .info
+        span = "地点： #{@event.location}"
+      .info
+        span 费用：
+        | 0
+      .info
+        span 分类：
+        = link_to "生活", "#"
+      .info
+        span 发起人：
+        = link_to @event.user.username, @event.user
+      .info
+        span 标签：
+        - (1..3).each do |index|
+          = link_to "Tag#{index}"
+          '
+      
+      br
+      .info
+        = link_to "关注"
+        '
+        = link_to "喜欢"
+        
+    br
+    br
+    h5 详细描述
+    .desc
+      p 
+        = @event.content
+  = render "comments/index", comments: @comments
+
+.right_sidebar
+  .box
+    table.table
+      tr
+        td 
+          b 热门活动
+      - (1..5).each do |hot_act|
+        tr
+          td = link_to "Title of activity#{hot_act}"
+    table.table
+      thead
+        tr
+          th 时间
+      tbody
+        tr
+          td = link_to "三天内", "#"
+        tr
+          td = link_to "一周内", "#"
+        tr
+          td = link_to "周末", "#"
+        tr
+          td = link_to "更多", "#"
+    table.table
+      thead
+        tr
+          th 分类
+      tbody
+        tr
+          td = link_to "讲座"
+        tr
+          td = link_to "娱乐"
+        tr
+          td = link_to "演出"
+

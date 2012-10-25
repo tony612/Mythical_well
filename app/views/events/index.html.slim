@@ -1,0 +1,47 @@
+.main.main-left
+  .box
+    br
+    /- (1..10).each do |tag|
+      = link_to "分类#{tag}", "#"
+      '
+    table.table.table-striped
+      tr
+        td
+          =link_to "/ui/create_event" do
+            button.create_activity.btn.btn-primary 创建活动
+    = render 'events_table', events: @events
+          /= render 'activity_brief', :activity => activity
+.right_sidebar
+  .box
+    table.table
+      tr
+        td 
+          b 热门活动
+      - (1..5).each do |hot_act|
+        tr
+          td = link_to "Title of activity#{hot_act}", "/ui/activity_single"
+    table.table
+      thead
+        tr
+          th 时间
+      tbody
+        tr
+          td = link_to "三天内", "#"
+        tr
+          td = link_to "一周内", "#"
+        tr
+          td = link_to "周末", "#"
+        tr
+          td = link_to "更多", "#"
+    table.table
+      thead
+        tr
+          th 分类
+      tbody
+        tr
+          td = link_to "讲座"
+        tr
+          td = link_to "娱乐"
+        tr
+          td = link_to "演出"
+
