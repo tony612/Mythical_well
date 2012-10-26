@@ -7,9 +7,6 @@ class UsersController < ApplicationController
   def set_base
   end
 
-  def set_account
-  end
-
   def update_base 
     if current_user.update_attributes params[:user]
       flash[:success] = "恭喜，基本资料更新成功"

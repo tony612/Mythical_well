@@ -15,10 +15,10 @@
           dd = link_to @user.school, "#"
           dt 邮件
           dd = @user.email
-          /dt 博客
-          /dd = link_to @user.website, @user.website
-          dt 签名
-          dd 这是一个签名
+          dt 个人主页
+          dd = link_to @user.website, "http://#{@user.website}"
+          dt 个性签名
+          dd = @user.tagline
       .action
         button.btn.btn-primary 关注
 

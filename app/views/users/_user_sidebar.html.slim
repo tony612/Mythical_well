@@ -5,9 +5,9 @@
         img src="/assets/avatar.png"
       dd
         h4
-          = link_to "Tony", "/ui/profile"
+          = link_to user.username, user
         ul.unstyled
-          li 这是一个签名
+          li = user.tagline
           li 
             | 在
             = link_to "广州", "#"

@@ -9,8 +9,6 @@ MythicalWell::Application.routes.draw do
     member do
       get 'set_base'
       put 'update_base', :as => :set_base, :path => 'set_base'
-      get 'set_account'
-      put 'update_account', :as => :set_account, :path => 'set_account'
     end
   end
 

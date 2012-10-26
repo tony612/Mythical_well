@@ -1,11 +1,4 @@
-.left_sidebar
-  = render "user_sidebar", meta: {}
-  .box
-    ul.nav.nav-list
-      li.nav-header 设置
-      li.active = link_to "基本资料", "/ui/base_setting"
-      li = link_to "账户资料", "/ui/account"
-      li = link_to "主观信息", "/ui/subject_info"
+= render "/users/setting_sidebar"
 .main.main-right
   .box
 

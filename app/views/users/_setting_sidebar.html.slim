@@ -1,0 +1,8 @@
+.left_sidebar
+  = render "/users/user_sidebar", meta: {}, :user => current_user
+  .box
+    ul.nav.nav-list
+      li.nav-header 设置
+      li.active = link_to "基本信息", set_base_user_path(current_user)
+      li = link_to "账户信息", edit_user_registration_path
+      li = link_to "主观信息", "/ui/subject_info"
