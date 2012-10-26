@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121025151616) do
+ActiveRecord::Schema.define(:version => 20121026105500) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -55,6 +55,9 @@ ActiveRecord::Schema.define(:version => 20121025151616) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "email",                  :default => "", :null => false
+    t.string   "gender"
+    t.string   "website"
+    t.string   "tagline"
   end
 
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true

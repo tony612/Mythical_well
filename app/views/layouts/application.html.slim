@@ -12,11 +12,9 @@ html
     .container
       = render 'layouts/breadcrumb'
 
-      - if flash && flash[0]
-        .box
-          - flash.each do |key, value|
-            div class="#{key}" 
-              = value.html_safe
+      - flash.each do |key, value|
+        div class="alert alert-#{key}" 
+          = value.html_safe
       
       = yield
     

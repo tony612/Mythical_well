@@ -1,0 +1,46 @@
+.left_sidebar
+  = render "user_sidebar", meta: {}
+  .box
+    ul.nav.nav-list
+      li.nav-header 设置
+      li.active = link_to "基本资料", set_base_user_path(current_user)
+      li = link_to "账户资料", set_account_user_path(current_user)
+      li = link_to "主观信息", "/ui/subject_info"
+.main.main-right
+  .box
+    
+    = form_for current_user, :url => set_base_user_path(current_user), :html => {class: 'form form-horizontal base_info', method: :put} do |f|
+      legend 基本设置
+      .control-group
+        label.control-label for="" Photo
+        .controls
+          img.img-rounded src="/assets/avatar.png"
+          '
+          button.btn Upload
+      .control-group
+        = f.label :name, "真实姓名", class: 'control-label'
+        .controls
+          = f.text_field :name
+      .control-group
+        = f.label :gender, "性别", class: 'control-label'
+        .controls
+          = f.select :gender, [['保密', 'secret'], ['男', 'male'], ['女', 'female']]
+      .control-group
+        = f.label :city, "现居城市", class: 'control-label'
+        .controls
+          = f.text_field :city
+      .control-group
+        = f.label :school, "学校", class: 'control-label'
+        .controls
+          = f.text_field :school
+      .control-group
+        = f.label :website, "个人主页", class: 'control-label'
+        .controls
+          = f.text_field :website
+      .control-group
+        = f.label :tagline, "签名", class: 'control-label'
+        .controls
+          = f.text_field :tagline
+      .form-actions
+        = f.submit "确认修改", class: 'btn btn-primary'
+
