@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :password, :password_confirmation, :remember_me
   attr_accessible :city, :name, :school, :gender, :website, :tagline
+  attr_accessible :username, :email
+
+  before_update :revert_login_if_changed, :if => Proc.new { |u| u.username_changed? || u.email_changed? }
   
   #Use email or username to login
   attr_accessor :login
@@ -28,6 +31,11 @@ class User < ActiveRecord::Base
   end
 
   private
+  
+  def revert_login_if_changed
+    self.username = self.username_was
+    self.email = self.email_was
+  end
 
   def email_normalisation
     self.email = email.strip.downcase

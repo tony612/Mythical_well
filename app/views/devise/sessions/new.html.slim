@@ -1,20 +1,32 @@
-.box
-  h2 登录
-  = form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {class: 'form form-horizontal'}) do |f|
-    .control-group
-      = f.label :login, "用户名", class: 'control-label'
-      .controls
-        = f.text_field :login
-    .control-group
-      = f.label :password, "密码", class: 'control-label'
-      .controls
-        = f.password_field :password
-    - if devise_mapping.rememberable?
+.main.main-left
+  .box
+    = form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {class: 'form form-horizontal'}) do |f|
+      legend 登录
       .control-group
+        = f.label :login, "用户名", class: 'control-label'
         .controls
-          label.checkbox
-            = f.check_box :remember_me
-            | 记住密码
-    .control-group
-      .controls = f.submit "Sign in", class: "btn btn-primary"
-  = render "links"
+          = f.text_field :login
+      .control-group
+        = f.label :password, "密码", class: 'control-label'
+        .controls
+          = f.password_field :password
+      - if devise_mapping.rememberable?
+        .control-group
+          .controls
+            label.checkbox
+              = f.check_box :remember_me
+              | 记住密码
+      .control-group
+        .controls = f.submit "登录", class: "btn btn-primary"
+
+.right_sidebar
+  .box
+    h5 帮助
+    hr
+    b 没有帐号？
+    '
+    = link_to "注册", new_registration_path(resource_name)
+    br
+    b 遗忘密码？
+    '
+    = link_to "通过邮件找回", new_password_path(resource_name)
