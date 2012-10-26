@@ -106,7 +106,5 @@ describe User do
     it "rejects a password that is too short" do
       test_invalid_user_password('a')
     end
-
-    
   end
 end

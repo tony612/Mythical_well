@@ -11,6 +11,8 @@ group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
   gem 'thin'
+  gem 'capybara'
+  gem 'factory_girl_rails'
 end
 
 # Gems used only for assets and not required
@@ -28,10 +30,6 @@ end
 
 gem 'jquery-rails'
 
-group :test do
-  gem 'capybara'
-  gem 'factory_girl_rails'
-end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
