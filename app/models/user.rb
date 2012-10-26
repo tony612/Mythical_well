@@ -12,16 +12,24 @@ class User < ActiveRecord::Base
   attr_accessor :login
   attr_accessible :login
 
-  validates :username, presence: true, length: {maximum: 50}, uniqueness: true
+  validates :username, presence: true, length: {within: 4..50}, uniqueness: {:case_sensitive => true}, format: {:with => /^[A-Za-z]\w+$/}
 
   has_many :events
 
-  def self.find_first_by_auth_condions(warden_conditions)
+  before_save :email_normalisation
+
+  def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
       where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
     else
       where(conditions).first
     end
+  end
+
+  private
+
+  def email_normalisation
+    self.email = email.strip.downcase
   end
 end
