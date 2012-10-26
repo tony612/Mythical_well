@@ -4,13 +4,13 @@
     ul.nav.nav-list
       li.nav-header 设置
       li.active = link_to "基本资料", set_base_user_path(current_user)
-      li = link_to "账户资料", set_account_user_path(current_user)
+      li = link_to "账户资料", edit_user_registration_path
       li = link_to "主观信息", "/ui/subject_info"
 .main.main-right
   .box
     
     = form_for current_user, :url => set_base_user_path(current_user), :html => {class: 'form form-horizontal base_info', method: :put} do |f|
-      legend 基本设置
+      legend 基本信息设置
       .control-group
         label.control-label for="" Photo
         .controls
