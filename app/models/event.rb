@@ -4,4 +4,5 @@ class Event < ActiveRecord::Base
   has_many :comments
   belongs_to :user, foreign_key: 'user_id'
 
+  validates_presence_of :title, :location, :content, :category, :fee, :user_id
 end

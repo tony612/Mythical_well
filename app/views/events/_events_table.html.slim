@@ -13,4 +13,5 @@ table.table.table-striped.events
           span.meta 
             /= link_to "标签#{activity}", "#"
             '
-            /= link_to 
+            - if event.user
+              = link_to event.user.username, event.user

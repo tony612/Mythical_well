@@ -3,6 +3,10 @@ ul.unstyled
     li
       img src="/assets/avatar.png"
       .comment_content
+        .info
+          - if comment.user
+            = link_to comment.user.username, comment.user
+
         p = comment.content
 
     hr

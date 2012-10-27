@@ -6,5 +6,14 @@ FactoryGirl.define do
     name 'User1'
     password 'password'
   end
+
+  factory :event do
+    title 'This is a title'
+    content 'This is a content'
+    start_date Time.now
+    end_date Time.now
+    category 'Life'
+    fee '0'
+  end
 end
 

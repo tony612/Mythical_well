@@ -17,7 +17,8 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, length: {within: 4..50}, uniqueness: {:case_sensitive => true}, format: {:with => /^[A-Za-z]\w+$/}
 
-  has_many :events
+  has_many :events, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
 
   before_save :email_normalisation
 

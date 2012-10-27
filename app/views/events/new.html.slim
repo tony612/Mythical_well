@@ -17,10 +17,10 @@
       .control-group.date
         = f.label :title, "活动时间", class: 'control-label'
         .controls
-          = f.datetime_select :start_date
+          = f.datetime_select :start_date, :use_month_names => ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"]
           | —
           br
-          = f.datetime_select :end_date
+          = f.datetime_select :end_date, :use_month_names => ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"]
       .control-group.place
         = f.label :title, "活动地点", class: 'control-label'
         .controls

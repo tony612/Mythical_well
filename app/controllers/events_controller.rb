@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_filter :authenticate_user!, :only => [:new, :create]
   def index
     @events = Event.order('start_date DESC')
   end
@@ -14,7 +15,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(params[:event])
+    @event = current_user.events.build(params[:event])
     
     if @event.save
       redirect_to root_path
