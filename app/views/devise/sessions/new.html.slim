@@ -3,9 +3,9 @@
     = form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {class: 'form form-horizontal'}) do |f|
       legend 登录
       .control-group
-        = f.label :login, "用户名", class: 'control-label'
+        = f.label :login, "帐号", class: 'control-label'
         .controls
-          = f.text_field :login
+          = f.text_field :login, placeholder: '用户名或邮箱'
       .control-group
         = f.label :password, "密码", class: 'control-label'
         .controls

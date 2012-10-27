@@ -11,6 +11,7 @@ MythicalWell::Application.routes.draw do
       put 'update_base', :as => :set_base, :path => 'set_base'
     end
   end
+  match '/my/events' => "users#my_events", via: :get
 
   
 

@@ -11,7 +11,7 @@
           ul.nav.pull-right
             - if current_user
               li
-                = link_to "我的活动", "/ui/activity_user"
+                = link_to "我的活动", my_events_path
               li.dropdown
                 = link_to "#", :class => "dropdown-toggle", :'data-toggle' => "dropdown" do
                   = current_user.username

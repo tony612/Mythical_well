@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 class UsersController < ApplicationController
+  before_filter :authenticate_user!, :only => [:set_base, :update_base, :my_events]
   def show
     @user = User.find(params[:id])
   end
@@ -14,5 +15,9 @@ class UsersController < ApplicationController
     else
       render action: 'set_base'
     end
+  end
+
+  def my_events
+    @events = current_user.events.order('start_date DESC').limit(5)
   end
 end
