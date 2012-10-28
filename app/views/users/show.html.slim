@@ -20,8 +20,7 @@
           dt 个性签名
           dd = @user.tagline
       .action
-        button.btn.btn-primary 关注
-
+        = render 'follow_button', friend: @user
 
   .box
       h4 最近发起的活动

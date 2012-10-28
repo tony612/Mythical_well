@@ -1,6 +1,7 @@
 .main.main-left
   .box
-    = render :partial => 'friends', :collection => @followees
+    ul#friends_list.unstyled
+      = render :partial => 'friend', :collection => @friends
 
 .right_sidebar
   .box

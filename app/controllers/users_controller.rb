@@ -1,6 +1,12 @@
 # -*- coding: utf-8 -*-
 class UsersController < ApplicationController
-  before_filter :authenticate_user!, :only => [:set_base, :update_base, :my_events]
+  before_filter :authenticate_user!, :only => [:set_base, :update_base, :my_events, :index, :follow, :unfollow]
+  def index
+    @user = current_user
+    @friends = User.all
+    render 'friends'
+
+  end
   def show
     @user = User.find(params[:id])
   end
@@ -23,11 +29,26 @@ class UsersController < ApplicationController
 
   def followers
     @user = User.find(params[:id])
-    @followers = @user.followers
+    @friends = @user.followers
+    render 'friends'
   end
 
   def followees
     @user = User.find(params[:id])
-    @followees = @user.followed_users
+    @friends = @user.followed_users
+    render 'friends'
+  end
+
+  def follow
+    @user = User.find(params[:id])
+    current_user.follow!(@user) if current_user != @user
+
+    redirect_to @user
+  end
+
+  def unfollow
+    @user = User.find(params[:id])
+    current_user.unfollow!(@user) if current_user != @user
+    redirect_to @user
   end
 end

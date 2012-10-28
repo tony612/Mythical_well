@@ -1,0 +1,12 @@
+li
+  .action
+    = render 'follow_button', friend: friend
+  .photo
+    img src="/assets/avatar.png"
+  .info
+    = link_to friend do
+      strong = "@#{friend.username}"
+      '
+      span (备注名)
+      br
+    span.tagline = friend.tagline
