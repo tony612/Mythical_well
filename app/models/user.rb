@@ -16,9 +16,15 @@ class User < ActiveRecord::Base
   attr_accessible :login
 
   validates :username, presence: true, length: {within: 4..50}, uniqueness: {:case_sensitive => true}, format: {:with => /^[A-Za-z]\w+$/}
-
+  
+  #### Follow relationship
   has_many :events, :dependent => :destroy
   has_many :comments, :dependent => :destroy
+  # As follwoer
+  has_many :followships, foreign_key: 'follower_id', dependent: :destroy
+  has_many :followed_users, through: :followships, source: :followed
+  has_many :reverse_followships, foreign_key: 'followed_id', class_name: 'Followship', dependent: :destroy
+  has_many :followers, through: :reverse_followships, source: :follower
 
   before_save :email_normalisation
 
@@ -31,6 +37,25 @@ class User < ActiveRecord::Base
     end
   end
 
+  def following?(other_user)
+    followships.find_by_followed_id(other_user.id)
+  end
+
+  def follow!(other_user)
+    followships.create!(followed_id: other_user.id)
+  end
+
+  def unfollow!(other_user)
+    followships.find_by_followed_id(other_user.id).destroy
+  end
+
+  def followed_by?(other_user)
+    reverse_followships.find_by_follower_id(other_user.id)
+  end
+
+  def unfollowed!(other_user)
+    reverse_followships.find_by_follower_id(other_user.id).destroy
+  end
   private
   
   def revert_login_if_changed

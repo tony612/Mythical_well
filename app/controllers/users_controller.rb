@@ -20,4 +20,7 @@ class UsersController < ApplicationController
   def my_events
     @events = current_user.events.order('start_date DESC').limit(5)
   end
+
+  def followers
+  end
 end

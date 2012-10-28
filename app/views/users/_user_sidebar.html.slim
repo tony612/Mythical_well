@@ -15,7 +15,7 @@
   ul.unstyled
     li
       | 发起了
-      = link_to "20个活动", "/ui/created_activity"
+      = link_to "#{user.events.count}个活动", "/ui/created_activity"
     li
       | 讨论过
       = link_to "10个活动", "/ui/created_activity"
@@ -27,10 +27,10 @@
     ul.unstyled
       li
         | 关注了
-        = link_to "20个同学", "/ui/relationship"
+        = link_to "#{user.followed_users.count}个同学", followers_user_path(user)
       li 
         | 被
-        = link_to "30个同学", "/ui/relationship"
+        = link_to "#{user.followers.count}个同学", followees_user_path(user)
         | 关注
 
 - if meta[:profile]

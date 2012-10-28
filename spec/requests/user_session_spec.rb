@@ -40,7 +40,7 @@ describe "user_session" do
   it "rejects signing in with incorrect login" do
     sign_in_user('dummy')
 
-    response.body.should include ("邮箱或密码错误")
+    response.body.should include ("帐号或密码错误")
   end
 
   it "signs out" do

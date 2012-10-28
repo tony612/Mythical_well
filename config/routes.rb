@@ -9,6 +9,8 @@ MythicalWell::Application.routes.draw do
     member do
       get 'set_base'
       put 'update_base', :as => :set_base, :path => 'set_base'
+      get 'followers'
+      get 'followees'
     end
   end
   match '/my/events' => "users#my_events", via: :get
