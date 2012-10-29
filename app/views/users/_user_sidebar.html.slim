@@ -10,15 +10,15 @@
           li = user.tagline
           li 
             | 在
-            = link_to "广州", "#"
+            = link_to user.city, "#"
             | 求学
   ul.unstyled
     li
       | 发起了
-      = link_to "#{user.events.count}个活动", "/ui/created_activity"
+      = link_to "#{user.events.count}个活动"
     li
       | 讨论过
-      = link_to "10个活动", "/ui/created_activity"
+      = link_to "#{user.comments.count}个活动"
     li
       | 关注了
       = link_to "15个活动", "/ui/created_activity"

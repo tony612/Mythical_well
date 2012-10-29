@@ -6,4 +6,5 @@ class Comment < ActiveRecord::Base
 
   validates_presence_of :content, :event_id, :user_id
   
+  scope :recent, order: 'created_at DESC'
 end

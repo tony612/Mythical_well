@@ -9,6 +9,9 @@ class UsersController < ApplicationController
   end
   def show
     @user = User.find(params[:id])
+    @events = @user.events.recent.limit(10)
+    @comments = @user.comments.select("event_id, content, created_at").recent.limit(10)
+
   end
 
   def set_base
@@ -24,7 +27,9 @@ class UsersController < ApplicationController
   end
 
   def my_events
-    @events = current_user.events.order('start_date DESC').limit(5)
+    @events = current_user.events.recent.limit(10)
+    @comments = current_user.comments.select("event_id, content, created_at").recent.limit(10)
+
   end
 
   def followers

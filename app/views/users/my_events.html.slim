@@ -1,15 +1,9 @@
 .main.main-left
   .box
-    h4 最近发起的活动
-    ul.unstyled
-      - @events.each do |event|
-        li = link_to event.title, event
+    = render 'recent_events',meta: {}, :events => @events
 
-    hr
-    h4 最近参与讨论的活动 
-    ul.unstyled
-      -(1..5).each do |index|
-        li = link_to "Title of activity #{index}", "/ui/activity"
+  .box
+    = render 'recent_comments', meta: {}, :comments => @comments
 
 .right_sidebar
   = render "user_sidebar", meta: {}, :user => current_user

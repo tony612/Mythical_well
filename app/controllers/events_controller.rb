@@ -2,6 +2,7 @@ class EventsController < ApplicationController
   before_filter :authenticate_user!, :only => [:new, :create]
   def index
     @events = Event.order('start_date DESC')
+    @events_hot = Event.order('start_date DESC').limit(5)
   end
 
   def show

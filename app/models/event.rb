@@ -5,4 +5,5 @@ class Event < ActiveRecord::Base
   belongs_to :user, foreign_key: 'user_id'
 
   validates_presence_of :title, :location, :content, :category, :fee, :user_id
+  scope :recent, :order => 'start_date DESC'
 end

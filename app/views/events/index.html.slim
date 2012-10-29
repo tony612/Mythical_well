@@ -14,9 +14,9 @@
       tr
         td 
           b 热门活动
-      - (1..5).each do |hot_act|
+      - @events_hot.each do |hot|
         tr
-          td = link_to "Title of activity#{hot_act}", "/ui/activity_single"
+          td = link_to hot.title, hot
     table.table
       thead
         tr
