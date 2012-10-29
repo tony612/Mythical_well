@@ -6,7 +6,7 @@
         = image_tag @event.image_url(:show).to_s
       - else
         img src="/assets/linux.png"
-      h2 Activity
+      h2 = @event.title
       .info
         span = "时间： #{@event.start_date.to_formatted_s(:db)}--#{@event.end_date.to_formatted_s(:db)}"
       .info
@@ -31,6 +31,8 @@
         = link_to "关注"
         '
         = link_to "喜欢"
+        '
+        = link_to "编辑", edit_event_path(@event)
     br
     br
     h5 详细描述

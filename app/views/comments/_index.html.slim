@@ -1,4 +1,6 @@
 ul.unstyled
+  - if @comments.length == 0
+    | 没有评论
   - @comments.each do |comment|
     li
       /img src="/assets/avatar.png"
