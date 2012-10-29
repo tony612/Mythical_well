@@ -1,9 +1,12 @@
 - if user_signed_in?
-  = form_for [@event, @comment], :html => {class: 'form'} do |f|
+  = form_for [@event, @comment], remote: true, :html => {class: 'form'} do |f|
     = f.text_area :content, rows: '5'
     = f.submit "评论", class: 'btn btn-primary'
 - else
   p
-    | If you have no accound, please login first
+    | 如果你有帐号请登录
     = link_to new_user_session_path do
-      button.btn.btn-primary Login
+      button.btn.btn-primary 登录
+    | , 否则可以注册一个帐号
+    = link_to new_user_registration_path do
+      button.btn.btn-primary 注册

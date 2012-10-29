@@ -27,16 +27,15 @@
         = link_to "关注"
         '
         = link_to "喜欢"
-        
     br
     br
     h5 详细描述
     .desc
       = raw @event.content
+  .box.comments#comments_list
+    = render "comments/index"
   .box.comments
     = render "comments/new"
-  .box.comments
-    = render "comments/index"
 
 .right_sidebar
   .box
