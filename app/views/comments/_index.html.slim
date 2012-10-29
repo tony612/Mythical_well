@@ -1,7 +1,8 @@
 ul.unstyled
   - @comments.each do |comment|
     li
-      img src="/assets/avatar.png"
+      /img src="/assets/avatar.png"
+      = avatar_for comment.user, 48
       .comment_content
         .info
           - if comment.user

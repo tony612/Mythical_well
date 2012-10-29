@@ -14,7 +14,8 @@
       .control-group
         label.control-label for="" Photo
         .controls
-          img.img-rounded src="/assets/avatar.png"
+          /img.img-rounded src="/assets/avatar.png"
+          = avatar_for current_user, 96
           '
           button.btn Upload
       .control-group

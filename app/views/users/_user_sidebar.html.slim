@@ -2,7 +2,8 @@
   - unless meta[:profile]
     dl
       dt
-        img src="/assets/avatar.png"
+        /img src="/assets/avatar.png"
+        = avatar_for user, 64
       dd
         h4
           = link_to user.username, user
