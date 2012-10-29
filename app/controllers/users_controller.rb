@@ -47,13 +47,18 @@ class UsersController < ApplicationController
   def follow
     @user = User.find(params[:id])
     current_user.follow!(@user) if current_user != @user
-
-    redirect_to @user
+    respond_to do |format|
+      format.html {redirect_to @user}
+      format.js {render 'followship'}
+    end
   end
 
   def unfollow
     @user = User.find(params[:id])
     current_user.unfollow!(@user) if current_user != @user
-    redirect_to @user
+    respond_to do |format|
+      format.html {redirect_to @user}
+      format.js {render 'followship'}
+    end
   end
 end

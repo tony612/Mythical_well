@@ -1,6 +1,6 @@
 - unless user_signed_in? && current_user == friend
   - unless user_signed_in? && current_user.following?(friend)
-      = button_to "关注", {action: 'follow', :id => friend.id}, {class: 'btn btn-primary'}
+      = button_to "关注", {action: 'follow', :id => friend.id}, {:remote => true, class: 'btn btn-primary'}
   - else
     - if user_signed_in? && current_user.following?(friend)
-      = button_to "取消关注", {action: 'unfollow', :id => friend.id}, {class: 'btn btn-primary'}
+      = button_to "取消关注", {action: 'unfollow', :id => friend.id}, {:remote => true, class: 'btn btn-primary'}

@@ -20,7 +20,8 @@
           dt 个性签名
           dd = @user.tagline
       .action
-        = render 'follow_button', friend: @user
+        #follow_button
+          = render 'follow_button', friend: @user
 
   .box
     = render 'recent_events', events: @events

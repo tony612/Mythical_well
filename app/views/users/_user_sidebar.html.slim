@@ -24,14 +24,8 @@
       = link_to "15个活动", "/ui/created_activity"
   hr
   - if meta[:profile]
-    ul.unstyled
-      li
-        | 关注了
-        = link_to "#{user.followed_users.count}个同学", followees_user_path(user)
-      li 
-        | 被
-        = link_to "#{user.followers.count}个同学", followers_user_path(user)
-        | 关注
+    #followship_info
+      = render 'followship_info', :user => user
 
 - if meta[:profile]
   .box.push_follow
