@@ -4,6 +4,7 @@ gem 'rails', '3.2.8'
 
 # core func gems
 gem 'devise'
+gem 'kaminari'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

@@ -2,6 +2,7 @@
   .box
     ul#friends_list.unstyled
       = render :partial => 'friend', :collection => @friends
+    = paginate @friends
 
 .right_sidebar
   .box

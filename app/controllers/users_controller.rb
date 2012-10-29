@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!, :only => [:set_base, :update_base, :my_events, :index, :follow, :unfollow]
   def index
     @user = current_user
-    @friends = User.all
+    @friends = User.order(':username').page params[:page]
     render 'friends'
 
   end
