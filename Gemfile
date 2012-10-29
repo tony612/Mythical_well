@@ -13,6 +13,7 @@ group :development, :test do
   gem 'thin'
   gem 'capybara'
   gem 'factory_girl_rails'
+  gem 'faker'
 end
 
 # Gems used only for assets and not required

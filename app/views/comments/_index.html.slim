@@ -7,7 +7,7 @@ ul.unstyled
           - if comment.user
             = link_to comment.user.username, comment.user
 
-        p = comment.content
+        = raw comment.content
 
     hr
 
