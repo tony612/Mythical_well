@@ -10,6 +10,9 @@ zh-CN:
       not_saved:
         one: "因为 1 个错误导致此 %{resource}保存失败:"
         other: "因为 %{count}个错误导致此 %{resource}保存失败:"
+      wrong_size: "文件大小错误 (应该在%{file_size}以内)"
+      size_too_small: "is too small (should be at least %{file_size})"
+      size_too_big: "文件太大(应该在%{file_size}以内)"
 
   devise:
     failure:

@@ -4,7 +4,7 @@ table.table.table-striped.events
       td
         .photo 
           = link_to event do
-            img src="/assets/linux.png"
+            = image_tag event.image_url(:index).to_s
         .info
           span.title = link_to event.title, event
           br

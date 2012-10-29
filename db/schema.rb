@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121028052606) do
+ActiveRecord::Schema.define(:version => 20121029131703) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20121028052606) do
     t.string   "fee"
     t.string   "category"
     t.datetime "end_date"
+    t.string   "image"
   end
 
   add_index "events", ["user_id"], :name => "index_events_on_user_id"
