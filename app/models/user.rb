@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
@@ -15,8 +16,7 @@ class User < ActiveRecord::Base
   attr_accessor :login
   attr_accessible :login
 
-  validates :username, presence: true, length: {within: 4..50}, uniqueness: {:case_sensitive => true}, format: {:with => /^[A-Za-z]\w+$/}
-  
+  validates :username, presence: {message: "用户名不能为空"}, length: {within: 4..50, message: "长度为4~50个字符"}, uniqueness: {:case_sensitive => true, message: "用户名已经存在"}, format: {:with => /^[A-Za-z]\w+$/, message: "必须由字母或下划线组成"}
   #### Follow relationship
   has_many :events, :dependent => :destroy
   has_many :comments, :dependent => :destroy

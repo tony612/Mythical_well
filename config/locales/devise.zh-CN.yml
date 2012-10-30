@@ -3,6 +3,7 @@
 zh-CN:
   errors:
     messages:
+      extension_white_list_error: "文件格式必须为jpg, jpeg, gif, png中的一个"
       expired: "您已过期，请重新申请"
       not_found: "没有找到"
       already_confirmed: "已经激活，请重新登录."
@@ -13,6 +14,18 @@ zh-CN:
       wrong_size: "文件大小错误 (应该在%{file_size}以内)"
       size_too_small: "is too small (should be at least %{file_size})"
       size_too_big: "文件太大(应该在%{file_size}以内)"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "邮箱不能为空"
+              taken: "邮箱已经存在"
+              invalid: "邮箱无效，请检查邮箱格式，如:foo@bar.com"
+            password:
+              blank: "密码不能为空"
+              confirmation: "密码和确认密码不匹配"
 
   devise:
     failure:

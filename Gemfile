@@ -5,6 +5,7 @@ gem 'rails', '3.2.8'
 # core func gems
 gem 'devise'
 gem 'kaminari'
+gem 'dynamic_form'
 
 # asset gems
 gem 'slim-rails'

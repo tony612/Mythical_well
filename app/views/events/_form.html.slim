@@ -1,13 +1,17 @@
 = form_for @event, :html => {class:"form-horizontal", id:"create_event", :multipart => true} do |f|
-  - if meta[:action] == "edit"
-    legend 编辑活动
-  - else
-    legend 创建活动
-  .control-group
+  legend = meta[:legend]
+  /= f.error_messages
+  /- if @event.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@event.errors.count, "error")}prohibited this flight from being saved:"
+      ul
+      - @event.errors.full_messages.each do |msg|
+        li = msg
+  .control-group class="#{"error" if f.error_message_on(:title) != ""}"
     = f.label :title, "活动标题", class: 'control-label'
     .controls
       = f.text_field :title, class: 'span4'
-  .control-group
+  .control-group class="#{"error" if f.error_message_on(:category) != ""}"
     = f.label :category, "活动分类", class: 'control-label'
     .controls
       = f.select :category, [['Life', 'life'], ['Course', 'course'], ['Party', 'party'], ['Other', 'other']]
@@ -15,31 +19,31 @@
     = f.label :title, "活动周期", class: 'control-label'
     .controls
       = f.text_field :
-  .control-group.date
+  .control-group.date 
     = f.label :start_date, "活动时间", class: 'control-label'
     .controls
       = f.datetime_select :start_date, :use_month_names => ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"]
       | —
       br
       = f.datetime_select :end_date, :use_month_names => ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"]
-  .control-group.place
+  .control-group.place class="#{"error" if f.error_message_on(:location) != ""}"
     = f.label :location, "活动地点", class: 'control-label'
     .controls
       = f.text_field :location
-  .control-group.detail
+  .control-group.detail class="#{"error" if f.error_message_on(:content) != ""}"
     = f.label :content, "活动详情", class: 'control-label'
     .controls
       = f.text_area :content, rows:'12'
-  .control-group
+  .control-group class="#{"error" if f.error_message_on(:fee) != ""}"
     = f.label :fee, "活动费用", class: 'control-label'
     .controls
       = f.text_field :fee, :value => 0
-  .control-group
+  .control-group class="#{"error" if f.error_message_on(:image) != ""}"
     = f.label :image, "海报", class: "control-label"
     .controls
       = f.file_field :image
   .form-actions
-    = f.submit '确定创建', class: 'btn btn-primary'
+    = f.submit meta[:button], class: 'btn btn-primary'
   /.control-group
     = f.label :title, "活动标签", class: 'control-label'
     .controls

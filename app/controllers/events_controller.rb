@@ -19,10 +19,15 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.build(params[:event])
     
-    if @event.save
-      redirect_to root_path
-    else
-      render action: 'new'
+    respond_to do |format|
+      if @event.save
+        redirect_to root_path
+      else
+        p @event.errors
+        format.html { render action: 'new' }
+        format.json { render json: @event.errors, status: :unprocessable_entity }
+        
+      end
     end
   end
 
