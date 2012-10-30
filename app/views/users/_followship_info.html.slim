@@ -1,8 +1,8 @@
 ul.unstyled
   li
     | 关注了
-    = link_to "#{user.followed_users.count}个同学", followees_user_path(user)
+    = link_to "#{user.followed_users.size}个同学", followees_user_path(user)
   li 
     | 被
-    = link_to "#{user.followers.count}个同学", followers_user_path(user)
+    = link_to "#{user.followers.size}个同学", followers_user_path(user)
     | 关注

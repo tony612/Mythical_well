@@ -16,10 +16,10 @@
   ul.unstyled
     li
       | 发起了
-      = link_to "#{user.events.count}个活动"
+      = link_to "#{user.events.size}个活动"
     li
       | 讨论过
-      = link_to "#{user.comments.count}个活动"
+      = link_to "#{user.comments.size}个活动"
     li
       | 关注了
       = link_to "15个活动", "/ui/created_activity"

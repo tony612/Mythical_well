@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :password, :password_confirmation, :remember_me
   attr_accessible :city, :name, :school, :gender, :website, :tagline
-  attr_accessible :username, :email
+  attr_accessible :username, :email, :events_count, :comments_count, :followed_users_count, :followers_count
 
   before_update :revert_login_if_changed, :if => Proc.new { |u| u.username_changed? || u.email_changed? }
   
