@@ -1,27 +1,12 @@
 .box
-  = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {class: 'form form-horizontal'}) do |f|
+  = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {class: 'form form-horizontal'}) do |f|
     /= devise_error_messages!
     legend 注册
-    .control-group class="#{"error" if f.error_message_on(:username) != ""}"
-      = f.label :username, "* 用户名", class: 'control-label'
-      .controls
-        = f.text_field :username
-    .control-group
-      = f.label :name, "姓名", class: 'control-label'
-      .controls
-        = f.text_field :name
-    .control-group class="#{"error" if f.error_message_on(:email) != ""}"
-      = f.label :email, "* 邮箱", class: 'control-label'
-      .controls
-        = f.email_field :email
-    .control-group class="#{"error" if f.error_message_on(:password) != ""}"
-      = f.label :password, "* 密码", class: 'control-label'
-      .controls
-        = f.password_field :password
-    .control-group class="#{"error" if f.error_message_on(:title) != ""}"
-      = f.label :password_confirmation, "* 密码确认", class: 'control-label'
-      .controls
-        = f.password_field :password_confirmation
+    = f.input :username, label: "用户名", hint: "必须是字母开头并由字母、数字、下划线组成"
+    = f.input :name, label: "姓名", :input_html => { :maxlength => 30 }
+    = f.input :email, label: "邮箱", placeholder: "foo@bar.com"
+    = f.input :password, label: "密码", :input_html => { :maxlength => 20 }
+    = f.input :password_confirmation, label: "密码确认"
     
     .control-group
       .controls = f.submit "注册", class: "btn btn-primary"

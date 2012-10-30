@@ -1,47 +1,18 @@
-= form_for @event, :html => {class:"form-horizontal", id:"create_event", :multipart => true} do |f|
+= simple_form_for @event, validate: true, :html => {class:"form-horizontal", id:"create_event", :multipart => true} do |f|
   legend = meta[:legend]
-  /= f.error_messages
-  /- if @event.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@event.errors.count, "error")}prohibited this flight from being saved:"
-      ul
-      - @event.errors.full_messages.each do |msg|
-        li = msg
-  .control-group class="#{"error" if f.error_message_on(:title) != ""}"
-    = f.label :title, "活动标题", class: 'control-label'
-    .controls
-      = f.text_field :title, class: 'span4'
-  .control-group class="#{"error" if f.error_message_on(:category) != ""}"
-    = f.label :category, "活动分类", class: 'control-label'
-    .controls
-      = f.select :category, [['Life', 'life'], ['Course', 'course'], ['Party', 'party'], ['Other', 'other']]
+  = f.input :title, label: "活动标题", input_html: {:style => 'width: 300px', maxlength: 50}
+  = f.input :category, label: "分类", collection: ["生活", "课程", "聚会", "其他"], prompt: "选择分类"
   /.control-group
     = f.label :title, "活动周期", class: 'control-label'
     .controls
       = f.text_field :
-  .control-group.date 
-    = f.label :start_date, "活动时间", class: 'control-label'
-    .controls
-      = f.datetime_select :start_date, :use_month_names => ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"]
-      | —
-      br
-      = f.datetime_select :end_date, :use_month_names => ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"]
-  .control-group.place class="#{"error" if f.error_message_on(:location) != ""}"
-    = f.label :location, "活动地点", class: 'control-label'
-    .controls
-      = f.text_field :location
-  .control-group.detail class="#{"error" if f.error_message_on(:content) != ""}"
-    = f.label :content, "活动详情", class: 'control-label'
-    .controls
-      = f.text_area :content, rows:'12'
-  .control-group class="#{"error" if f.error_message_on(:fee) != ""}"
-    = f.label :fee, "活动费用", class: 'control-label'
-    .controls
-      = f.text_field :fee, :value => 0
-  .control-group class="#{"error" if f.error_message_on(:image) != ""}"
-    = f.label :image, "海报", class: "control-label"
-    .controls
-      = f.file_field :image
+  = f.input :start_date, label: "活动时间", as: :date, start_year: Date.today.year, end_year: Date.today.year + 5
+  = f.input :end_date, label: false, as: :date, start_year: Date.today.year, end_year: Date.today.year + 6
+    /= f.datetime_select :start_date, :use_month_names => ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"]
+  = f.input :location, label: "活动地点"
+  = f.input :content, label: "活动详情", as: :text, input_html: {:style => "width: 400px;"}
+  = f.input :fee, label: "活动费用", input_html: {value: '0'}
+  = f.input :image, label: "海报", as: :file
   .form-actions
     = f.submit meta[:button], class: 'btn btn-primary'
   /.control-group

@@ -1,15 +1,9 @@
 .main.main-left
   .box
-    = form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {class: 'form form-horizontal'}) do |f|
+    = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {class: 'form form-horizontal'}) do |f|
       legend 登录
-      .control-group
-        = f.label :login, "帐号", class: 'control-label'
-        .controls
-          = f.text_field :login, placeholder: '用户名或邮箱'
-      .control-group
-        = f.label :password, "密码", class: 'control-label'
-        .controls
-          = f.password_field :password
+      = f.input :login, label: "帐号", hint: "用户名或邮箱均可"
+      = f.input :password, label: "密码"
       - if devise_mapping.rememberable?
         .control-group
           .controls

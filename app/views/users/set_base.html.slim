@@ -9,7 +9,7 @@
       li = link_to "主观信息", "/ui/subject_info"
 .main.main-right
   .box
-    = form_for current_user, :url => set_base_user_path(current_user), :html => {class: 'form form-horizontal base_info', method: :put} do |f|
+    = simple_form_for current_user, :url => set_base_user_path(current_user), :html => {class: 'form form-horizontal base_info', method: :put} do |f|
       legend 基本信息设置
       .control-group
         label.control-label for="" Photo
@@ -18,30 +18,12 @@
           = avatar_for current_user, 96
           '
           button.btn Upload
-      .control-group
-        = f.label :name, "真实姓名", class: 'control-label'
-        .controls
-          = f.text_field :name
-      .control-group
-        = f.label :gender, "性别", class: 'control-label'
-        .controls
-          = f.select :gender, [['保密', 'secret'], ['男', 'male'], ['女', 'female']]
-      .control-group
-        = f.label :city, "现居城市", class: 'control-label'
-        .controls
-          = f.text_field :city
-      .control-group
-        = f.label :school, "学校", class: 'control-label'
-        .controls
-          = f.text_field :school
-      .control-group
-        = f.label :website, "个人主页", class: 'control-label'
-        .controls
-          = f.text_field :website
-      .control-group
-        = f.label :tagline, "个性签名", class: 'control-label'
-        .controls
-          = f.text_field :tagline
+      = f.input :name, label: "真实姓名", hint: "填写真实姓名有助于您的朋友找到您"
+      = f.input :gender, label: "性别", collection: ["男", "女"], prompt: "保密"
+      = f.input :city, label: "现居城市"
+      = f.input :school, label: "学校"
+      = f.input :website, label: "个人主页"
+      = f.input :tagline, label: "个性签名"
       .form-actions
         = f.submit "确认修改", class: 'btn btn-primary'
 

@@ -2,33 +2,13 @@
 
 .main.main-right
   .box
-    = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {class: 'form form-horizontal', :method => :put }) do |f|
+    = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {class: 'form form-horizontal', :method => :put }) do |f|
       /= devise_error_messages!
       legend 账户信息设置
-      .control-group class="#{"error" if f.error_message_on(:username) != ""}"
-        = f.label :username, "用户名", class: 'control-label'
-        .controls
-          = f.text_field :username, disabled: true
-          span  (不可修改)
-      .control-group class="#{"error" if f.error_message_on(:email) != ""}"
-        = f.label :email, "邮箱", class: 'control-label'
-        .controls
-          = f.email_field :email, disabled: true
-          span  (不可修改)
-      .control-group class="#{"error" if f.error_message_on(:password) != ""}"
-        = f.label :password, "新密码", class: 'control-label'
-        .controls
-          = f.password_field :password, :autocomplete => "off"
-          span   (不做修改则留空)
-
-      .control-group class="#{"error" if f.error_message_on(:password_confirmation) != ""}"
-        = f.label :password_confirmation, "确认新密码", class: 'control-label'
-        .controls
-          = f.password_field :password_confirmation
-      .control-group class="#{"error" if f.error_message_on(:current_password) != ""}"
-        = f.label :current_password, "当前密码", class: 'control-label'
-        .controls
-          = f.password_field :current_password
-          span  (我们需要您的现在密码做确认)
+      = f.input :username, label: "用户名", input_html: {disabled: true}
+      = f.input :email, label: "邮箱", input_html: {disabled: true}
+      = f.input :password, label: "新密码", input_html: {autocomplete: true}, hint: "不做修改则留空"
+      = f.input :password_confirmation, label: "确认新密码"
+      = f.input :current_password, label: "当前密码", hint: "需要您当前密码做确认"
       .form-actions = f.submit "确认更改", class: 'btn btn-danger'
       /| Unhappy? #{link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete}.
