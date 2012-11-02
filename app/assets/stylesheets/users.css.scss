@@ -9,7 +9,7 @@
     margin: 0 -10px;
     border-top: 1px solid #DDD;
     overflow: hidden;
-    .action {
+    .follow_button {
       float: right;
       position: relative;
     }
@@ -25,4 +25,23 @@
     }
   }
   
+}
+
+.messages {
+  table {
+    td {
+      vertical-align: top;
+      h4{
+        margin-top:0;
+      }
+    }
+    td.photo {
+      width: 50px;
+    }
+
+    td.action {
+      width: 50px;
+      //text-align: right;
+    }
+  }
 }

@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe Comment do
   let(:user) {create(:user)}
+  let(:user1) {create(:user, email: "test1@test.com", username: "username1")}
   let :attrs do
     {
       title: "Title of event",
@@ -16,7 +17,7 @@ describe Comment do
   let(:event) {user.events.build(attrs)}
   before do
     @comment = event.comments.build(content: "This is a comment for #{event.title}")
-    user.comments << @comment
+    user1.comments << @comment
   end
 
   subject {@comment}
@@ -38,7 +39,14 @@ describe Comment do
       @comment.user_id = nil
       @comment.should_not be_valid
     end
-
     
+  end
+
+  describe "after creation" do
+    it "the message will increase by 1" do
+      expect do
+        @comment.save
+      end.should change(Message, :count).by(1)
+    end
   end
 end

@@ -1,2 +1,2 @@
-$("#follow_button").html('<%=j render 'follow_button', friend: @user %>')
+$(".follow_button.<%= @user.username %>").html('<%=j render 'follow_button', friend: @user %>')
 $('#followship_info').html('<%=j render 'followship_info', user: @user%>')

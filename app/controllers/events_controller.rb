@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_filter :authenticate_user!, :only => [:new, :create]
+  before_filter :authenticate_user!, :only => [:new, :create, :edit, :create]
   def index
     @events = Event.includes(:user).order('start_date DESC').page(params[:page])
     @events_hot = Event.order('start_date DESC').limit(5)

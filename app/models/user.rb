@@ -26,6 +26,9 @@ class User < ActiveRecord::Base
   has_many :reverse_followships, foreign_key: 'followed_id', class_name: 'Followship', dependent: :destroy
   has_many :followers, through: :reverse_followships, source: :follower
 
+  # Message
+  has_many :messages, :dependent => :destroy
+
   before_save :email_normalisation
 
   def self.find_first_by_auth_conditions(warden_conditions)

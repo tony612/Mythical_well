@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121030034117) do
+ActiveRecord::Schema.define(:version => 20121102144207) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -50,6 +50,17 @@ ActiveRecord::Schema.define(:version => 20121030034117) do
   add_index "followships", ["followed_id"], :name => "index_followships_on_followed_id"
   add_index "followships", ["follower_id", "followed_id"], :name => "index_followships_on_follower_id_and_followed_id", :unique => true
   add_index "followships", ["follower_id"], :name => "index_followships_on_follower_id"
+
+  create_table "messages", :force => true do |t|
+    t.integer  "user_id"
+    t.boolean  "is_read",    :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.integer  "comment_id"
+  end
+
+  add_index "messages", ["comment_id"], :name => "index_messages_on_comment_id"
+  add_index "messages", ["user_id"], :name => "index_messages_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "username"

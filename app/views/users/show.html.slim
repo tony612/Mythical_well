@@ -20,7 +20,7 @@
           dt 个性签名
           dd = @user.tagline
       .action
-        #follow_button
+        .follow_button class="#{@user.username}"
           = render 'follow_button', friend: @user
 
   .box
