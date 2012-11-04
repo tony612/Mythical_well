@@ -59,6 +59,9 @@ class User < ActiveRecord::Base
   def unfollowed!(other_user)
     reverse_followships.find_by_follower_id(other_user.id).destroy
   end
+
+  def read_messages(messages)
+  end
   private
   
   def revert_login_if_changed

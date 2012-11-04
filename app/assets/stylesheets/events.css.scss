@@ -5,17 +5,17 @@
   }
 }
 
-.events td {
-  img {
-    width: 70px;
-    height: 90px;
-  }
+.events {
   .photo {
-    float:left;
-    margin-right: 10px;
+    width: 70px;
+    img {
+      width: 70px;
+      height: 90px;
+    }
   }
+  
   .title {
-    font-size: 17px;
+    font-size: 15px;
   }
   
 }

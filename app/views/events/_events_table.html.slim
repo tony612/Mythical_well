@@ -1,15 +1,16 @@
 table.table.table-striped.events
   - events.each do |event|
     tr
+      td.photo
+        = link_to event do
+          = image_tag event.image_url(:index).to_s
       td
-        .photo 
-          = link_to event do
-            = image_tag event.image_url(:index).to_s
-        .info
-          span.title = link_to event.title, event
-          span.info = "#{event.start_date}  |  #{event.location}"
-          span.meta 
-            /= link_to "标签#{activity}", "#"
-            '
-            - if event.user
-              = link_to event.user.username, event.user
+        .title
+           = link_to event.title, event
+        .info 
+          = "#{event.start_date.to_s(:db)}  |  #{event.location}"
+        span.meta 
+          /= link_to "标签#{activity}", "#"
+          '
+          - if event.user
+            = link_to event.user.username, event.user
