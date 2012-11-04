@@ -49,3 +49,20 @@
     }
   }
 }
+
+.comments {
+  .photo {
+    width: 48px;
+  }  
+  form textarea {
+    width: 635px; 
+  }
+  form input.btn {
+    margin-left: 590px;
+  }
+  img { 
+    width: 48px;
+    height: 48px; 
+    margin-right: 5px;
+  }
+}

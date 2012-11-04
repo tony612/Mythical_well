@@ -1,0 +1,8 @@
+tr
+  td.photo = avatar_for comment.user, 48
+  td
+    .info
+      - if comment.user
+        = link_to "@#{comment.user.username}", comment.user
+    .content
+      = raw comment.content

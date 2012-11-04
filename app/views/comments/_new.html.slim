@@ -2,6 +2,8 @@
   = form_for [@event, @comment], remote: true, :html => {class: 'form'} do |f|
     = f.text_area :content, rows: '5'
     = f.submit "评论", class: 'btn btn-primary'
+  = subscribe_to "/messages/new"
+  /= subscribe_to "/messages_unread/#{@event.user.username}"
 - else
   p
     | 如果你有帐号请登录
@@ -10,3 +12,4 @@
     | , 否则可以注册一个帐号
     = link_to new_user_registration_path do
       button.btn.btn-primary 注册
+  

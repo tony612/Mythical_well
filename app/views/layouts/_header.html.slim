@@ -10,7 +10,9 @@
             input.search-query type="text" placeholder="搜索"
           ul.nav.pull-right
             - if user_signed_in?
-              li = link_to "消息", user_messages_path(current_user)
+              li#messages_unread 
+                = link_to "#{current_user.messages.count}消息", user_messages_path(current_user)
+                = subscribe_to "/messages_unread/#{current_user.username}"
               li
                 = link_to "我的活动", my_events_path
               li.dropdown

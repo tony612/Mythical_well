@@ -22,3 +22,4 @@ doc/
 bundler_stubs
 
 /public/uploads
+/public/assets

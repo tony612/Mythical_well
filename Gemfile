@@ -7,6 +7,7 @@ gem 'devise'
 gem 'kaminari'
 gem 'dynamic_form'
 gem 'client_side_validations'
+gem 'private_pub'
 
 # asset gems
 gem 'slim-rails'

@@ -1,1 +1,8 @@
-$('#comments_list').html("<%=j render 'comments/index'%>")
+<% if Rails.env.production? %>
+<% publish_to "/messages/new" do %>
+  $('#comments_list ul').append("<%=j render 'comments/single', :comment => @comment %>")
+<% end %>
+<% publish_to "/messages_unread/#{@event.user.username}" do %>
+  $("#messages_unread a").html("<%= count %>消息")
+<% end %>
+<% end %>

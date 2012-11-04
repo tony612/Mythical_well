@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require bootstrap.min
 //= require rails.validations
+//= require private_pub
 //= require_tree .

@@ -1,6 +1,7 @@
 # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
 
 zh-CN:
+  
   errors:
     messages:
       extension_white_list_error: "文件格式必须为jpg, jpeg, gif, png中的一个"

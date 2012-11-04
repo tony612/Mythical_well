@@ -1,17 +1,5 @@
-ul.unstyled
+table.table.comments
   - if @comments.length == 0
     | 没有评论
-  - @comments.each do |comment|
-    li
-      /img src="/assets/avatar.png"
-      = avatar_for comment.user, 48
-      .comment_content
-        .info
-          - if comment.user
-            = link_to comment.user.username, comment.user
-
-        = raw comment.content
-
-    hr
-
-
+  - else
+    = render @comments

@@ -15,9 +15,9 @@
                   = link_to msg.comment.event.title, msg.comment.event
                   | 里回复
                 .content
-                  = raw msg.comment.event.content[0..3]
+                  = raw msg.comment.content[0..30]
               td.action = link_to "Delete", "#"
-
+    = paginate @messages
 
 .right_sidebar
   .box
