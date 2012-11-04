@@ -6,11 +6,29 @@ table.table.table-striped.events
           = image_tag event.image_url(:index).to_s
       td
         .title
-           = link_to event.title, event
-        .info 
-          = "#{event.start_date.to_s(:db)}  |  #{event.location}"
-        span.meta 
-          /= link_to "标签#{activity}", "#"
-          '
-          - if event.user
-            = link_to event.user.username, event.user
+          = link_to event.title, event
+        .info
+          ul.unstyled
+            li
+              i.icon-calendar 
+              = "时间：#{event.start_date.to_s(:db)}"
+            li 
+              i.icon-map-marker  
+              = "地点：#{event.location}"
+            li 
+              i.icon-money
+              = "费用：#{event.fee}"
+            li.category
+              i.icon-tasks
+              | 分类：
+              = link_to event.category, "#"
+
+            li 
+              i.icon-user
+              | 发起人：
+              = link_to event.user.username, event.user
+            li.tag
+              i.icon-tags
+              | 标签：
+              
+

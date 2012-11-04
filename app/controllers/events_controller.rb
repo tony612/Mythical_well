@@ -21,7 +21,7 @@ class EventsController < ApplicationController
     
     respond_to do |format|
       if @event.save
-        redirect_to root_path
+        redirect_to @event
       else
         p @event.errors
         format.html { render action: 'new' }

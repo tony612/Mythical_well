@@ -7,5 +7,6 @@
  *= require_self
  *= require bootstrap-responsive.min
  *= require bootstrap.min
+ *= require 'font-awesome'
  *= require_tree .
  */

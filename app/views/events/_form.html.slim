@@ -14,7 +14,7 @@
   = f.input :fee, label: "活动费用", input_html: {value: '0'}
   = f.input :image, label: "海报", as: :file
   .form-actions
-    = f.submit meta[:button], class: 'btn btn-primary'
+    = f.submit meta[:button], class: 'btn btn-primary', :disabled_with => "正在处理"
   /.control-group
     = f.label :title, "活动标签", class: 'control-label'
     .controls
