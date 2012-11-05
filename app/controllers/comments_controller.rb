@@ -1,6 +1,7 @@
 # encoding: utf-8
 class CommentsController < ApplicationController
   before_filter :find_event, :authenticate_user!
+  before_filter :same_user, only: [:edit, :update]
   def create
     comment = @event.comments.build(params[:comment])
     current_user.comments << comment
@@ -36,5 +37,13 @@ class CommentsController < ApplicationController
 
   def find_event
     @event = Event.find(params[:event_id])
+  end
+
+  def same_user
+    comment = Comment.find(params[:id])
+    if comment.user != current_user
+      flash[:warning] = "对不起，您没有这个权限"
+      redirect_to comment.event
+    end
   end
 end
