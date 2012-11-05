@@ -10,11 +10,11 @@
   = f.input :end_date, label: false, :as => :date, start_year: Date.today.year, end_year: Date.today.year + 6, :order => [:year, :month, :day]
     /= f.datetime_select :start_date, :use_month_names => ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"]
   = f.input :location, label: "活动地点"
-  = f.input :content, label: "活动详情", as: :text, input_html: {:style => "width: 400px;"}, validate: false
+  = f.input :content, label: "活动详情", as: :text, input_html: {:style => "width: 700px;"}, validate: false
   script
     | $('#event_content').wysihtml5({"image": false, "color": true});
   = f.input :fee, label: "活动费用", input_html: {value: '0'}
-  = f.input :image, label: "海报", as: :file
+  = f.input :image, label: "海报", as: :file, validate: meta[:image]
   .form-actions
     = f.submit meta[:button], class: 'btn btn-primary', :disable_with => "正在处理"
   /.control-group

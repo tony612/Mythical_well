@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   attr_accessible :password, :password_confirmation, :remember_me
   attr_accessible :city, :name, :school, :gender, :website, :tagline
   attr_accessible :username, :email, :events_count, :comments_count, :followed_users_count, :followers_count
+  validates :login, presence: {message: "用户名或密码不能为空"}
+  validates :password, presence: true
 
   before_update :revert_login_if_changed, :if => Proc.new { |u| u.username_changed? || u.email_changed? }
   
