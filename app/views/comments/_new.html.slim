@@ -1,6 +1,8 @@
 - if user_signed_in?
-  = form_for [@event, @comment], remote: true, :html => {class: 'form'} do |f|
-    = f.text_area :content, rows: '5'
+  = simple_form_for [@event, @comment], remote: true, :html => {class: 'form'} do |f|
+    = f.input :content, label: false, as: :text, input_html: {rows: '5'}
+    /script
+      | $('#comment_content').wysihtml5({"font-styles": false, "image": false});
     = f.submit "评论", class: 'btn btn-primary'
   = subscribe_to "/messages/new"
   /= subscribe_to "/messages_unread/#{@event.user.username}"

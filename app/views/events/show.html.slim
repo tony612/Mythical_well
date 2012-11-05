@@ -20,10 +20,10 @@
               i.icon-tasks
               |分类：
               = link_to @event.category, "#"
-            li 
+            li.author
               i.icon-user
               | 发起人：
-              = link_to @event.user.username, @event.user
+              = link_to @event.user.username, @event.user, data: {name: @event.user.name}
             li
               i.icon-tags
               | 标签：
@@ -42,7 +42,6 @@
                   i.icon-pencil
                   | 编辑
 
-    br
     br
     h5 详细描述
     .desc

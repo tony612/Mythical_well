@@ -9,5 +9,6 @@
  *= require bootstrap.min
  *= require 'font-awesome'
  *= require bootstrap-wysihtml5
+ *= require jquery.atwho
  *= require_tree .
  */

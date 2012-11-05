@@ -1,8 +1,6 @@
-.activity {
-  bottom: 1px;
-  .datetime {
-    //float: right;
-  }
+.create_event {
+  margin-bottom: 10px;
+  float: right;
 }
 
 .events, .event {
@@ -50,6 +48,10 @@
     }
   }
 }
+.desc {
+  padding-right: 5px;
+  word-wrap:break-word;
+}
 
 .comments {
   .info {
@@ -71,6 +73,7 @@
     margin-top:10px;
     float:left;
     width: 550px;
+    word-wrap:break-word;
   }
 }
 

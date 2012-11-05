@@ -12,7 +12,8 @@ class CommentsController < ApplicationController
         format.html {redirect_to @event}
         format.js {render "create", :locals => {:count => @event.user.messages.count} }
       else
-        redirect_to @event
+        @comments = @event.comments
+        format.html {redirect_to event_path(@event)}
       end
     end
   end

@@ -5,11 +5,12 @@ tr
       li
         .info
           - if comment.user
-            = link_to "@#{comment.user.username}", comment.user
+            = link_to comment.user.username, comment.user, data: {name: comment.user.name}, class: 'name'
         .action
           - if comment.user == current_user
             = link_to edit_event_comment_path(@event, comment) do
               i.icon-pencil
       li
         .content
-          = raw comment.content
+          p
+            = raw comment.content

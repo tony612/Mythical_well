@@ -17,4 +17,6 @@
 //= require rails.validations.simple_form
 //= require private_pub
 //= require bootstrap-wysihtml5
+//= require jquery.caret
+//= require jquery.atwho
 //= require_tree .
