@@ -1,11 +1,10 @@
 - if user_signed_in?
-  = simple_form_for [@event, @comment], remote: true, :html => {class: 'form'} do |f|
-    = f.input :content, label: false, as: :text, input_html: {rows: '5'}
+  = form_for [@event, @comment], remote: true, :html => {class: 'form'} do |f|
+    = f.text_area :content, rows: '5'
     /script
-      | $('#comment_content').wysihtml5({"font-styles": false, "image": false});
-    = f.submit "评论", class: 'btn btn-primary'
+      | $('#event_content').wysihtml5({"image": false, "color": true});
+    = f.submit "评论", class: 'btn btn-primary', disable: "Submit..."
   = subscribe_to "/messages/new"
-  /= subscribe_to "/messages_unread/#{@event.user.username}"
 - else
   p
     | 如果你有帐号请登录

@@ -74,6 +74,12 @@
     float:left;
     width: 550px;
     word-wrap:break-word;
+    p {
+      a {
+        color: #000;
+        font-weight:bold;
+      }
+    }
   }
 }
 
