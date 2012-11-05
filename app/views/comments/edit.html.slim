@@ -1,0 +1,7 @@
+.main.main-left
+  .box
+    = simple_form_for [@event, @comment], :html => {class: "form-horizontal"} do |f|
+      legend 编辑回复
+      = f.input :content, label: "回复内容", as: :text, input_html: {:style => "width: 400px;"}
+      .form-actions
+        = f.submit "确认修改", class: 'btn btn-primary', :disable_with => "正在保存"

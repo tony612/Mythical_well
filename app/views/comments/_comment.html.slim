@@ -1,8 +1,15 @@
 tr
   td.photo = avatar_for comment.user, 48
   td
-    .info
-      - if comment.user
-        = link_to "@#{comment.user.username}", comment.user
-    .content
-      = raw comment.content
+    ul.unstyled
+      li
+        .info
+          - if comment.user
+            = link_to "@#{comment.user.username}", comment.user
+        .action
+          - if comment.user == current_user
+            = link_to edit_event_comment_path(@event, comment) do
+              i.icon-pencil
+      li
+        .content
+          = raw comment.content

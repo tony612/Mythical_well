@@ -45,9 +45,32 @@
       color: #000;
       text-decoration:none;
       &:hover{
-        color: #a33;
+        color: #ff4040;
       }
     }
+  }
+}
+
+.comments {
+  .info {
+    //width: 550px;
+    margin:0;
+    float: left;
+  }
+  .action {
+    & a{
+      color: #777;
+      text-decoration:none;
+      &:hover {
+        color: #000;
+      }
+    }
+    float:right;
+  }
+  .content {
+    margin-top:10px;
+    float:left;
+    width: 550px;
   }
 }
 

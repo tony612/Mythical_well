@@ -1,3 +1,4 @@
+# encoding: utf-8
 class CommentsController < ApplicationController
   before_filter :find_event, :authenticate_user!
   def create
@@ -16,6 +17,20 @@ class CommentsController < ApplicationController
     end
   end
 
+  def edit
+    @comment = Comment.find(params[:id])
+    @event = Event.find(params[:event_id])
+  end
+
+  def update
+    @comment = Comment.find(params[:id])
+    if @comment.update_attributes(params[:comment])
+      flash[:success] = "恭喜，修改成功"
+      redirect_to @comment.event
+    else
+      render event_edit_comment_path(@comment.event, @comment)
+    end
+  end
   protected
 
   def find_event
