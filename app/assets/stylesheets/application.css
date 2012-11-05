@@ -8,5 +8,6 @@
  *= require bootstrap-responsive.min
  *= require bootstrap.min
  *= require 'font-awesome'
+ *= require bootstrap-wysihtml5
  *= require_tree .
  */

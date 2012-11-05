@@ -6,8 +6,8 @@ gem 'rails', '3.2.8'
 gem 'devise'
 gem 'kaminari'
 gem 'dynamic_form'
-gem 'client_side_validations'
 gem 'private_pub'
+gem 'bootstrap-wysihtml5-rails'
 
 # asset gems
 gem 'slim-rails'
@@ -15,6 +15,8 @@ gem 'jquery-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'simple_form'
+gem 'client_side_validations'
+gem 'client_side_validations-simple_form'
 
 
 # Bundle edge Rails instead:
