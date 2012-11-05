@@ -9,26 +9,17 @@ table.table.table-striped.events
           = link_to event.title, event
         .info
           ul.unstyled
-            li
-              i.icon-calendar 
-              = "时间：#{event.start_date.to_s(:db)}"
-            li 
-              i.icon-map-marker  
-              = "地点：#{event.location}"
-            li 
-              i.icon-money
-              = "费用：#{event.fee}"
+            li = "时间：#{event.start_date.to_s(:db)}"
+            li = "地点：#{event.location}"
+            li = "费用：#{event.fee}"
             li.category
-              i.icon-tasks
               | 分类：
               = link_to event.category, "#"
 
             li 
-              i.icon-user
               | 发起人：
               = link_to event.user.username, event.user
             li.tag
-              i.icon-tags
               | 标签：
               
 
