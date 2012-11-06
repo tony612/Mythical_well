@@ -30,7 +30,8 @@ class Comment < ActiveRecord::Base
     usernames = content.scan(/@(\S*)\s/).flatten
     if usernames.any?
       self.mention_users = User.where(:username => usernames).where('username != ?', user.username).limit(5).map(&:id) * '|'
-      p self.mention_users
+    else
+      self.mention_users = ""
     end
   end
   
@@ -43,8 +44,8 @@ class Comment < ActiveRecord::Base
   end
 
   def send_mention_messages
+    return true if mention_users == ""
     (mentioning_users - no_mention_users).each do |u|
-      p u
       Message.create :user_id => u.id, :comment_id => id, :msg_type => Message.MENTION_TYPE
     end
   end

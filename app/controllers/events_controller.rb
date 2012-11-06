@@ -8,8 +8,9 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    @comments = @event.comments.recent
+    @comments = @event.comments.order('created_at')
     @comment = Comment.new
+    @events_hot = Event.order('start_date DESC').limit(5)
   end
 
   def new

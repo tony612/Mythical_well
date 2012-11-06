@@ -1,0 +1,34 @@
+.right_sidebar
+  .box
+    table.table
+      tr
+        td 
+          b 热门活动
+      - events_hot.each do |hot|
+        tr
+          td = link_to hot.title, hot
+    table.table
+      thead
+        tr
+          th 时间
+      tbody
+        tr
+          td = link_to "三天内", "#"
+        tr
+          td = link_to "一周内", "#"
+        tr
+          td = link_to "周末", "#"
+        tr
+          td = link_to "更多", "#"
+    table.table
+      thead
+        tr
+          th 分类
+      tbody
+        tr
+          td = link_to "讲座"
+        tr
+          td = link_to "娱乐"
+        tr
+          td = link_to "演出"
+
