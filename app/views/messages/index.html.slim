@@ -15,8 +15,9 @@
                   = link_to msg.comment.event.title, msg.comment.event
                   | 里回复
                 .content
-                  = raw msg.comment.content[0..30]
-              td.action = link_to "Delete", "#"
+                  p
+                    = comment_raw msg.comment.content[0..30]
+              td.action = link_to "Delete", user_message_path(msg.user, msg), :method => :delete
     = paginate @messages
 
 .right_sidebar

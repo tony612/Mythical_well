@@ -7,4 +7,11 @@ class MessagesController < ApplicationController
     #p @messages.first
     @messages.unread.update_all(:is_read => true)
   end
+
+  def destroy
+    @message = Message.find(params[:id])
+    @message.destroy
+
+    redirect_to user_messages_path(current_user)
+  end
 end

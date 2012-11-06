@@ -14,7 +14,7 @@ MythicalWell::Application.routes.draw do
       post 'follow'
       post 'unfollow'
     end
-    resources :messages, only: [:index]
+    resources :messages, only: [:index, :destroy]
   end
   match '/my/events' => "users#my_events", via: :get
   root to: "events#index"
