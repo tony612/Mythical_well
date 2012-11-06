@@ -10,7 +10,7 @@
               td.photo = avatar_for msg.user
               td
                 h4 
-                  = link_to msg.user.username, msg.user
+                  = link_to msg.comment.user.username, msg.user
                   | 在
                   = link_to msg.comment.event.title, msg.comment.event
                   | 里回复

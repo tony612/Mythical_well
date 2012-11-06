@@ -11,14 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121102145408) do
+ActiveRecord::Schema.define(:version => 20121106032705) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
     t.integer  "event_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.integer  "user_id"
+    t.string   "mention_users"
   end
 
   add_index "comments", ["event_id"], :name => "index_comments_on_event_id"
@@ -57,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20121102145408) do
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
     t.integer  "comment_id"
+    t.integer  "type"
   end
 
   add_index "messages", ["comment_id"], :name => "index_messages_on_comment_id"

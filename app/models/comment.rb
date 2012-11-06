@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-  attr_accessible :content
+  attr_accessible :content, :mention_users
   
   belongs_to :event, foreign_key: 'event_id'
   belongs_to :user, foreign_key: 'user_id'
@@ -18,7 +18,34 @@ class Comment < ActiveRecord::Base
     event = comment.event
     return if event.blank?
     if comment.user_id != event.user_id
-      Message.create :user_id => event.user_id, :comment_id => comment_id
+      Message.create :user_id => event.user_id, :comment_id => comment_id, :type => Message.EVENT_TYPE
+    end
+  end
+
+  before_save :extract_mentioned_users
+  after_create :send_mention_messages
+  after_destroy :delete_mention_messages
+  
+  def extract_mentioned_users
+    usernames = content.scan(/@(\S*)\s/).flatten
+    if usernames.any?
+      self.mention_users = User.where(:username => usernames).where('username != ?', user.username).limit(5).map(&:id) * '|'
+      p self.mention_users
+    end
+  end
+  
+  def mentioning_users
+    User.find(mention_users.split('|'))
+  end
+
+  def no_mention_users
+    [user]
+  end
+
+  def send_mention_messages
+    (mentioning_users - no_mention_users).each do |u|
+      p u
+      Message.create :user_id => u.id, :comment_id => id, :type => Message.MENTION_TYPE
     end
   end
 

@@ -9,17 +9,23 @@ body {
   font-size: 13px;
   color: #999999;
 }
-.navbar-fixed-top {
-  position: static;
-  right: 0;
-  left: 0;
-  margin-bottom: 20px;
-  #btn_new_activity {
-    button {
-      margin-top:-3px;
-    }
-  }
+
+.navbar-inner {
+  -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1),0 1px 10px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0 -1px 0 rgba(0,0,0,0.1),0 1px 10px rgba(0,0,0,0.1);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1),0 1px 10px rgba(0, 0, 0, 0.1);
 }
+//.navbar-fixed-top {
+//  position: static;
+//  right: 0;
+//  left: 0;
+//  margin-bottom: 20px;
+//  #btn_new_activity {
+//    button {
+//      margin-top:-3px;
+//    }
+//  }
+//}
 
 //a:hover {
 //  text-decoration:none;
