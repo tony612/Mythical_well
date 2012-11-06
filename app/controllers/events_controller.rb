@@ -8,7 +8,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    @comments = @event.comments
+    @comments = @event.comments.recent
     @comment = Comment.new
   end
 
