@@ -6,4 +6,4 @@ ul.unstyled
         = link_to comment.event.title, event_path(comment.event_id)
         span = " at #{comment.created_at.to_formatted_s(:db)}"
       .body
-        = raw comment.content
+        = comment_raw comment.content

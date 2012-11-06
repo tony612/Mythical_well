@@ -1,8 +1,8 @@
 .main.main-left
-  .box
+  .box.recent_events
     = render 'recent_events',meta: {}, :events => @events
 
-  .box
+  .box.recent_comments
     = render 'recent_comments', meta: {}, :comments => @comments
 
 .right_sidebar

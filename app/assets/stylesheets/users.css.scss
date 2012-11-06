@@ -45,3 +45,18 @@
     }
   }
 }
+
+.recent_comments {
+  li {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    .body {
+      padding-top: 5px;
+      a {
+        color: #000;
+        font-weight:bold;
+      }
+    }
+  }
+}
