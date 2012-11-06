@@ -10,14 +10,20 @@
             tr
               td.photo = avatar_for msg.user
               td
-                h4 
-                  = link_to msg.comment.user.username, msg.user
-                  | 在
-                  = link_to msg.comment.event.title, msg.comment.event
-                  | 里回复
+                - if msg.msg_type == Message.EVENT_TYPE
+                  h4 
+                    = link_to msg.comment.user.username, msg.user
+                    | 回复了你发起的活动：
+                    = link_to msg.comment.event.title, msg.comment.event
+                - elsif msg.msg_type == Message.MENTION_TYPE
+                  h4
+                    = link_to msg.comment.user.username, msg.user
+                    | 在
+                    = link_to msg.comment.event.title, msg.comment.event
+                    | @了你：
                 .content
-                  p
-                    = comment_raw msg.comment.content[0..30]
+                    p
+                      = comment_raw msg.comment.content[0..30]
               td.action = link_to "Delete", user_message_path(msg.user, msg), :method => :delete
     = paginate @messages
     

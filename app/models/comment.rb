@@ -18,7 +18,7 @@ class Comment < ActiveRecord::Base
     event = comment.event
     return if event.blank?
     if comment.user_id != event.user_id
-      Message.create :user_id => event.user_id, :comment_id => comment_id, :type => Message.EVENT_TYPE
+      Message.create :user_id => event.user_id, :comment_id => comment_id, :msg_type => Message.EVENT_TYPE
     end
   end
 
@@ -45,7 +45,7 @@ class Comment < ActiveRecord::Base
   def send_mention_messages
     (mentioning_users - no_mention_users).each do |u|
       p u
-      Message.create :user_id => u.id, :comment_id => id, :type => Message.MENTION_TYPE
+      Message.create :user_id => u.id, :comment_id => id, :msg_type => Message.MENTION_TYPE
     end
   end
 

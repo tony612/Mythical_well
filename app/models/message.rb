@@ -1,5 +1,5 @@
 class Message < ActiveRecord::Base
-  attr_accessible :is_read, :user_id, :comment_id, :type
+  attr_accessible :is_read, :user_id, :comment_id, :msg_type
   
   def self.EVENT_TYPE; 1; end
   def self.MENTION_TYPE; 2; end
