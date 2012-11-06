@@ -24,12 +24,12 @@ gem 'client_side_validations-simple_form'
 group :development, :test do
   #gem 'sqlite3'
   gem 'rspec-rails'
-  gem 'thin'
+  #gem 'thin'
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'faker'
 end
-
+gem 'thin'
 gem 'pg'
 
 # Gems used only for assets and not required
