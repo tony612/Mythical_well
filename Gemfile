@@ -23,13 +23,14 @@ gem 'client_side_validations-simple_form'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 group :development, :test do
   #gem 'sqlite3'
-  gem 'pg'
   gem 'rspec-rails'
   gem 'thin'
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'faker'
 end
+
+gem 'pg'
 
 # Gems used only for assets and not required
 # in production environments by default.
