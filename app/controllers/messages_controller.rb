@@ -14,4 +14,11 @@ class MessagesController < ApplicationController
 
     redirect_to user_messages_path(current_user)
   end
+  
+  def empty
+    @messages = current_user.messages.recent.page params[:page]   
+    @messages.map(&:destroy)
+
+    redirect_to user_messages_path(current_user)
+  end
 end

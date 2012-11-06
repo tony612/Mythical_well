@@ -3,6 +3,7 @@
     - if @messages.blank?
       | 暂无消息，想更有人气吗？ 多多去发活动、留言吧～
     - else
+      = link_to "清空", empty_user_messages_path(current_user), class: 'btn btn-danger', method: :post
       table.table
         - @messages.each do |msg|
           tbody
@@ -19,7 +20,7 @@
                     = comment_raw msg.comment.content[0..30]
               td.action = link_to "Delete", user_message_path(msg.user, msg), :method => :delete
     = paginate @messages
-
+    
 .right_sidebar
   .box
     = render "users/user_sidebar", meta: {}, user: current_user
