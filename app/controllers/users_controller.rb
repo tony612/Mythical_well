@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!, :only => [:set_base, :update_base, :my_events, :index, :follow, :unfollow]
   def index
     @user = current_user
-    @friends = User.order(':username').page params[:page]
+    @friends = User.order('username').page params[:page]
     render 'friends'
 
   end
@@ -19,10 +19,12 @@ class UsersController < ApplicationController
   end
 
   def update_base 
-    if current_user.update_attributes params[:user]
+    @user = current_user
+    if @user.update_attributes(params[:user])
       flash[:success] = "恭喜，基本资料更新成功"
-      redirect_to set_base_user_path(current_user)
+      redirect_to set_base_user_path(@user)
     else
+      flash.now[:error] = "Sorry"
       render action: 'set_base'
     end
   end

@@ -14,7 +14,7 @@
   script
     | $('#event_content').wysihtml5({"image": false, "color": true});
   = f.input :fee, label: "活动费用", input_html: {value: '0'}
-  = f.input :image, label: "海报", as: :file, validate: meta[:image]
+  = f.input :image, label: "海报", as: :file, validate: meta[:image], hint: ""
   .form-actions
     = f.submit meta[:button], class: 'btn btn-primary', :disable_with => "正在处理"
   /.control-group
