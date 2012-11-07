@@ -25,6 +25,8 @@ $(function(){
     'data': emojis  
   });
   $('#event_tag_tokens').tokenInput('/tags.json', { 
+    hintText: "输入标签",
+    searchingText: "查找中",
     theme: 'facebook',
     prePopulate: $('#event_tag_tokens').data('load')
   });

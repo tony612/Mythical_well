@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Tag < ActiveRecord::Base
   attr_accessible :name
 
@@ -7,7 +8,7 @@ class Tag < ActiveRecord::Base
   def self.tokens(query)
     tags = where("name like ?", "%#{query}%")
     if tags.empty?
-      [{id: "<<<#{query}>>>", name: "New: \"#{query}\""}]
+      [{id: "<<<#{query}>>>", name: "新标签: \"#{query}\""}]
     else
       tags
     end
