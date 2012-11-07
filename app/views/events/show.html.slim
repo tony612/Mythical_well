@@ -4,9 +4,9 @@
       tr
         td.photo
           = image_tag @event.image_url(:show).to_s
-        td
+        td.info
           h3 = @event.title
-          ul.unstyled.info
+          ul.unstyled
             li
               i.icon-calendar 
               = "时间： #{@event.start_date.to_formatted_s(:db)}--#{@event.end_date.to_formatted_s(:db)}"
