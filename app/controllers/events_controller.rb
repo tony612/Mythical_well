@@ -3,11 +3,12 @@ class EventsController < ApplicationController
   def index
     if params[:category]
       @events = Event.where(category: params[:category]).includes(:user).order('start_date DESC').page(params[:page])
-      @events_hot = Event.order('start_date DESC').limit(5)
+    elsif params[:tag]
+      @events = Tag.find_by_name(params[:tag]).events.includes(:user).order('start_date DESC').page(params[:page])
     else
       @events = Event.includes(:user).order('start_date DESC').page(params[:page])
-      @events_hot = Event.order('start_date DESC').limit(5)
     end
+    @events_hot = Event.order('start_date DESC').limit(5)
     #redirect_to root_path
   end
 

@@ -26,9 +26,9 @@
           th 分类
       tbody
         tr
-          td = link_to "讲座"
+          td = link_to "生活", events_path(:category => "生活")
         tr
-          td = link_to "娱乐"
+          td = link_to "课程", events_path(:category => "课程")
         tr
-          td = link_to "演出"
+          td = link_to "聚会", events_path(:category => "聚会")
 
