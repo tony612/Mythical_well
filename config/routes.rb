@@ -20,6 +20,7 @@ MythicalWell::Application.routes.draw do
       end
     end
   end
+  resources :tags, only: [:index]
   match '/my/events' => "users#my_events", via: :get
   root to: "events#index"
 end

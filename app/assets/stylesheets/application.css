@@ -10,5 +10,6 @@
  *= require 'font-awesome'
  *= require bootstrap-wysihtml5
  *= require jquery.atwho
+ *= require token-input-facebook
  *= require_tree .
  */

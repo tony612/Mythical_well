@@ -19,4 +19,5 @@
 //= require bootstrap-wysihtml5
 //= require jquery.caret
 //= require jquery.atwho
+//= require jquery.tokeninput
 //= require_tree .

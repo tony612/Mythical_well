@@ -28,8 +28,8 @@ class EventsController < ApplicationController
     
     respond_to do |format|
       if @event.save
-        tags = params[:tags].split(/\W+/)
-        @event.tagging tags
+        #tags = params[:tags].split(/\W+/)
+        #@event.tagging tags
 
         format.html {redirect_to @event}
       else
@@ -48,8 +48,8 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
       
     if @event.update_attributes(params[:event])
-      tags = params[:tags].split(/\W+/)
-      @event.tagging tags
+      #tags = params[:tags].split(/\W+/)
+      #@event.tagging tags
       redirect_to @event
     else
       render action: 'edit'
