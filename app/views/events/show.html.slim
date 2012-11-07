@@ -19,7 +19,7 @@
             li.category 
               i.icon-tasks
               |分类：
-              = link_to @event.category, "#"
+              = link_to @event.category, events_path(:category => @event.category)
             li.author
               i.icon-user
               | 发起人：
