@@ -12,4 +12,8 @@ module EventsHelper
       ""
     end
   end
+
+  def time_select
+    options_for_select((('8'..'23').to_a+('0'..'7').to_a).map{|t| [t+':00', t+':30']}.flatten)
+  end
 end

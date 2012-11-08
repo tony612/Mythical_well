@@ -11,5 +11,6 @@
  *= require bootstrap-wysihtml5
  *= require jquery.atwho
  *= require token-input-facebook
+ *= require kalendae
  *= require_tree .
  */

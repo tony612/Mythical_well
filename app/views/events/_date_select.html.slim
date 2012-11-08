@@ -1,0 +1,26 @@
+.control-group
+  label.control-label 活动时间
+  .controls
+    select.btn.span2.date-type
+      option value="multi" 分散多天
+      option value="range" 连续多天
+    '
+    select.btn.span2.date-repeat
+      option value="no" 无重复
+      option value="week" 每周重复
+      option value="twoweek" 每两周重复
+      option value="month" 每月重复
+    p.text-warning 选择重复的同时必须选择分散多天
+    .alert.alert-info.date-show
+      | 时间为：
+    #calendar
+
+    table.time-select
+      thead
+        tr
+          th 开始时间
+          th 结束时间
+      tbody
+        tr
+          td = select_tag 'start_time[]', time_select, class: 'btn span2'
+          td = select_tag 'end_time[]', time_select, class: 'btn span2'
