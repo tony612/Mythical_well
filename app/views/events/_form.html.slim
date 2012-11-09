@@ -7,11 +7,6 @@
     .controls
       = f.text_field:
   = render 'date_select'
-        
-
-  = f.input :start_date, label: "活动时间", :as => "date", :start_year => Date.today.year, :end_year => Date.today.year + 5, :order => [:year, :month, :day]
-  = f.input :end_date, label: false, :as => :date, start_year: Date.today.year, end_year: Date.today.year + 6, :order => [:year, :month, :day]
-    /= f.datetime_select :start_date, :use_month_names => ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"]
   = f.input :location, label: "活动地点"
   = f.input :content, label: "活动详情", as: :text, input_html: {:style => "width: 700px;"}, validate: false
   script
@@ -22,12 +17,3 @@
   .form-actions
     = f.submit meta[:button], class: 'btn btn-primary', :disable_with => "正在处理"
 
-  /.control-group
-    label.control-label 活动周期
-    .controls
-      select
-        option 一天内
-        option 连续多天
-        option 每周
-        option 每月
-        option 自定义
