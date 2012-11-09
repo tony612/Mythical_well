@@ -34,9 +34,6 @@ $(function(){
   ////////////////////
   var dates_arr = []
   handle_after_select = function(){
-    if(this.getSelectedAsText.length != 0){
-      this.draw();
-    }
     console.log(this.getSelected());
     $('.date-show').html("时间为：" + this.getSelected());
     if($('.date-type').val() === 'multi' && $('.date-repeat').val() === 'no'){
@@ -57,8 +54,10 @@ $(function(){
           if(pos == -1) {
             if(i == 0){
               $('.time-select tbody').prepend($('.time-select tbody tr:first-child').clone());
+              $('.time-select tbody tr:first-child span').html(arr_now[0]);
             } else {
-              $('.time-select tbody tr:nth-child('+i+')').after($('.time-select tbody tr:first-child').clone())
+              $('.time-select tbody tr:nth-child('+i+')').after($('.time-select tbody tr:first-child').clone());
+              $('.time-select tbody tr:eq('+i+') span').html(arr_now[i]);
             }
           }
             
@@ -66,7 +65,7 @@ $(function(){
       }
       dates_arr = this.getSelectedAsText();
       console.log(dates_arr);
-    }
+    } 
   }
   multi_attr = {
     months: 2,
@@ -94,12 +93,15 @@ $(function(){
     switch(val){
       case 'multi':
         if(repeat === 'no'){
+          $('.time-select tbody tr td:last-child').append("<span class='label label-info'>"+Kalendae.moment().format('YYYY-M-D')+"</span>");
           $('#calendar').html('');
           my_date_select = new Kalendae('calendar', multi_attr);}
           $('.date-show').html("时间为：" + my_date_select.getSelected());
         break;
       case 'range':
+        $('.time-select tbody tr td span').remove();
         if(repeat === 'no'){
+          
           $('#calendar').html('');
           my_date_select = new Kalendae('calendar', range_attr);
           $('.date-show').html("时间为：" + my_date_select.getSelected());
@@ -110,6 +112,7 @@ $(function(){
     }
   });
   $('.date-repeat').bind('change', function(){
+    $('.time-select tbody tr td span').remove();
     var val = this.value;
     $('.time-select tbody').find('tr:gt(0)').remove();
     switch(val){
@@ -117,6 +120,9 @@ $(function(){
         $('#calendar').html('');
         my_date_select = new Kalendae('calendar', multi_attr);
         $('.date-show').html("时间为：" + my_date_select.getSelected());
+        if($('.date-type').val() === 'multi'){
+          $('.time-select tbody tr td:last-child').append("<span class='label label-info'>"+Kalendae.moment().format('YYYY-M-D')+"</span>");
+        }
         break;
       case 'week':
         $('.date-type').val('multi');

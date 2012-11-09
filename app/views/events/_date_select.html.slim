@@ -24,3 +24,5 @@
         tr
           td = select_tag 'start_time[]', time_select, class: 'btn span2'
           td = select_tag 'end_time[]', time_select, class: 'btn span2'
+          td
+            span.label.label-info = Time.now.to_date.to_s(:db)
