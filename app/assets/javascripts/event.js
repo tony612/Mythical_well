@@ -213,4 +213,5 @@ $(function(){
   dates_arr = my_date_select.getSelectedAsText();
   });
 
+  $('.date_desc').tooltip();
 });

@@ -9,7 +9,9 @@ table.table.table-striped.events
           = link_to event.title, event
         .info
           ul.unstyled
-            li = "时间：#{event.start_date.to_s(:db)}"
+            li
+              = raw "时间： #{date_brief(event.date_desc)}"
+              = link_to '(详细)', '#', rel:'tooltip', data: {placement: 'right', :'original-title' => "#{event.date_desc}"}, class: 'date_desc'
             li = "地点：#{event.location}"
             li = "费用：#{event.fee}"
             li.category

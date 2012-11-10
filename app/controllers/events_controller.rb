@@ -25,7 +25,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    
+    date_handle   
     @event = current_user.events.build(params[:event])
 
     respond_to do |format|
