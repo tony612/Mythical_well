@@ -9,7 +9,7 @@
           ul.unstyled
             li
               i.icon-calendar 
-              = "时间： #{@event.start_date.to_formatted_s(:db)}--#{@event.end_date.to_formatted_s(:db)}"
+              = raw "时间： #{date_brief(@event.date_desc)}"
             li 
               i.icon-map-marker
               = "地点： #{@event.location}"

@@ -36,7 +36,7 @@ $(function(){
   handle_after_select = function(){
     console.log(this.getSelected());
     $('.date-show').html("时间为：" + this.getSelected());
-    $('.date-desc').val(this.getSelectedAsText());
+    $('.date-desc').val(this.getSelected());
     if($('.date-type').val() === 'multi' && $('.date-repeat').val() === 'no'){
       arr_now = this.getSelectedAsText();
       console.log(arr_now);
@@ -71,6 +71,7 @@ $(function(){
   multi_attr = {
     months: 2,
     mode: 'multiple',
+    direction: 'future',
     selected:[Kalendae.moment()],
     subscribe: {
       'change': handle_after_select
@@ -79,15 +80,25 @@ $(function(){
   range_attr = {
     months: 2,
     mode: 'range',
+    direction: 'future',
     selected:[Kalendae.moment(), Kalendae.moment().add({w:1})],
     subscribe: {
       'change': handle_after_select
     }
   }
+  repeat_attr = {
+    months:2,
+    mode: 'range',
+    direction: 'future',
+    format: 'YYYY-MM-DD',
+    selected:[Kalendae.moment(), Kalendae.moment().add({w:1})],
+
+  }
   var my_date_select = new Kalendae('calendar', multi_attr);
   dates_arr = my_date_select.getSelectedAsText();
   $('.date-show').html("时间为：" + my_date_select.getSelected());
-  $('.date-desc').val(my_date_select.getSelectedAsText());
+  $('.date-desc').val(my_date_select.getSelected());
+  $('.repeat_range').hide();
   $('.date-type').bind('change', function(){
     var val = this.value;
     var repeat = $('.date-repeat').val();
@@ -99,16 +110,18 @@ $(function(){
           $('#calendar').html('');
           my_date_select = new Kalendae('calendar', multi_attr);}
           $('.date-show').html("时间为：" + my_date_select.getSelected());
-          $('.date-desc').val(my_date_select.getSelectedAsText());
+          $('.date-desc').val(my_date_select.getSelected());
+          $('.repeat_range').hide();
         break;
       case 'range':
         $('.time-select tbody tr td span').remove();
+        $('.repeat_range').hide();
         if(repeat === 'no'){
           
           $('#calendar').html('');
           my_date_select = new Kalendae('calendar', range_attr);
           $('.date-show').html("时间为：" + my_date_select.getSelected());
-          $('.date-desc').val(my_date_select.getSelectedAsText());
+          $('.date-desc').val(my_date_select.getSelected());
         } else{
           $('.date-type').val('multi');
         }
@@ -125,10 +138,11 @@ $(function(){
         $('#calendar').html('');
         my_date_select = new Kalendae('calendar', multi_attr);
         $('.date-show').html("时间为：" + my_date_select.getSelected());
-        $('.date-desc').val(my_date_select.getSelectedAsText());
+        $('.date-desc').val(my_date_select.getSelected());
         if($('.date-type').val() === 'multi'){
           $('.time-select tbody tr td:last-child').append("<span class='label label-info'>"+Kalendae.moment().format('YYYY-M-DD')+"</span>");
         }
+        $('.repeat_range').hide();
         break;
       case 'week':
         $('.date-type').val('multi');
@@ -142,12 +156,14 @@ $(function(){
           blackout: function (date) {
             console.log(Kalendae.moment().format('w'))
             return Kalendae.moment(date).format('w')%(Kalendae.moment().format('w'))},
-    subscribe: {
-      'change': handle_after_select
-    }
+          subscribe: {
+            'change': handle_after_select
+          }
         });
         $('.date-show').html("时间为：" + my_date_select.getSelected());
-        $('.date-desc').val(my_date_select.getSelectedAsText());
+        $('.date-desc').val(my_date_select.getSelected());
+        new Kalendae.Input('repeat_range', repeat_attr);
+        $('.repeat_range').show();
         break;
       case 'twoweek':
         $('.date-type').val('multi');
@@ -161,12 +177,14 @@ $(function(){
           blackout: function (date) {
             var week = Kalendae.moment();
             return Kalendae.moment(date).format('w')%week.format('w') && Kalendae.moment(date).format('w')%(week.add('w', 1).format('w'))},
-    subscribe: {
-      'change': handle_after_select
-    }
+          subscribe: {
+            'change': handle_after_select
+          }
         });
         $('.date-show').html("时间为：" + my_date_select.getSelected());
-        $('.date-desc').val(my_date_select.getSelectedAsText());
+        $('.date-desc').val(my_date_select.getSelected());
+        new Kalendae.Input('repeat_range', repeat_attr);
+        $('.repeat_range').show();
         break;
       case 'month':
         $('.date-type').val('multi');
@@ -181,13 +199,15 @@ $(function(){
             var week = Kalendae.moment();
             console.log(week.format('M'));
             return Kalendae.moment(date).format('M') % week.format('M')},
-    subscribe: {
-      'change': handle_after_select
-    }
+          subscribe: {
+            'change': handle_after_select
+          }
         });
         sth = new Kalendae('.kalendae');
         $('.date-show').html("时间为：" + my_date_select.getSelected());
-        $('.date-desc').val(my_date_select.getSelectedAsText());
+        $('.date-desc').val(my_date_select.getSelected());
+        new Kalendae.Input('repeat_range', repeat_attr);
+        $('.repeat_range').show();
         break;
     }
   dates_arr = my_date_select.getSelectedAsText();
