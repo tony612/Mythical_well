@@ -19,6 +19,7 @@ module EventsHelper
   end
 
   def date_brief desc
+    return "暂无描述" unless desc
     arr = desc.split(';')
     if arr.length == 1
       arr[0]
