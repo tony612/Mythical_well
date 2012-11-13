@@ -17,6 +17,8 @@ MythicalWell::Application.routes.draw do
       get 'followees'
       post 'follow'
       post 'unfollow'
+      get 'follow_events'
+      get 'all_events'
     end
     resources :messages, only: [:index, :destroy] do
       collection do

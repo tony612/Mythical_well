@@ -1,0 +1,6 @@
+.main.main-left
+  .box
+    = render 'events/events_table', events: @events
+
+.right_sidebar
+  = render "user_sidebar", meta: {}, :user => current_user

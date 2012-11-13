@@ -2,7 +2,7 @@ li
   .follow_button class="#{friend.username}"
     = render 'follow_button', friend: friend
   .photo
-    img src="/assets/avatar.png"
+    = avatar_for @user, 60
   .info
     = link_to friend do
       strong = "@#{friend.username}"

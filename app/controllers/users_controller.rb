@@ -32,19 +32,31 @@ class UsersController < ApplicationController
   def my_events
     @events = current_user.events.recent.limit(10)
     @comments = current_user.comments.select("event_id, content, created_at").recent.includes(:event).limit(10)
-    p @comments
+  end
 
+  def all_events
+    @user = User.find_by_username(params[:id])
+    @events = []
+    case params[:q]
+    when 'follow'
+      @events = @user.follow_events
+    when 'own'
+      @events = @user.events
+    when 'comment'
+      @events = @user.comments.map(&:event).uniq
+    end
+  
   end
 
   def followers
-    @user = User.find(params[:id])
-    @friends = @user.followers
+    @user = User.find_by_username(params[:id])
+    @friends = @user.followers.page params[:page]
     render 'friends'
   end
 
   def followees
-    @user = User.find(params[:id])
-    @friends = @user.followed_users
+    @user = User.find_by_username(params[:id])
+    @friends = @user.followed_users.page params[:page]
     render 'friends'
   end
 

@@ -4,7 +4,7 @@ class Event < ActiveRecord::Base
   attr_accessible :title, :start_date, :end_date, :date_desc, :location, :content, :category, :fee, :image, :tag_tokens
   mount_uploader :image, ImageUploader
   
-  has_many :comments
+  has_many :comments, :dependent => :destroy
   belongs_to :user, foreign_key: 'user_id'
 
   has_many :event_tags, :dependent => :destroy

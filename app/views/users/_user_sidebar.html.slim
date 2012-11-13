@@ -16,13 +16,13 @@
   ul.unstyled
     li
       | 发起了
-      = link_to "#{user.events.size}个活动"
+      = link_to "#{user.events.count}个活动", all_events_user_path(user, q: 'own')
     li
       | 讨论过
-      = link_to "#{user.comments.size}个活动"
+      = link_to "#{user.comments.map(&:event).uniq.count}个活动", all_events_user_path(user, q: 'comment')
     li
       | 关注了
-      = link_to "15个活动", "/ui/created_activity"
+      = link_to "#{user.follow_events.count}个活动", all_events_user_path(user, q: 'follow')
   hr
   - if meta[:profile]
     #followship_info
