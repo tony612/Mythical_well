@@ -27,4 +27,15 @@ module EventsHelper
       arr[0] + '等'
     end
   end
+
+  def events_follow_tag(event)
+    return "" unless user_signed_in?
+    return "" if event.blank?
+    return "" if own? event
+    class_name = event.followers.include?(current_user) ? "followed" : "follow"
+    icon = content_tag("i", "", class: "icon-eye-open icon-large #{class_name}")
+    link_to raw([icon, "关注"].join(" ")), "#", :onclick => "return Events.follow(this);",
+            'data-id' => event.id,
+            'data-followed' => (class_name == "followed")
+  end
 end

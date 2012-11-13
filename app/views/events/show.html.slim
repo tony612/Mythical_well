@@ -31,9 +31,7 @@
               | 标签：
               = tag_list @event
             li.action
-              = link_to "#" do
-                i.icon-bookmark-empty.icon-large
-                | 收藏
+              = events_follow_tag @event
               = link_to "#" do
                 i.icon-heart-empty.icon-large
                 | 喜欢

@@ -49,10 +49,16 @@
   .action {
     margin-top: 30px;
     & a{
-      color: #000;
+      & i {
+        &.followed{
+          color: #FF413D;
+          opacity: 0.9;
+        }
+      }
+      color: #555;
       text-decoration:none;
       &:hover{
-        color: #ff4040;
+        color: #000;
       }
     }
   }

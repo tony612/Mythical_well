@@ -10,6 +10,9 @@ class Event < ActiveRecord::Base
   has_many :event_tags, :dependent => :destroy
   has_many :tags, :through => :event_tags
 
+  has_many :event_followers
+  has_many :followers, :class_name => 'User', :through => :event_followers
+
   validates :title, presence: {message: "标题不能为空"}
   validates :location, presence: {message: "地点不能为空"}
   validates :content, presence: {message: "活动详情不能为空"}

@@ -31,6 +31,10 @@ class User < ActiveRecord::Base
   # Message
   has_many :messages, :dependent => :destroy
 
+  ###Event follow
+  has_many :event_followers
+  has_many :follow_events, :class_name => 'Event', :through => :event_followers
+
   before_save :email_normalisation
   def to_param
     username

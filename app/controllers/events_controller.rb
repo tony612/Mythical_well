@@ -1,6 +1,6 @@
 # encoding: utf-8
 class EventsController < ApplicationController
-  before_filter :authenticate_user!, :only => [:new, :create, :edit, :create]
+  before_filter :authenticate_user!, :only => [:new, :create, :edit, :create, :follow, :unfollow]
   before_filter :verify_same_user, :only => [:edit, :update]
   def index
     if params[:category]
@@ -19,6 +19,20 @@ class EventsController < ApplicationController
     @comments = @event.comments.order('created_at')
     @comment = Comment.new
     @events_hot = Event.order('start_date DESC').limit(5)
+  end
+
+  def follow
+    p "Event follow"
+    @event = Event.find(params[:id])
+    @event.followers << current_user
+    render :text => "1"
+  end
+
+  def unfollow
+    p "Event unfollow"
+    @event = Event.find(params[:id])
+    @event.followers.delete(current_user)
+    render :text => "1"
   end
 
   def new
