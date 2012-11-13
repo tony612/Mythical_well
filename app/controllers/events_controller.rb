@@ -98,6 +98,7 @@ class EventsController < ApplicationController
       params[:event][:start_date] = (t_begin + ' ' + params[:start_time][0]).to_datetime
       params[:event][:end_date] = (t_end + ' ' + params[:end_time][0]).to_datetime
       repeat_arr = t_desc.split(', ').map{|t| t.to_datetime.strftime('周%u')}
+      repeat_arr.map!{|t| t.gsub("周7", "周日")}
       params[:event][:date_desc] = "#{t_begin}到#{t_end}中#{repeat_arr*','}的#{params[:start_time][0]}-#{params[:end_time][0]}"
     end
     p params[:event][:start_date], params[:event][:end_date], params[:event][:date_desc]
