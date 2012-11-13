@@ -50,4 +50,8 @@ class Comment < ActiveRecord::Base
     end
   end
 
+  def delete_mention_messages
+    messages.delete_all
+  end
+
 end

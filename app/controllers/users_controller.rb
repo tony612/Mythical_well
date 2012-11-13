@@ -32,6 +32,7 @@ class UsersController < ApplicationController
   def my_events
     @events = current_user.events.recent.limit(10)
     @comments = current_user.comments.select("event_id, content, created_at").recent.includes(:event).limit(10)
+    p @comments
 
   end
 
