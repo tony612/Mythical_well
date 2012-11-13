@@ -1,6 +1,7 @@
 # encoding: utf-8
 class EventsController < ApplicationController
   before_filter :authenticate_user!, :only => [:new, :create, :edit, :create]
+  before_filter :verify_same_user, :only => [:edit, :update]
   def index
     if params[:category]
       @events = Event.where(category: params[:category]).includes(:user).order('start_date DESC').page(params[:page])
@@ -58,6 +59,14 @@ class EventsController < ApplicationController
   end
 
   private
+
+  def verify_same_user
+    @event = Event.find(params[:id])
+    unless current_user == @event.user
+      flash[:warning] = "对不起，您没有这个权限"
+      redirect_to @event
+    end
+  end
 
   def date_handle
     t_repeat = params[:date_repeat]

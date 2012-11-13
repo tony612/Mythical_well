@@ -37,7 +37,7 @@
               = link_to "#" do
                 i.icon-heart-empty.icon-large
                 | 喜欢
-              - if user_signed_in?
+              - if user_signed_in? and current_user == @event.user
                 = link_to edit_event_path(@event) do
                   i.icon-pencil
                   | 编辑
