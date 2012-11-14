@@ -3,7 +3,9 @@
     = f.text_area :content, rows: '5'
     /script
       | $('#event_content').wysihtml5({"image": false, "color": true});
-    = f.submit "评论", class: 'btn btn-primary', disable: "Submit..."
+    .reply_button
+      span 按Ctrl+Enter可以直接回复
+      = f.submit "评论", class: 'btn btn-primary', disable: "Submit..."
   = subscribe_to "/messages/new"
 - else
   p

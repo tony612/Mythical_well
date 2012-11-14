@@ -135,8 +135,11 @@
   form textarea {
     width: 635px; 
   }
-  form input.btn {
-    margin-left: 590px;
+  form .reply_button {
+    margin-left: 430px;
+    input {
+      float: right;
+    }
   }
   img { 
     width: 48px;

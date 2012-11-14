@@ -25,7 +25,7 @@ class Comment < ActiveRecord::Base
     event.followers.each do |follower|
       next if uid_arr.include?(follower.id)
       next if comment.user_id == follower.id
-      Message.create :user_id => follower.id, :comment_id => comment_id, :msg_type => Message.FOLLOW_EVENT_TYPE
+      Message.create :user_id => follower.id, :comment_id => comment_id, :msg_type => Message.EVENT_TYPE
     end
     true
   end

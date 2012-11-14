@@ -20,5 +20,6 @@
 //= require jquery.caret
 //= require jquery.atwho
 //= require jquery.tokeninput
+//= require jquery.hotkeys
 //= require kalendae.min
 //= require_tree .
