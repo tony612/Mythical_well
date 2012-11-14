@@ -10,7 +10,7 @@
             li
               i.icon-calendar 
               = raw "时间： #{date_brief(@event.date_desc)}"
-              = link_to '(详细)', '#', rel:'tooltip', data: {placement: 'right', :'original-title' => "#{@event.date_desc}"}, class: 'date_desc'
+              = link_to '(详细)', '#', rel:'tooltip', data: {placement: 'right', :'original-title' => "#{@event.date_desc.gsub(';', '<br/>')}"}, class: 'date_desc'
 
             li 
               i.icon-map-marker
