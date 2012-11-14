@@ -13,7 +13,10 @@
                 - if msg.msg_type == Message.EVENT_TYPE
                   h4 
                     = link_to msg.comment.user.username, msg.user
-                    | 回复了你发起的活动：
+                    - if msg.comment.event.user == current_user
+                      | 回复了你发起的活动：
+                    - else
+                      | 回复了你关注的活动：
                     = link_to msg.comment.event.title, msg.comment.event
                 - elsif msg.msg_type == Message.MENTION_TYPE
                   h4

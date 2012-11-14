@@ -20,6 +20,14 @@ class Comment < ActiveRecord::Base
     if comment.user_id != event.user_id
       Message.create :user_id => event.user_id, :comment_id => comment_id, :msg_type => Message.EVENT_TYPE
     end
+    
+    uid_arr = []
+    event.followers.each do |follower|
+      next if uid_arr.include?(follower.id)
+      next if comment.user_id == follower.id
+      Message.create :user_id => follower.id, :comment_id => comment_id, :msg_type => Message.FOLLOW_EVENT_TYPE
+    end
+    true
   end
 
   before_save :extract_mentioned_users
