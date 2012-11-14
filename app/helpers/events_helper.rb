@@ -1,6 +1,7 @@
 # encoding: utf-8
 module EventsHelper
   def comment_raw(text)
+    return "" if text.blank?
     text.gsub! /\r\n/, "<br>"
     text.gsub! /(@)(\S*\s)/, "<a href=#{root_url}users/\\2>\\1\\2</a>"
     raw text
@@ -26,6 +27,11 @@ module EventsHelper
     else
       arr[0] + '等'
     end
+  end
+
+  def origin_desc event
+    return "暂无描述" unless event.date_desc
+    event.date_desc.gsub(';', ';   ')
   end
 
   def events_follow_tag(event)
