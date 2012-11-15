@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121113132157) do
+ActiveRecord::Schema.define(:version => 20121115104908) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -53,8 +53,10 @@ ActiveRecord::Schema.define(:version => 20121113132157) do
     t.datetime "end_date"
     t.string   "image"
     t.string   "date_desc"
+    t.integer  "node_id"
   end
 
+  add_index "events", ["node_id"], :name => "index_events_on_node_id"
   add_index "events", ["user_id"], :name => "index_events_on_user_id"
 
   create_table "followships", :force => true do |t|
@@ -79,6 +81,15 @@ ActiveRecord::Schema.define(:version => 20121113132157) do
 
   add_index "messages", ["comment_id"], :name => "index_messages_on_comment_id"
   add_index "messages", ["user_id"], :name => "index_messages_on_user_id"
+
+  create_table "nodes", :force => true do |t|
+    t.string   "name"
+    t.string   "short_name"
+    t.string   "classify"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "parent_id"
+  end
 
   create_table "tags", :force => true do |t|
     t.string   "name",       :null => false

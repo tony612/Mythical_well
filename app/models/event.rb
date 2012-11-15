@@ -12,6 +12,9 @@ class Event < ActiveRecord::Base
 
   has_many :event_followers
   has_many :followers, :class_name => 'User', :through => :event_followers
+  
+  belongs_to :node, foreign_key: 'node_id'
+
 
   validates :title, presence: {message: "标题不能为空"}
   validates :location, presence: {message: "地点不能为空"}
