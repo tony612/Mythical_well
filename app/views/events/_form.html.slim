@@ -7,6 +7,7 @@
     .controls
       = f.text_field:
   = render 'date_select'
+  = f.input :node_id, label: '所在学校', :collection => @schools
   = f.input :location, label: "活动地点"
   = f.input :content, label: "活动详情", as: :text, input_html: {:style => "width: 700px;"}, validate: false
   script

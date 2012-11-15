@@ -39,6 +39,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @schools = Node.where(:classify => 'school')
   end
 
   def create
@@ -58,6 +59,7 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
+    @schools = Node.where(:classify => 'school')
   end
 
   def update

@@ -13,6 +13,9 @@
               = link_to '(详细)', '#', rel:'tooltip', data: {placement: 'right', :'original-title' => "#{origin_desc @event}"}, class: 'date_desc'
 
             li 
+              i.icon-group
+              = "学校：#{@event.node.name}"
+            li 
               i.icon-map-marker
               = "地点： #{@event.location}"
             li 

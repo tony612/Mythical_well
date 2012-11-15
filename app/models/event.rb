@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 require 'file_size_validator'
 class Event < ActiveRecord::Base
-  attr_accessible :title, :start_date, :end_date, :date_desc, :location, :content, :category, :fee, :image, :tag_tokens
+  attr_accessible :title, :start_date, :end_date, :date_desc, :location, :content, :category, :fee, :image, :tag_tokens, :node_id
   mount_uploader :image, ImageUploader
   
   has_many :comments, :dependent => :destroy
