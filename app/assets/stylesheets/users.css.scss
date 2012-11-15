@@ -60,3 +60,26 @@
     }
   }
 }
+
+.base_info {
+  
+  img {
+    width: 96px;
+    height: 96px;
+  }
+}
+
+.profile {
+  .span2 {
+    float: left;
+  }
+  .info {
+    float: left;
+    margin-left: -70px;
+  }
+  .action {
+    float: right;
+    margin-right: 60px;
+    margin-top: 20px;
+  }
+}

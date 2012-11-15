@@ -10,27 +10,6 @@ body {
   color: #999999;
 }
 
-.navbar-inner {
-  -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1),0 1px 10px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: inset 0 -1px 0 rgba(0,0,0,0.1),0 1px 10px rgba(0,0,0,0.1);
-  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1),0 1px 10px rgba(0, 0, 0, 0.1);
-}
-//.navbar-fixed-top {
-//  position: static;
-//  right: 0;
-//  left: 0;
-//  margin-bottom: 20px;
-//  #btn_new_activity {
-//    button {
-//      margin-top:-3px;
-//    }
-//  }
-//}
-
-//a:hover {
-//  text-decoration:none;
-//  color: #0033bb;
-//}
 
 .box {
   background-color: white;
@@ -46,53 +25,18 @@ body {
   box-shadow: 0 0px 2px rgba(0, 0, 0, 0.05);
 }
 
-////////////////UI
-
-
-#new_message {
-  margin-bottom: 50px;
-  textarea {
-    width: 97.5%;
-  }
-  button {
-    float: right;
-    margin-left: 10px;
-  }
-  select {
-    float: right;
-    width: 80px;
-  }
+///////////Header
+.navbar-inner {
+  -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1),0 1px 10px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0 -1px 0 rgba(0,0,0,0.1),0 1px 10px rgba(0,0,0,0.1);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1),0 1px 10px rgba(0, 0, 0, 0.1);
 }
 
-#messages, #friends {
-  li {
-    margin-bottom: 20px;
-    img {
-      width: 60px;
-      height: 60px;
-    }
-    span {
-      float:right;
-      margin-left:5px;
-      margin-top: 15px;
-    }
-
-  }
+.breadcrumb {
+  margin-top: 60px;
 }
 
-.setting, .nav_activity{
-  .nav-header {
-    font-size: 20px;
-  }
-}
-
-.activity {
-  bottom: 1px;
-  .datetime {
-    //float: right;
-  }
-}
-
+///////// Layouts
 .right_sidebar {
   width:270px;
   float: right;
@@ -117,8 +61,6 @@ body {
   float:right;
 }
 
-/////////
-
 #user_sidebar {
   dt, dt img{
     width: 64px;
@@ -135,107 +77,19 @@ body {
     text-decoration:none;
   }
 }
-
-///////////
-
-.activity_brief {
-  img {
-    width: 70px;
-    height: 90px;
-  }
-  .photo {
-    float:left;
-    margin-right: 10px;
-  }
-  .title {
-    font-size: 17px;
-  }
-  
-}
-
-////////////
-
-.single_activity {
-  .base img {
-    width: 175px;
-    height: 260px;
-    float: left;
-    margin-right: 5px;
-  }
-  .base .info {
-    margin-bottom: 5px;
-  }
-}
-
-/////////////////////
-
-.base_info {
-  
-  img {
-    width: 96px;
-    height: 96px;
-  }
-}
-
-.footer {
-  position: absolute;
-  margin-top: 400px;
-}
-
-button.create_activity {
-  float: right;
-}
-
-#create_activity {
-  .date {
-    input {
-      width: 70px;
-      margin-right: 10px;
-    }
-  }
-  .place {
-    select {
-      margin-right: 10px;
-    }
-    .city {
-      width: 70px;
-    }
-    .area {
-      width: 100px;
-    }
-    .school {
-      width: auto;
-    }
-    .place_detail {
-      margin-top: 10px;
-    }
-  }
-  .detail {
-    textarea {
-      width: 400px;
-    }
-  }
-}
-
-.profile {
-  .span2 {
-    float: left;
-  }
-  .info {
-    float: left;
-    margin-left: -70px;
-  }
-  .action {
-    float: right;
-    margin-right: 60px;
-    margin-top: 20px;
-  }
-}
-
 .push_follow {
   img {
     height: 24px;
     width: 24px;
   }
 }
+/////////// Footer
+
+.footer {
+  position: absolute;
+  margin-top: 400px;
+}
+
+
+
 
