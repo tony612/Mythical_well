@@ -27,9 +27,7 @@ MythicalWell::Application.routes.draw do
     end
   end
   resources :tags, only: [:index]
-  resources :nodes, only: [:new, :create] do
-    get :autocomplete_node_name, :on => :collection
-  end
+  resources :nodes, only: [:new, :create, :index, :edit, :update]
   match '/my/events' => "users#my_events", via: :get
   root to: "events#index"
 end

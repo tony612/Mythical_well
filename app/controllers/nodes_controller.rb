@@ -11,4 +11,20 @@ class NodesController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def index
+    @cities = Node.where(:classify => 'city').order('name').includes(:children)
+  end
+
+  def edit
+    @node = Node.find(params[:id])
+  end
+
+  def update
+    @node = Node.find(params[:id])
+
+    if @node.update_attributes(params[:node])
+      redirect_to nodes_path
+    end
+  end
 end

@@ -4,6 +4,6 @@ class Node < ActiveRecord::Base
   validates_presence_of :name, :short_name, :classify
 
   has_many :events
-  has_many :children, :class_name => 'Node', :foreign_key => 'parent_id'
+  has_many :children, :class_name => 'Node', :foreign_key => 'parent_id', :order => 'name DESC'
   belongs_to :parent, :class_name => 'Node'
 end

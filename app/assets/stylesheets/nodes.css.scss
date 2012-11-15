@@ -1,3 +1,13 @@
-// Place all the styles related to the node controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.nodes {
+  li {
+    border-bottom: 1px solid #DDD;
+    padding-bottom: 10px;
+
+    .schools {
+      font-size: 15px;
+      a {
+        margin-right: 10px;
+      }
+    }
+  }
+}
