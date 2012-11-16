@@ -29,5 +29,7 @@ MythicalWell::Application.routes.draw do
   resources :tags, only: [:index]
   resources :nodes, only: [:new, :create, :index, :edit, :update]
   match '/my/events' => "users#my_events", via: :get
-  root to: "events#index"
+  match '/goto/:node' => "sessions#goto", via: :get, as: :goto
+  match 'node/:short_name' => 'events#index', via: :get, as: :node
+  root to: "nodes#index"
 end

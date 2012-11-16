@@ -3,14 +3,26 @@ class EventsController < ApplicationController
   before_filter :authenticate_user!, :only => [:new, :create, :edit, :create, :follow, :unfollow]
   before_filter :verify_same_user, :only => [:edit, :update]
   def index
+    nodes_arr = []
+    if params[:short_name]
+      node = Node.find_by_short_name(params[:short_name])
+      if node.classify == 'school'
+        nodes_arr = [node.id]
+        p "============== School events"
+      elsif node.classify == 'city' and !node.children.empty?
+        nodes_arr = node.children.map(&:id)
+        p "============== City events"
+      end
+    end
     if params[:category]
-      @events = Event.where(category: params[:category]).includes(:user).order('start_date DESC').page(params[:page])
-      @bread_stack.push("#{params[:category]}") unless @bread_stack[-1] == "#{params[:category]}"
+      @events = Event.where(:node_id => nodes_arr).where(category: params[:category]).includes(:user).order('start_date DESC').page(params[:page]) unless nodes_arr.empty?
+      @events = Event.where(category: params[:category]).includes(:user).order('start_date DESC').page(params[:page]) if nodes_arr.empty?
     elsif params[:tag]
-      @events = Tag.find_by_name(params[:tag]).events.includes(:user).order('start_date DESC').page(params[:page])
-      @bread_stack.push("#{params[:tag]}") unless @bread_stack[-1] == "#{params[:tag]}"
+      @events = Tag.find_by_name(params[:tag]).events.where(:node_id => nodes_arr).includes(:user).order('start_date DESC').page(params[:page]) unless nodes_arr.empty?
+      @events = Tag.find_by_name(params[:tag]).events.includes(:user).order('start_date DESC').page(params[:page]) if nodes_arr.empty?
     else
-      @events = Event.includes(:user).order('start_date DESC').page(params[:page])
+      @events = Event.where(:node_id => nodes_arr).includes(:user).order('start_date DESC').page(params[:page]) unless nodes_arr.empty?
+      @events = Event.includes(:user).order('start_date DESC').page(params[:page]) if nodes_arr.empty?
     end
     @events_hot = Event.order('start_date DESC').limit(5)
     #redirect_to root_path
