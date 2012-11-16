@@ -23,6 +23,7 @@ class Event < ActiveRecord::Base
   validates :category, presence: {message: "分类不能为空"}
   validates :user_id, presence: true
   validates :image, :presence => {message: "需要上传海报"}, :file_size => { :maximum => 1.megabytes.to_i, message: "文件大小必须在1M以内"}
+  validates :node_id, presence: {message: '需要选择学校'}
   scope :recent, :order => 'start_date DESC'
   
   attr_reader :tag_tokens
