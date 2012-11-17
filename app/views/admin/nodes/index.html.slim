@@ -1,0 +1,24 @@
+= link_to "新建节点", new_admin_node_path, class: 'btn btn-primary'
+br
+br
+table.table.table-striped.table-hover
+  th
+    td 名字
+    td 缩写
+    td 类型
+    td 父节点
+    td 操作
+  - @nodes.each do |node|
+    tr
+      td = node.id
+      td = node.name
+      td = node.short_name
+      td = node.classify
+      td = node.parent.name if node.parent
+      td
+        = link_to edit_admin_node_path(node) do
+          i.icon-edit
+        '
+        = link_to admin_node_path(node), :method => :delete, 'data-confirm' => '确定删除？' do
+          i.icon-trash
+  =

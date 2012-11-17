@@ -22,6 +22,7 @@
               li = link_to "我的主页", current_user
               li = link_to "基本资料设置", set_base_user_path(current_user)
               li = link_to "密码设置", edit_user_registration_path
+              li = link_to 'Admin', admin_events_path
               li = link_to "登出", destroy_user_session_path, :method => :delete
         - else
           li = link_to "登录", new_user_session_path

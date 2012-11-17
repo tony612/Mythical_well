@@ -27,15 +27,16 @@ MythicalWell::Application.routes.draw do
     end
   end
   resources :tags, only: [:index]
-  resources :nodes, only: [:new, :create, :index, :edit, :update]
+  resources :nodes, only: [:index]
 
   namespace :admin do
     resources :events, only: [:index, :edit, :update, :destroy]
-    resources :users, only: [:index, :edit, :update]
+    resources :users, only: [:index, :edit, :update, :destroy]
+    resources :nodes
   end
 
   match '/my/events' => "users#my_events", via: :get
   match '/goto/:node' => "sessions#goto", via: :get, as: :goto
-  match 'node/:short_name' => 'events#index', via: :get, as: :node
+  match '/node/:short_name' => 'events#index', via: :get, as: :node
   root to: "nodes#index"
 end
