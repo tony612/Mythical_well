@@ -16,4 +16,15 @@ class Admin::EventsController < Admin::ApplicationController
       render action: 'edit'
     end
   end
+
+  def destroy
+    @event = Event.find(params[:id])
+
+    if @event.destroy
+      redirect_to admin_events_path
+    else
+      redirect_to admin_events_path
+    end
+
+  end
 end
