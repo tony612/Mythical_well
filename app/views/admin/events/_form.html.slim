@@ -1,0 +1,9 @@
+= simple_form_for [:admin, @event] do |f|
+  legend 编辑活动
+  = f.input :title
+  = f.input :start_date
+  = f.input :end_date
+  = f.input :category
+  = f.input :tag_tokens, label: "标签", input_html: {data: {load: @event.tags}}
+  .form-actions
+    = f.submit '提交', class: 'btn btn-primary', :disable_with => '提交中'

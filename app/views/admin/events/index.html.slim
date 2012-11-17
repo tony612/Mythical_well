@@ -1,0 +1,28 @@
+.box
+  table.table.table-striped.table-hover
+    th
+      td 标题
+      td 开始时间
+      td 结束时间
+      td 时间描述
+      td 学校
+      td 分类
+      td 标签
+      td 操作
+    - @events.each do |event|
+      tr
+        td = event.id
+        td = event.title
+        td = event.start_date.to_date.to_s(:db)
+        td = event.end_date.to_date.to_s(:db)
+        td = event.date_desc
+        td = event.node.name
+        td = event.category
+        td = event.tags.map(&:name) * ','
+        td
+          = link_to edit_admin_event_path(event) do
+            i.icon-edit
+          '
+          = link_to admin_event_path(event), :method => :delete, 'data-confirm' => '确定删除？' do
+            i.icon-trash
+  = paginate @events
