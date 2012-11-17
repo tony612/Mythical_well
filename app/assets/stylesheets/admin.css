@@ -1,0 +1,10 @@
+/*
+ *
+ *= require bootstrap.min
+ *= require 'font-awesome'
+ *= require_self
+ */
+
+body {
+  background: none;
+}

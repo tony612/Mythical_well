@@ -1,0 +1,24 @@
+.box
+  table.table.table-striped.table-hover
+    th
+      td 用户名
+      td 名字
+      td 邮箱
+      td 城市
+      td 学校
+      td 操作
+    - @users.each do |user|
+      tr
+        td = user.id
+        td = user.username
+        td = user.name
+        td = user.email
+        td = user.city
+        td = user.school
+        td
+          = link_to edit_admin_user_path(user) do
+            i.icon-edit
+          '
+          = link_to admin_user_path(user), :method => :delete, 'data-confirm' => '确定删除？' do
+            i.icon-trash
+  =

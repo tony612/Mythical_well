@@ -1,10 +1,11 @@
-.navbar.navbar-fixed-top
+.navbar.navbar-inverse
   .navbar-inner
     .container
-      .brand Mythical Well
+      .brand Admin
       ul.nav
         li.active = link_to "首页", root_path
-        /li = link_to "用户", users_path
+        li = link_to "活动", admin_events_path
+        li = link_to "用户", admin_users_path
       form.navbar-search
         input.search-query type="text" placeholder="搜索"
       ul.nav.pull-right
