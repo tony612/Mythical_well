@@ -1,0 +1,19 @@
+.box
+  table.table.table-striped.table-hover
+    th
+      td 活动标题
+      td 用户名
+      td 内容摘要
+      td 时间
+      td 操作
+    - @comments.each do |comment|
+      tr
+        td = comment.id
+        td = comment.event.title
+        td = comment.user.username
+        td = comment.content[0..30]
+        td = comment.created_at.to_date.to_s(:db)
+        td
+          = link_to admin_comment_path(comment), :method => :delete, 'data-confirm' => '确定删除？' do
+            i.icon-trash
+  = paginate @comments

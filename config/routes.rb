@@ -33,6 +33,7 @@ MythicalWell::Application.routes.draw do
     resources :events, only: [:index, :edit, :update, :destroy]
     resources :users, only: [:index, :edit, :update, :destroy]
     resources :nodes
+    resources :comments, only: [:index, :destroy]
   end
 
   match '/my/events' => "users#my_events", via: :get
