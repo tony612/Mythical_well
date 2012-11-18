@@ -71,6 +71,15 @@ class User < ActiveRecord::Base
 
   def read_messages(messages)
   end
+
+  def has_role?(role)
+    case role
+      when :admin then admin?
+      when :member then true
+      else false
+    end
+  end
+
   private
   
   def revert_login_if_changed
@@ -80,5 +89,9 @@ class User < ActiveRecord::Base
 
   def email_normalisation
     self.email = email.strip.downcase
+  end
+
+  def admin?
+    Setting.admin_emails.include?(self.email)
   end
 end

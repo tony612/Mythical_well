@@ -1,7 +1,7 @@
 # encoding: utf-8
 class EventsController < ApplicationController
+  load_and_authorize_resource :only => [:new, :edit, :update, :create, :destroy, :follow, :unfollow]
   before_filter :authenticate_user!, :only => [:new, :create, :edit, :create, :follow, :unfollow]
-  before_filter :verify_same_user, :only => [:edit, :update]
   def index
     nodes_arr = []
     if params[:short_name]
@@ -89,14 +89,6 @@ class EventsController < ApplicationController
   end
 
   private
-
-  def verify_same_user
-    @event = Event.find(params[:id])
-    unless current_user == @event.user
-      flash[:warning] = "对不起，您没有这个权限"
-      redirect_to @event
-    end
-  end
 
   def date_handle
     t_repeat = params[:date_repeat]

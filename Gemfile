@@ -8,6 +8,8 @@ gem 'kaminari'
 gem 'dynamic_form'
 gem 'private_pub'
 gem 'bootstrap-wysihtml5-rails'
+gem 'cancan'
+gem 'settingslogic'
 
 # asset gems
 gem 'slim-rails'
