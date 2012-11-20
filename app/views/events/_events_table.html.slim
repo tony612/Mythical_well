@@ -1,12 +1,11 @@
-table.table.table-striped.events
+ul.unstyled.events
   - events.each do |event|
-    tr
-      td.photo
+    li.item
+      .photo
         = link_to event do
           = image_tag event.image_url(:index).to_s
-      td
-        .title
-          = link_to event.title, event
+      .content
+        .title = link_to event.title, event
         .info
           ul.unstyled
             li
@@ -26,4 +25,3 @@ table.table.table-striped.events
               | 标签：
               = tag_list event
               
-

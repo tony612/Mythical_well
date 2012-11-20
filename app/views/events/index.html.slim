@@ -1,10 +1,9 @@
 .main.main-left
-  .box
-    = link_to new_event_path do
-      button.create_event.btn.btn-primary 创建活动
-    = render 'events_table', events: @events
-    = paginate @events
-          /= render 'activity_brief', :activity => activity
+  /.box
+  = link_to new_event_path do
+    button.create_event.btn.btn-primary 创建活动
+  = render 'events_table', events: @events
+  = paginate @events
 
 = render 'hot', events_hot: @events_hot
 
