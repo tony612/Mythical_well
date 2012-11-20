@@ -4,6 +4,8 @@ defaults: &defaults
 
 development:
   <<: *defaults
+  admin_emails:
+    - "test1@test.com"
 
 test:
   <<: *defaults
