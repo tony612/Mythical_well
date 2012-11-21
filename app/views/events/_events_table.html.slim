@@ -17,7 +17,7 @@ table.table.table-striped.events
             li = "费用：#{event.fee}"
             li.category
               | 分类：
-              = link_to event.category, events_path(:category => event.category)
+              = link_to event.category, url_for(:category => event.category)
 
             li 
               | 发起人：

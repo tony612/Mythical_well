@@ -4,6 +4,6 @@ FactoryGirl.define do
   factory :node do
     name "MyString"
     short_name "MyString"
-    type ""
+    classify 'school'
   end
 end

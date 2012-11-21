@@ -1,52 +1,28 @@
 require 'spec_helper'
 
 describe Comment do
-  let(:user) {create(:user)}
-  let(:user1) {create(:user, email: "test1@test.com", username: "username1")}
-  let :attrs do
-    {
-      title: "Title of event",
-      category: 'life',
-      location: 'Center lake',
-      content: 'This is a content',
-      fee: '0',
-      start_date: Time.now,
-      end_date: Time.now,
-    }
-  end
-  let(:event) {user.events.build(attrs)}
-  before do
-    @comment = event.comments.build(content: "This is a comment for #{event.title}")
-    user1.comments << @comment
-  end
+  let(:user) {FactoryGirl.create(:user)}
+  let(:user1) {FactoryGirl.create(:user)}
+  let(:event) {FactoryGirl.create(:event, :user => user)}
 
-  subject {@comment}
-
-  it {should respond_to(:content)}
-
-  describe "creation" do
-    it "should reject content which is blank" do
-      @comment.content = ""
-      @comment.should_not be_valid
-    end
-
-    it "rejects when event_id is not present" do
-      @comment.event_id = nil
-      @comment.should_not be_valid
-    end
-
-    it "rejects when user_id is not present" do
-      @comment.user_id = nil
-      @comment.should_not be_valid
-    end
-    
-  end
-
-  describe "after creation" do
-    it "the message will increase by 1" do
+  context "messages" do
+    it "should send event comment message to event author and the followers" do
       expect do
-        @comment.save
-      end.should change(Message, :count).by(1)
+        FactoryGirl.create(:comment, :event => event, :user => user1)
+      end.to change(Message.where(:msg_type => Message.EVENT_TYPE), :count).by(1 + event.followers.count)
+    end
+
+    it "send mention messages to mentioners" do
+      expect do
+        FactoryGirl.create(:comment, :event => event, :user => user1, :content => "Hey, @#{user.username} Hey")
+      end.to change(Message.where(:msg_type => Message.MENTION_TYPE), :count).by(1)
+    end
+
+    it "delete mention messages after destoyed" do
+      comment = 
+      expect do
+        FactoryGirl.create(:comment, :event => event, :user => user1, :content => "Hey, @#{user.username} Hey").destroy
+      end.not_to change(Message, :count)
     end
   end
 end

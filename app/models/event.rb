@@ -31,17 +31,30 @@ class Event < ActiveRecord::Base
     self.tag_ids = Tag.ids_from_tokens(tokens)
   end
 
-#  def tagging(tag_names)
-#    event_tags.where('tag_id NOT IN (?)', Tag.find_all_by_name(tag_names).map(&:id)).each {|t| t.destroy}
-#    tag_names.each do |tag|
-#      unless tags.where(name: tag).exists?
-#        if Tag.where(name: tag).exists?
-#          EventTag.create(event_id: id, tag_id: Tag.find_by_name(tag).id)
-#        else
-#          t = Tag.create(name: tag)
-#          EventTag.create(event_id: id, tag_id: t.id)
-#        end
-#      end
-#    end
-#  end
+  def self.complex_find(params = {})
+    nodes_arr = []
+    if params[:short_name]
+      node = Node.find_by_short_name(params[:short_name])
+      if node.classify == 'school'
+        nodes_arr = [node.id]
+      elsif node.classify == 'city' and !node.children.empty?
+        nodes_arr = node.children.map(&:id)
+      end
+    end
+    with_node = nodes_arr.empty? ? Event : Event.where(:node_id => nodes_arr)
+    if params[:category]
+      events = with_node.where(:category => params[:category]).recent.page(params[:page])
+    elsif params[:tag]
+      events = find_with_tag(params[:tag]).where(:node_id => nodes_arr).recent.page(params[:page]) unless nodes_arr.empty?
+      events = find_with_tag(params[:tag]).recent.page(params[:page]) if nodes_arr.empty?
+    else
+      events = with_node.includes(:user).recent.page(params[:page])
+    end
+    events
+  end
+
+  def self.find_with_tag(tag)
+    Tag.find_by_name(tag).events
+  end
+
 end

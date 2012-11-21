@@ -13,7 +13,7 @@ describe Followship do
     it "should not allow access to follower.id" do
       expect do
         Followship.new(follower_id: follower.id)
-      end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
+      end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
   end
 

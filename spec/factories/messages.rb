@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :message do
-    content ""
+    content "This is a content"
     user_id ""
     is_read false
   end

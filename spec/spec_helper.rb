@@ -9,6 +9,11 @@ require 'rspec/autorun'
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
+  config.color_enabled = true
+
+  config.tty = true
+
+  config.formatter = :documentation
   config.include Devise::TestHelpers, :type => :controller
   # ## Mock Framework
   #
@@ -16,7 +21,7 @@ RSpec.configure do |config|
   #
   # config.mock_with :mocha
   # config.mock_with :flexmock
-  # config.mock_with :rr
+  config.mock_with :rspec
 
   config.include FactoryGirl::Syntax::Methods
 

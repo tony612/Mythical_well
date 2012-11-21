@@ -10,7 +10,7 @@ describe UsersController do
     it "should increment the Followship count" do
       expect do
         xhr :post, :follow, id: other_user.id
-      end.should change(Followship, :count).by(1)
+      end.to change(Followship, :count).by(1)
     end
 
     it "should respond with success" do
@@ -25,7 +25,7 @@ describe UsersController do
     it "should decrement the Followship count" do
       expect do
         xhr :post, :unfollow, id: other_user.id
-      end.should change(Followship, :count).by(-1)
+      end.to change(Followship, :count).by(-1)
     end
 
     it "should respond with success" do

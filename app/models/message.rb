@@ -10,11 +10,4 @@ class Message < ActiveRecord::Base
 
   scope :unread, where(:is_read => false)
   scope :recent, order("created_at DESC")
-  #after_create :realtime_push_message
-  #def realtime_push_message
-  #  if self.user
-  #    hash = {count: self.user.messages.unread.count}
-  #  end
-  #end
-
 end
