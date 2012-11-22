@@ -11,10 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121115104908) do
+ActiveRecord::Schema.define(:version => 20121122125638) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
+    t.datetime "time"
     t.integer  "event_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
@@ -32,12 +33,18 @@ ActiveRecord::Schema.define(:version => 20121115104908) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "event_followers", ["event_id"], :name => "index_event_followers_on_event_id"
+  add_index "event_followers", ["user_id"], :name => "index_event_followers_on_user_id"
+
   create_table "event_tags", :force => true do |t|
     t.integer  "event_id"
     t.integer  "tag_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "event_tags", ["event_id"], :name => "index_event_tags_on_event_id"
+  add_index "event_tags", ["tag_id"], :name => "index_event_tags_on_tag_id"
 
   create_table "events", :force => true do |t|
     t.string   "title"
@@ -89,6 +96,8 @@ ActiveRecord::Schema.define(:version => 20121115104908) do
     t.datetime "updated_at", :null => false
     t.integer  "parent_id"
   end
+
+  add_index "nodes", ["parent_id"], :name => "index_nodes_on_parent_id"
 
   create_table "tags", :force => true do |t|
     t.string   "name",       :null => false
