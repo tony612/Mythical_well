@@ -14,7 +14,7 @@
 
             li 
               i.icon-group
-              = "学校：#{@event.node.name}"
+              = "学校：#{@event.node_name}"
             li 
               i.icon-map-marker
               = "地点： #{@event.location}"
@@ -28,7 +28,7 @@
             li.author
               i.icon-user
               | 发起人：
-              = link_to @event.user.username, @event.user, data: {name: @event.user.name}
+              = link_to @event.user_username, @event.user, data: {name: @event.user_name}
             li
               i.icon-tags
               | 标签：

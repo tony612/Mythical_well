@@ -12,7 +12,7 @@ table.table.table-striped.events
             li
               = raw "时间： #{date_brief(event.date_desc)}"
               = link_to '(详细)', '#', rel:'tooltip', data: {placement: 'right', :'original-title' => "#{event.date_desc}"}, class: 'date_desc'
-            li = "学校：#{event.node.name}"
+            li = "学校：#{event.node_name}"
             li = "地点：#{event.location}"
             li = "费用：#{event.fee}"
             li.category
@@ -21,7 +21,7 @@ table.table.table-striped.events
 
             li 
               | 发起人：
-              = link_to event.user.username, event.user
+              = link_to event.user_username, event.user
             li.tag
               | 标签：
               = tag_list event

@@ -14,7 +14,7 @@ table.table.table-striped.table-hover
       td = node.name
       td = node.short_name
       td = node.classify
-      td = node.parent.name if node.parent
+      td = node.parent_name if node.parent
       td
         = link_to edit_admin_node_path(node) do
           i.icon-edit

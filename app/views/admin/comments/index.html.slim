@@ -9,8 +9,8 @@
     - @comments.each do |comment|
       tr
         td = comment.id
-        td = comment.event.title
-        td = comment.user.username
+        td = comment.event_title
+        td = comment.user_username
         td = comment.content[0..30]
         td = comment.created_at.to_date.to_s(:db)
         td

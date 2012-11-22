@@ -3,6 +3,9 @@ class Comment < ActiveRecord::Base
   
   belongs_to :event, foreign_key: 'event_id'
   belongs_to :user, foreign_key: 'user_id'
+  delegate :title, :to => :event, :prefix => true, :allow_nil => true
+  delegate :username, :name, :to => :user, :prefix => true, :allow_nil => true
+
   has_many :messages, :dependent => :destroy
 
   validates_presence_of :content, :event_id, :user_id
