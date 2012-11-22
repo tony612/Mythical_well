@@ -34,6 +34,7 @@ group :development, :test do
 end
 group :test do
   gem 'sqlite3'
+  gem 'simplecov'
 end
 gem 'thin'
 gem 'pg'

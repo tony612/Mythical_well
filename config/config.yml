@@ -9,6 +9,8 @@ development:
 
 test:
   <<: *defaults
+  admin_emails:
+    - "admin@admin.com"
 
 production:
   <<: *defaults

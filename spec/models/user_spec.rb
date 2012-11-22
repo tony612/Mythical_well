@@ -1,4 +1,5 @@
 require 'spec_helper'
+require "cancan/matchers"
 
 describe User do
   
@@ -148,5 +149,17 @@ describe User do
       it {should_not be_following(other_user)}
       its(:followed_users) {should_not include(other_user)}
     end
+  end
+
+  describe "alibities" do
+    subject { ability }
+    let(:ability) {Ability.new(user)}
+    let(:user) {nil}
+
+    context "when is an admin" do
+      let(:user) {FactoryGirl.create(:user, :email => "admin@admin.com")}
+      it { should be_able_to(:manage, :all) }
+    end
+
   end
 end
