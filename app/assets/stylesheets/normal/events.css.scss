@@ -4,8 +4,8 @@ ul.events {
     @include display-box;
     @include box-orient(horizontal);
     @include box-align(stretch);
-    @include box-shadow(rgba(black, 0.3) 2px 2px 10px);
-    background: #FAFAFA;
+    @include box-shadow(rgba(black, 0.3) 2px 2px 10px 3px);
+    background: #FBFBFB;
     overflow: hidden;
     margin-bottom: 20px;
     .photo {
@@ -16,7 +16,9 @@ ul.events {
       }
     }
     .content {
+      vertical-align: middle;
       padding: 10px;
+      padding-top: 15px;
       margin-left: 10px;
       .title {
         margin-bottom: 10px;
