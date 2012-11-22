@@ -1,4 +1,4 @@
-= simple_form_for @event, validate: true, :html => {class:"form-horizontal", id:"create_event", :multipart => true} do |f|
+= simple_form_for event, validate: true, :html => {class:"form-horizontal", id:"create_event", :multipart => true} do |f|
   legend = meta[:legend]
   = f.input :title, label: "活动标题", input_html: {:style => 'width: 300px', maxlength: 50}
   = f.input :category, label: "分类", collection: ["生活", "课程", "聚会", "其他"], prompt: "选择分类"
@@ -7,14 +7,14 @@
     .controls
       = f.text_field:
   = render 'date_select'
-  = f.input :node_id, label: '所在学校', :collection => @schools
+  = f.input :node_id, label: '所在学校', :collection => schools
   = f.input :location, label: "活动地点"
   = f.input :content, label: "活动详情", as: :text, input_html: {:style => "width: 700px;"}, validate: false
   script
     | $('#event_content').wysihtml5({"image": false, "color": true});
   = f.input :fee, label: "活动费用", input_html: {value: '0'}
   = f.input :image, label: "海报", as: :file, validate: meta[:image], hint: ""
-  = f.input :tag_tokens, label: "标签", input_html: {data: {load: @event.tags}}
+  = f.input :tag_tokens, label: "标签", input_html: {data: {load: event.tags}}
   .form-actions
     = f.submit meta[:button], class: 'btn btn-primary', :disable_with => "正在处理"
 

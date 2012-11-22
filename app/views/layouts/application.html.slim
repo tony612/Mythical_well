@@ -10,7 +10,7 @@ html
     = render 'layouts/header'
     
     .container
-      = render 'layouts/breadcrumb'
+      = render 'layouts/breadcrumb', :bread_stack => @bread_stack
 
       - flash.each do |key, value|
         div class="alert alert-#{key}" 

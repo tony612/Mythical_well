@@ -13,7 +13,7 @@ class Admin::EventsController < Admin::ApplicationController
     if @event.update_attributes(params[:event])
       redirect_to admin_events_path
     else
-      render action: 'edit'
+      render :edit
     end
   end
 

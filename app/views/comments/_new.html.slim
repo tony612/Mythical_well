@@ -1,5 +1,5 @@
 - if user_signed_in?
-  = form_for [@event, @comment], remote: true, :html => {class: 'form'} do |f|
+  = form_for [event, comment], remote: true, :html => {class: 'form'} do |f|
     = f.text_area :content, rows: '5'
     /script
       | $('#event_content').wysihtml5({"image": false, "color": true});

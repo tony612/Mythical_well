@@ -61,16 +61,13 @@ class User < ActiveRecord::Base
     followships.find_by_followed_id(other_user.id).destroy
   end
 
-  def followed_by?(other_user)
-    reverse_followships.find_by_follower_id(other_user.id)
-  end
+  #def followed_by?(other_user)
+  #  reverse_followships.find_by_follower_id(other_user.id)
+  #end
 
-  def unfollowed!(other_user)
-    reverse_followships.find_by_follower_id(other_user.id).destroy
-  end
-
-  def read_messages(messages)
-  end
+  #def unfollowed!(other_user)
+  #  reverse_followships.find_by_follower_id(other_user.id).destroy
+  #end
 
   def has_role?(role)
     case role

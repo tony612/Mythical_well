@@ -14,7 +14,7 @@ class Admin::NodesController < Admin::ApplicationController
     if @node.update_attributes(params[:node])
       redirect_to admin_nodes_path
     else
-      render action: 'edit'
+      render :edit
     end
   end
 
@@ -29,7 +29,7 @@ class Admin::NodesController < Admin::ApplicationController
     if @node.save
       redirect_to admin_nodes_path
     else
-      render action: 'new'
+      render :new
     end
   end
 

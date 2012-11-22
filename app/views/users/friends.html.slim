@@ -1,7 +1,7 @@
 .main.main-left
   .box
     ul#friends_list.unstyled
-      = render :partial => 'friend', :collection => @friends
+      = render :partial => 'friend', :collection => @friends, :user => @user
     = paginate @friends
 
 .right_sidebar

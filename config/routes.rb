@@ -2,7 +2,7 @@ MythicalWell::Application.routes.draw do
   
   #match 'ui(/:action)', controller: 'ui'
   resources :events, only: [:index, :show, :new, :create, :edit, :update] do
-    resources :comments, only: [:create, :edit, :update, :delete]
+    resources :comments, only: [:create, :edit, :update]
     member do
       post :follow
       post :unfollow
@@ -31,9 +31,9 @@ MythicalWell::Application.routes.draw do
 
   namespace :admin do
     resources :events, only: [:index, :edit, :update, :destroy]
-    resources :users, only: [:index, :edit, :update, :destroy]
-    resources :nodes
-    resources :comments, only: [:index, :destroy]
+    resources :users, only: [:index, :edit, :update]
+    resource :nodes
+    resources :comments, only: [:index]
   end
 
   match '/my/events' => "users#my_events", via: :get

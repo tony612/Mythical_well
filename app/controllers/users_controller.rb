@@ -26,7 +26,7 @@ class UsersController < ApplicationController
       redirect_to set_base_user_path(@user)
     else
       flash.now[:error] = "Sorry"
-      render action: 'set_base'
+      render :set_base
     end
   end
 

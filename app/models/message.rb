@@ -3,7 +3,7 @@ class Message < ActiveRecord::Base
   
   def self.EVENT_TYPE; 1; end
   def self.MENTION_TYPE; 2; end
-  def self.FOLLOW_EVENT_TYPE; 3; end
+  #def self.FOLLOW_EVENT_TYPE; 3; end
 
   belongs_to :user, :foreign_key => 'user_id'
   belongs_to :comment, :foreign_key => 'comment_id'

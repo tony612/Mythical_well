@@ -1,5 +1,5 @@
 table.table.comments
-  - if @comments.length == 0
+  - if comments.length == 0
     | 没有评论
   - else
-    = render @comments
+    = render comments, :event => event

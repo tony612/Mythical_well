@@ -40,7 +40,7 @@ class EventsController < ApplicationController
       if @event.save
         format.html {redirect_to @event}
       else
-        format.html { render action: 'new' }
+        format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
         
       end
@@ -60,7 +60,7 @@ class EventsController < ApplicationController
     if @event.update_attributes(params[:event])
       redirect_to @event
     else
-      render action: 'edit'
+      render :edit
     end
   end
 
