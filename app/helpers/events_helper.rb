@@ -20,7 +20,7 @@ module EventsHelper
   end
 
   def date_brief desc
-    return "暂无描述" unless desc
+    return "暂无描述" if desc.blank?
     arr = desc.split(';')
     if arr.length == 1
       arr[0]
@@ -30,7 +30,7 @@ module EventsHelper
   end
 
   def origin_desc event
-    return "暂无描述" unless event.date_desc
+    return "暂无描述" if event.date_desc.blank?
     event.date_desc.gsub(';', ';   ')
   end
 
