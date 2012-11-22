@@ -1,26 +1,39 @@
+@import "compass/css3";
 ul.events {
   li.item {
-    margin-bottom: 30px;
-    background: #FFF;
-    height: 260px;
+    @include display-box;
+    @include box-orient(horizontal);
+    @include box-align(stretch);
+    @include box-shadow(rgba(black, 0.3) 2px 2px 10px);
+    background: #FAFAFA;
     overflow: hidden;
+    margin-bottom: 20px;
     .photo {
-      padding: 0px;
-      width: 168px;
-      margin: 0px;
+      margin-left: 0px;
       img {
-        width: 168px;
-        height: 300px;
+        width: 175px;
+        height: 260px;
       }
     }
     .content {
-      margin-left: 190px;
-      margin-top: -260px;
+      padding: 10px;
+      margin-left: 10px;
       .title {
-        font-size: 30px;
-        a {
-          color: #000;
+        margin-bottom: 10px;
+        a{
+          font-size: 30px;
+          color: black;
+          @include transition-property(color);
+          @include transition-duration(0.2s);
+          @include transition-timing-function(ease-in);
+          &:hover {
+            color: #00A8E1;
+            text-decoration: none;
+          }
         }
+      }
+      li {
+        line-height: 180%;
       }
     }
   }

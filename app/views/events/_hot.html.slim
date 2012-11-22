@@ -1,34 +1,19 @@
-.right_sidebar
-  .box
-    table.table.hot
-      tr
-        td 
-          b 热门活动
-      - events_hot.each do |hot|
-        tr
-          td = link_to hot.title, hot
-    table.table
-      thead
-        tr
-          th 时间
-      tbody
-        tr
-          td = link_to "三天内", "#"
-        tr
-          td = link_to "一周内", "#"
-        tr
-          td = link_to "周末", "#"
-        tr
-          td = link_to "更多", "#"
-    table.table
-      thead
-        tr
-          th 分类
-      tbody
-        tr
-          td = link_to "生活", events_path(:category => "生活")
-        tr
-          td = link_to "课程", events_path(:category => "课程")
-        tr
-          td = link_to "聚会", events_path(:category => "聚会")
+.box
+  .title 热门活动
+  ul.unstyled
+    - events_hot.each do |hot|
+      li = link_to hot.title, hot
+.box
+  .title 时间
+  ul.unstyled
+    li = link_to "三天内", "#"
+    li = link_to "一周内", "#"
+    li = link_to "周末", "#"
+    li = link_to "更多", "#"
+.box
+  .title 分类
+  ul.unstyled
+    li = link_to "生活", events_path(:category => "生活")
+    li = link_to "课程", events_path(:category => "课程")
+    li = link_to "聚会", events_path(:category => "聚会")
 
