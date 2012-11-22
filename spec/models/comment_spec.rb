@@ -3,6 +3,7 @@ require 'spec_helper'
 describe Comment do
   let(:user) {FactoryGirl.create(:user)}
   let(:user1) {FactoryGirl.create(:user)}
+  let(:school) {FactoryGirl.create(:school)}
   let(:event) {FactoryGirl.create(:event, :user => user)}
 
   context "messages" do
@@ -19,7 +20,7 @@ describe Comment do
     end
 
     it "delete mention messages after destoyed" do
-      comment = 
+      #comment = 
       expect do
         FactoryGirl.create(:comment, :event => event, :user => user1, :content => "Hey, @#{user.username} Hey").destroy
       end.not_to change(Message, :count)

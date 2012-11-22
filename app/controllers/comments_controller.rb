@@ -10,7 +10,6 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         @comments = @event.comments
-        #PrivatePub.publish_to("/messages_unread/username1", hash: "TestForPub")
         format.html {redirect_to @event}
         format.js {render "create", :locals => {:count => @event.user.messages.unread.count} }
       else

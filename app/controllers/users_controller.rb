@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     render 'friends'
 
   end
+
   def show
     @user = User.find_by_username(params[:id])
     #@user = User.includes([:events, :comments]).where(id: params[:id])

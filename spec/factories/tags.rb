@@ -1,6 +1,5 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
   factory :tag do
+    sequence(:name) { ['tag1', 'tag2', 'tag3'].sample }
   end
 end

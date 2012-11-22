@@ -1,15 +1,17 @@
 include ActionDispatch::TestProcess
 FactoryGirl.define do
   factory :event do
-    title 'This is a title'
+    sequence(:title) { |n| "Title#{n}" }
+    sequence(:content) { |n| "Content#{n}" }
     location 'Local'
-    content 'This is a content'
     start_date Time.now
     end_date Time.now
-    category 'Life'
+    sequence(:category) {['Life', 'Course', 'Speek'].sample}
     fee '0'
     image {fixture_file_upload(Rails.root.join(*%w[spec fixtures example.jpg]), "image/jpg")}
     association :user
-    association :node
+    association :node, :factory => :school
+    after(:build) { |e| e.tags << FactoryGirl.build(:tag) }
+    after(:create) { |e| e.tags.each { |t| t.save! } }
   end
 end
