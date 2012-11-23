@@ -1,57 +1,58 @@
-.main.main-left
-  .box
-    table.event.table
-      tr
-        td.photo
-          = image_tag @event.image_url(:show).to_s
-        td.info
-          h3 = @event.title
-          ul.unstyled
-            li
-              i.icon-calendar 
-              = raw "时间： #{date_brief(@event.date_desc)}"
-              = link_to '(详细)', '#', rel:'tooltip', data: {placement: 'right', :'original-title' => "#{origin_desc @event}"}, class: 'date_desc'
+.container_12
+  .grid_9
+    .event
+      .author
+        = link_to @event.user do
+          = avatar_for @event.user, 48
+        = link_to @event.user.username + 'adaheias', @event.user, data: {name: @event.user.name}, :class => 'none'
+      h2.title = @event.title + "为梦扬帆迎新晚会"
+      .tag_cat
+        = link_to events_path(:category => @event.category) do
+          i.icon-tasks
+          = @event.category
+        - @event.tags.each do |tag|
+          = link_to events_path(tag: tag.name) do
+            i.icon-tag
+            = tag.name
+      .desc
+        = raw @event.content
+    .event_info
+      table
+        tr
+          td
+            ul.unstyled
+              li
+                i.icon-calendar
+                = raw "#{date_brief(@event.date_desc)}"
+                = link_to '(详细)', '#', rel:'tooltip', data: {placement: 'right', :'original-title' => "#{origin_desc @event}"}, class: 'date_desc'
+              li
+                span style="font-weight:bold;" ￥
+                '
+                = "#{@event.fee}"
+          td
+            ul.unstyled
+              li
+                i.icon-group
+                = "#{@event.node.name}"
+              li
+                i.icon-map-marker
+                = "#{@event.location}"
+    .event_action
+      = events_follow_tag @event
+      = link_to "#" do
+        i.icon-heart-empty.icon-large
+      - if user_signed_in? and current_user == @event.user
+        = link_to edit_event_path(@event) do
+          i.icon-edit.icon-large
 
-            li 
-              i.icon-group
-              = "学校：#{@event.node.name}"
-            li 
-              i.icon-map-marker
-              = "地点： #{@event.location}"
-            li 
-              i.icon-money
-              = "费用：#{@event.fee}"
-            li.category 
-              i.icon-tasks
-              |分类：
-              = link_to @event.category, events_path(:category => @event.category)
-            li.author
-              i.icon-user
-              | 发起人：
-              = link_to @event.user.username, @event.user, data: {name: @event.user.name}
-            li
-              i.icon-tags
-              | 标签：
-              = tag_list @event
-            li.action
-              = events_follow_tag @event
-              = link_to "#" do
-                i.icon-heart-empty.icon-large
-                | 喜欢
-              - if user_signed_in? and current_user == @event.user
-                = link_to edit_event_path(@event) do
-                  i.icon-pencil
-                  | 编辑
+    .box.comments#comments_list
+      = render "comments/index"
 
-    br
-    h5 详细描述
-    .desc
-      = raw @event.content
-  .box.comments#comments_list
-    = render "comments/index"
+    .box.comments#reply
+      = render "comments/new"
 
-  .box.comments#reply
-    = render "comments/new"
-
-= render 'hot', events_hot: @events_hot
+  .grid_3
+    .box.event_photo
+      = image_tag @event.image_url(:show).to_s
+    = render 'hot', events_hot: @events_hot
 

@@ -1,8 +1,10 @@
 @import "compass";
 @import "compass/css3";
+@import "compass/utilities";
 .box {
   border: 2px solid #ddd;
   background: #FBFBFB;
+  @include border-radius(3px);
   @include box-shadow(rgba(black, 0.3) 0px 1px 2px);
   .title {
     text-align: center;

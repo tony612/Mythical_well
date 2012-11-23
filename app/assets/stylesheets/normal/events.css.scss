@@ -1,4 +1,5 @@
 @import "compass/css3";
+@import "compass/utilities";
 ul.events {
   li.item {
     @include display-box;
@@ -38,5 +39,98 @@ ul.events {
         line-height: 180%;
       }
     }
+  }
+}
+
+.event {
+  background: #FFFFFF;
+  padding: 20px 40px 20px 40px;
+  .author {
+    width: 62px;
+    margin-left: -20px;
+    position: absolute;
+    a.none {
+      display: none;
+    }
+    img {
+      @include border-radius(100%);
+    }
+    @include box-flex(1);
+  }
+  .title {
+    letter-spacing: 3px;
+    font-size: 27px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0 20px 0 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #DDD;
+  }
+  .action {
+    a {
+      //float: right;
+    }
+  }
+  .desc {
+    @include display-box;
+    @include box-orient(horizontal);
+    @include box-align(stretch);
+    .content {
+      @include box-flex(8);
+    }
+    padding-top: 10px;
+  }
+  .tag_cat {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    a {
+      font-size: 12px;
+      margin-right: 20px;
+      margin-bottom: 5px;
+      padding: 5px;
+      color: #333;
+      @include box-shadow(rgba(black, 0.3) 1px 1px 1px 1px);
+      &:hover {
+        color: #777;
+        text-decoration: none;
+      }
+    }
+  }
+}
+.event_info {
+  @include box-shadow(rgba(black, 0.2) 0 4px 3px 0px inset);
+  padding: 20px;
+  padding-bottom: 5px;
+  background: #F1F1F1;
+  color: #555;
+  table {
+    width: 100%;
+    td {
+      width: 50%;
+    }
+  }
+}
+.event_action {
+  background: #FFFFFF;
+  padding: 5px;
+  a {
+    color: black;
+    text-decoration:none;
+    margin-right: 10px;
+    &:hover {
+      color: #555;
+    }
+    i.icon-heart-empty:hover {
+      color: #FF413D;
+    }
+    &:first-child {
+      margin-left: 620px;
+    }
+  }
+}
+.event_photo {
+  @include box-shadow(rgba(black, 0.3) 2px 2px 10px 4px);
+  img{
+    width: 100%;
   }
 }
