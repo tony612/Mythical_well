@@ -1,1 +1,35 @@
+@import "compass/css3";
+@import "compass/utilities";
 
+.nodes {
+  li {
+    background: #FFFFFF;
+    padding: 20px;
+    margin-bottom: 20px;
+    @include border-radius(3px);
+    @include box-shadow(rgba(black, 0.3) 0px 0px 3px 0px);
+    @include display-box;
+    @include box-orient(horizontal);
+    @include box-align(stretch);
+    .city {
+      margin: 0 40px;
+      a {
+        color: black;
+        &:hover {
+          text-decoration: none;
+          color: #555;
+        }
+      }
+    }
+    .schools {
+      a {
+        color: #333333;
+        margin-right: 30px;
+        &:hover {
+          text-decoration: none;
+          color: black;
+        }
+      }
+    }
+  }
+}

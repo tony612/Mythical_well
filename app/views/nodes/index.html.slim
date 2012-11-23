@@ -1,8 +1,9 @@
-.box
-  ul.unstyled.nodes
+.nodes.container_12
+  ul.unstyled
     - @cities.each do |city|
-      li 
-        h4 = link_to city.name, goto_path(city.short_name)
+      li
+        h4.city
+          = link_to city.name, goto_path(city.short_name)
         .schools
           - city.children.each do |school|
             = link_to school.name, goto_path(school.short_name)
