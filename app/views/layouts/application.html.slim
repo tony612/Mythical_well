@@ -9,7 +9,7 @@ html
   body data-offset="50"
     = render 'layouts/header'
 
-    .container_12
+    .container_12#layout
       = render 'layouts/breadcrumb'
 
       - flash.each do |key, value|
@@ -18,6 +18,8 @@ html
 
       = yield
 
-    .footer
-    = render 'layouts/footer'
+      #layout_footer
+
+    #footer
+      = render 'layouts/footer'
 
