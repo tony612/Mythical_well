@@ -9,11 +9,13 @@ ul.events {
     background: #FBFBFB;
     overflow: hidden;
     margin-bottom: 20px;
+    width: 100%;
     .photo {
       margin-left: 0px;
       img {
         width: 175px;
-        height: 260px;
+        max-height: 100%;
+        height: 100%;
       }
     }
     .content {
@@ -98,7 +100,7 @@ ul.events {
   }
 }
 .event_info {
-  @include box-shadow(rgba(black, 0.2) 0 4px 3px 0px inset);
+  @include box-shadow(rgba(black, 0.2) 0 2px 3px 0px inset);
   padding: 20px;
   padding-bottom: 5px;
   background: #F1F1F1;
@@ -126,6 +128,9 @@ ul.events {
     &:first-child {
       margin-left: 620px;
     }
+  }
+  .followed {
+    color: #Ff313D;
   }
 }
 .event_photo {

@@ -1,16 +1,15 @@
-tr
-  td.photo = avatar_for comment.user, 48
-  td
-    ul.unstyled
-      li
-        .info
-          - if comment.user
-            = link_to comment.user.username, comment.user, data: {name: comment.user.name}, class: 'name'
-        .action
-          - if comment.user == current_user
-            = link_to edit_event_comment_path(@event, comment) do
-              i.icon-pencil
-      li
-        .content
-          p
-            = comment_raw comment.content
+.comment
+  .replyer
+    .photo = avatar_for comment.user, 48
+    = link_to comment.user.username, comment.user, data: {name: comment.user.name}, class: 'name'
+  .content
+    p
+      = comment_raw comment.content
+  .action
+    - if comment.user == current_user
+      = link_to edit_event_comment_path(@event, comment) do
+        i.icon-pencil
+    br
+    = link_to edit_event_comment_path(@event, comment) do
+        i.icon-comment
+

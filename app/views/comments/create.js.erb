@@ -1,2 +1,2 @@
-$('#comments_list table').append("<%=j render 'comments/comment', :comment => @comment %>")
+$('#comments_list').append("<%=j render 'comments/comment', :comment => @comment %>")
 document.getElementById("comment_content").value = "";

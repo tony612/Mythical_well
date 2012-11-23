@@ -2,10 +2,10 @@ ul.unstyled.events
   - events.each do |event|
     li.item.container_9
       .photo
-        = link_to event do
-          = image_tag event.image_url(:index).to_s
+        /= link_to event do
+        = image_tag event.image_url(:index).to_s
       .content
-        .title = link_to event.title, event
+        .title = link_to truncate(event.title, :length => 17), event
         .info
           ul.unstyled
             li

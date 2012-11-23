@@ -1,0 +1,59 @@
+@import "compass/css3";
+@import "compass/utilities";
+
+#comments_list {
+  background: #343131;
+  margin-top: 30px;
+  color: #FFF;
+  @include border-top-radius(3px);
+  padding: 15px;
+  .comment {
+    @include display-box;
+    @include box-orient(horizontal);
+    @include box-align(stretch);
+    margin-bottom: 20px;
+    .replyer {
+      text-align: center;
+      vertical-align: middle;
+      @include box-flex(0.8);
+      .photo img {
+        @include border-radius(100%);
+      }
+      a {
+        color: #FFFFFF;
+      }
+    }
+    .content {
+      @include border-radius(3px);
+      background: #232323;
+      @include box-flex(9);
+      padding: 10px;
+    }
+    .action {
+      @include box-flex(0.5);
+      padding: 10px;
+      a {
+        color: #FFFFFF;
+        &:hover {
+          color: #DDDDDD;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+#reply {
+  background: #232323;
+  @include border-bottom-radius(3px);
+  color: white;
+  padding: 20px;
+  textarea {
+    width: 93%;
+    margin-left: 17px;
+  }
+  .reply_button {
+    float: right;
+    margin-right: 15px;
+  }
+}

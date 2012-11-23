@@ -5,7 +5,7 @@
   .title 热门活动
   ul.unstyled
     - events_hot.each do |hot|
-      li = link_to hot.title, hot
+      li = link_to truncate(hot.title, :length => 14), hot
 .box
   .title 时间
   ul.unstyled

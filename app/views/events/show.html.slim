@@ -3,7 +3,7 @@
     .event
       .author
         = link_to @event.user do
-          = avatar_for @event.user, 48
+          = avatar_for @event.user, 56
         = link_to @event.user.username + 'adaheias', @event.user, data: {name: @event.user.name}, :class => 'none'
       h2.title = @event.title + "为梦扬帆迎新晚会"
       .tag_cat
@@ -45,10 +45,10 @@
         = link_to edit_event_path(@event) do
           i.icon-edit.icon-large
 
-    .box.comments#comments_list
+    #comments_list
       = render "comments/index"
 
-    .box.comments#reply
+    #reply
       = render "comments/new"
 
   .grid_3
