@@ -1,4 +1,15 @@
+@import "compass/css3";
 body {
-  //background-image: url(image_path('gplaypattern.png'));
-  background-color: #CCD5DC;
+  //background-image: url(image_path('grid.png'));
+  background-color: #B4E5EA;
+}
+.breadcrumb {
+  margin-top: 50px;
+  background-color: white;
+}
+.navbar.navbar-fixed-top.navbar-inverse {
+  @include opacity(0.85);
+  .container > ul > li > a {
+    color: #FFFFFF;
+  }
 }

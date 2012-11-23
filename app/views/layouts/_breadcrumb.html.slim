@@ -1,7 +1,8 @@
-ul.breadcrumb.box
-  li = link_to "城市", nodes_path
-  span.divider = '/'
-  - @bread_stack.each do |node|
-    li = link_to node.name, goto_path(node.short_name)
+.grid_12
+  ul.breadcrumb.box
+    li = link_to "城市", nodes_path
     span.divider = '/'
+    - @bread_stack.each do |node|
+      li = link_to node.name, goto_path(node.short_name)
+      span.divider = '/'
 

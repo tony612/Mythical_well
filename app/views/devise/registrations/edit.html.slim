@@ -1,8 +1,9 @@
-= render "/users/setting_sidebar"
+.grid_3
+  = render "/users/setting_sidebar"
 
-.main.main-right
+.grid_9
   .box
-    = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {class: 'form form-horizontal', :method => :put }) do |f|
+    = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {class: 'form form-horizontal account_setting', :method => :put }) do |f|
       /= devise_error_messages!
       legend 账户信息设置
       = f.input :username, label: "用户名", input_html: {disabled: true}

@@ -7,7 +7,7 @@
       ul.unstyled
         - @messages.each do |msg|
           li
-            .photo = avatar_for msg.user
+            .photo = avatar_for msg.user, 48
             .content
               .title
                 - if msg.msg_type == Message.EVENT_TYPE
