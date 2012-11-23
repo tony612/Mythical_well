@@ -1,4 +1,11 @@
-h4 最近发起的活动
+h4
+  i.icon-time
+  |  最近发起的活动
 ul.unstyled
   - events.each do |event|
-    li = link_to event.title, event
+    li
+      = link_to truncate(event.title, :length => 20), event
+      .time
+        = event.created_at.to_formatted_s(:db)
+      hr
+

@@ -1,12 +1,15 @@
-h4 最近回复的活动
+h4
+  i.icon-time
+  |  最近回复的活动
 - if comments.empty?
   | 暂无回复的活动
 - else
   ul.unstyled
     - comments.each do |comment|
-      li 
+      li
         .title
-          = link_to comment.event.title, event_path(comment.event_id)
-          span = " at #{comment.created_at.to_formatted_s(:db)}"
-        .body
+          = link_to truncate(comment.event.title, :length => 20), event_path(comment.event_id)
+          span = "#{comment.created_at.to_formatted_s(:db)}"
+        .content
           = comment_raw comment.content
+        hr

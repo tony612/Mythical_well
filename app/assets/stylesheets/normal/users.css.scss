@@ -1,1 +1,45 @@
+@import "compass/css3";
+@import "compass/utilities";
+.recent_events {
+  background: #FFFFFF;
+  margin-bottom: 20px;
+  @include border-radius(3px);
+  border: 1px solid #DDD;
+  @include box-shadow(rgba(black, 0.3) 0 1px 2px);
+  h4 {
+    padding: 10px 0 10px 20px;
+    margin-top: 0;
+    background: #F1F1F1;
+    @include box-shadow(rgba(black, 0.2) 0px -1px 1px inset);
+  }
+  ul {
+    padding: 20px;
+    padding-top: 10px;
+  }
+  li {
+    line-height: 25px;
+    & a {
+      color: black;
+    }
+    .time {
+      color: #777777;
+      float:right;
+    }
+    hr {
+      margin: 10px 0;
+    }
+  }
 
+  .title {
+    span {
+      color: #777;
+      float: right;
+    }
+  }
+  .content {
+    margin-top: 10px;
+    padding: 10px;
+    background: #F7F7F7;
+    @include border-radius(5px);
+  }
+}

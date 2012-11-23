@@ -1,9 +1,8 @@
-.container_12
-  .grid_9
-    = render 'events_table', events: @events
-    = paginate @events
+.grid_9
+  = render 'events_table', events: @events
+  = paginate @events
 
-  .grid_3
-    = render 'hot', events_hot: @events_hot
-  .clear
+.grid_3
+  = render 'hot', events_hot: @events_hot
+.clear
 
