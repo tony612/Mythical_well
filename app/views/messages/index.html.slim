@@ -1,35 +1,36 @@
-.main.main-left
-  .box.messages
+.grid_9
+  .messages
     - if @messages.blank?
       | 暂无消息，想更有人气吗？ 多多去发活动、留言吧～
     - else
       = link_to "清空", empty_user_messages_path(current_user), class: 'btn btn-danger', method: :post
-      table.table
+      ul.unstyled
         - @messages.each do |msg|
-          tbody
-            tr
-              td.photo = avatar_for msg.user
-              td
+          li
+            .photo = avatar_for msg.user
+            .content
+              .title
                 - if msg.msg_type == Message.EVENT_TYPE
-                  h4 
+                  h4
                     = link_to msg.comment.user.username, msg.user
                     - if msg.comment.event.user == current_user
                       | 回复了你发起的活动：
                     - else
                       | 回复了你关注的活动：
-                    = link_to msg.comment.event.title, msg.comment.event
+                    = link_to truncate(msg.comment.event.title, :length => 20), msg.comment.event
                 - elsif msg.msg_type == Message.MENTION_TYPE
                   h4
                     = link_to msg.comment.user.username, msg.user
                     | 在
                     = link_to msg.comment.event.title, msg.comment.event
                     | @了你：
-                .content
-                    p
-                      = comment_raw msg.comment.content[0..30]
-              td.action = link_to "Delete", user_message_path(msg.user, msg), :method => :delete
+
+              p
+                = comment_raw msg.comment.content[0..30]
+            .action
+              = link_to user_message_path(msg.user, msg), :method => :delete do
+                i.icon-trash.icon-large
     = paginate @messages
-    
-.right_sidebar
-  .box
-    = render "users/user_sidebar", meta: {}, user: current_user
+
+.grid_3
+  = render "users/user_sidebar", meta: {}, user: current_user

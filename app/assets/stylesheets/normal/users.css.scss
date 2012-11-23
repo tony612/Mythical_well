@@ -43,3 +43,50 @@
     @include border-radius(5px);
   }
 }
+
+.profile {
+  background: #343131;
+  color: #FFFFFF;
+  padding: 20px;
+  margin-bottom: 20px;
+  @include border-radius(3px);
+  @include display-box;
+  @include box-orient(horizontal);
+  @include box-align(stretch);
+  .photo {
+    img {
+      text-align: center;
+      vertical-align: middle;
+      border: 2px solid #FFFFFF;
+      @include border-radius(3px);
+    }
+    @include box-flex(1);
+  }
+  .info {
+    @include box-flex(8);
+    td {
+      padding: 0 10px;
+    }
+    a {
+      color: #FFFFFF;
+      font-style: italic;
+    }
+  }
+  .action {
+    @include box-flex(1);
+  }
+}
+
+#user_sidebar {
+  hr {
+    margin: 5px 0;
+  }
+  .mini_profile {
+    @include display-box;
+    @include box-orient(horizontal);
+    @include box-align(stretch);
+    margin-bottom: 15px;
+    padding: 10px;
+    overflow: hidden;
+  }
+}

@@ -1,6 +1,5 @@
-.main.main-left
-  .box
-    = render 'events/events_table', events: @events
+.grid_9
+  = render 'events/events_table', events: @events
 
-.right_sidebar
+.grid_3
   = render "user_sidebar", meta: {}, :user => current_user

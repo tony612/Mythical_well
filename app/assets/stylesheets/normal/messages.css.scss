@@ -1,1 +1,39 @@
+@import "compass/css3";
 
+.messages {
+  background: #FFFFFF;
+  padding: 20px;
+  .btn.btn-danger {
+    margin-bottom: 20px;
+  }
+  li {
+    @include display-box;
+    @include box-orient(horizontal);
+    @include box-align(stretch);
+    padding: 20px 0;
+    border-bottom: 1px solid #DDD;
+    .photo {
+      @include box-flex(1);
+      img {
+        @include border-radius(100%);
+      }
+    }
+    .content {
+      @include box-flex(8);
+      p {
+        background: #F7F7F7;
+        padding: 10px;
+      }
+    }
+    .action {
+      @include box-flex(1);
+      a {
+        color: #DD3300;
+        &:hover {
+          color: red;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

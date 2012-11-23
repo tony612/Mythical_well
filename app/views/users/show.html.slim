@@ -1,31 +1,38 @@
-.main.main-left
-  .box.profile
-    .row
-      .span2
-        = avatar_for @user, 140
+.grid_9
+    .profile
+      .photo
+        = avatar_for @user, 96
       .info
-        dl.dl-horizontal
-          dt 用户名
-          dd = @user.username
-          dt 姓名
-          dd = @user.name
-          dt 城市
-          dd = link_to @user.city, "#"
-          dt 学校
-          dd = link_to @user.school, "#"
-          dt 邮件
-          dd = @user.email
-          dt 个人主页
-          dd = link_to @user.website, "http://#{@user.website}"
-          dt 个性签名
-          dd = @user.tagline
+        table
+          tr
+            td 用户名
+            td  = @user.username
+          tr
+            td 姓名
+            td = @user.name
+          tr
+            td 城市
+            td = link_to @user.city, "#"
+          tr
+            td 学校
+            td = link_to @user.school, "#"
+          tr
+            td 邮件
+            td = @user.email
+          tr
+            td 个人主页
+            td = link_to @user.website, "http://#{@user.website}"
+          tr
+            td 个性签名
+            td = @user.tagline
       .action
         .follow_button class="#{@user.username}"
           = render 'follow_button', friend: @user
 
-  .box
-    = render 'recent_events', events: @events
-    = render 'recent_comments', comments: @comments
+    .recent_events
+      = render 'recent_events', events: @events
+    .recent_events
+      = render 'recent_comments', comments: @comments
 
-.right_sidebar
+.grid_3
   = render "user_sidebar", meta: {profile: true}, user: @user
