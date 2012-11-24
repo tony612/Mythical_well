@@ -44,4 +44,13 @@ module EventsHelper
             'data-id' => event.id,
             'data-followed' => (class_name == "followed")
   end
+
+  def my_image_tag url
+    if FileTest.exist?(url)
+      image_tag url
+    else
+      p Rails.root.join('public' 'noimage.png')
+      image_tag 'http://h.hiphotos.baidu.com/album/s%3D585%3Bq%3D90/sign=04a46dc29313b07eb9bd500039ece01e/b7fd5266d0160924544e48f8d40735fae7cd34ee.jpg'
+    end
+  end
 end

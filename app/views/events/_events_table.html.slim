@@ -3,7 +3,7 @@ ul.unstyled.events
     li.item.container_9
       .photo
         /= link_to event do
-        = image_tag event.image_url(:show).to_s
+        = my_image_tag event.image_url(:show).to_s + "dasdad"
       .content
         .title = link_to truncate(event.title, :length => 20), event
         .info
