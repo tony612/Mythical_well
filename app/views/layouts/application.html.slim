@@ -13,8 +13,9 @@ html
       = render 'layouts/breadcrumb'
 
       - flash.each do |key, value|
-        div class="alert alert-#{key}"
-          = value.html_safe
+        .grid_12
+          div class="alert alert-#{key}"
+            = value.html_safe
 
       = yield
 

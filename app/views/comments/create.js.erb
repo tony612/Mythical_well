@@ -1,5 +1,5 @@
-if($('comments_list .comment').length == 0) {
-  document.getElementById('comments_list').value = "";
+if($('#comments_list .comment').length === 0) {
+  document.getElementById('comments_list').innerHTML = "";
 }
 $('#comments_list').append("<%=j render 'comments/comment', :comment => @comment %>")
 document.getElementById("comment_content").value = "";
