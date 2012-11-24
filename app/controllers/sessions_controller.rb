@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     @node = Node.find_by_short_name(params[:node])
     str_bread = ""
     if @node.classify == 'school'
-      str_bread = "#{@node.parent_short_name}|#{@node.short_name}"
+      str_bread = "#{@node.parent.short_name}|#{@node.short_name}"
     else
       str_bread = "#{@node.short_name}"
     end

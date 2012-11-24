@@ -46,10 +46,10 @@
           i.icon-edit.icon-large
 
     #comments_list
-      = render "comments/index"
+      = render "comments/index", :event => @event
 
     #reply
-      = render "comments/new"
+      = render "comments/new", :event => @event, :comment => @comment
 
   .grid_3
     .box.event_photo

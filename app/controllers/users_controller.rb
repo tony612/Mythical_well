@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   def set_base
   end
 
-  def update_base 
+  def update_base
     @user = current_user
     if @user.update_attributes(params[:user])
       flash[:success] = "恭喜，基本资料更新成功"
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
     when 'comment'
       @events = @user.comments.map(&:event).uniq
     end
-  
+
   end
 
   def followers
@@ -58,6 +58,7 @@ class UsersController < ApplicationController
   def followees
     @user = User.find_by_username(params[:id])
     @friends = @user.followed_users.page params[:page]
+    p @user
     render 'friends'
   end
 

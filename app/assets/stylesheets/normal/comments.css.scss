@@ -12,10 +12,12 @@
     @include box-orient(horizontal);
     @include box-align(stretch);
     margin-bottom: 20px;
+    width: 100%;
     .replyer {
       text-align: center;
       vertical-align: middle;
       @include box-flex(0.8);
+      overflow: hidden;
       .photo img {
         @include border-radius(100%);
       }

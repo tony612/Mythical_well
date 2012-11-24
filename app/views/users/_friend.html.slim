@@ -1,12 +1,10 @@
 li
-  .follow_button class="#{friend.username}"
-    = render 'follow_button', friend: friend
   .photo
-    = avatar_for user, 60
+    = avatar_for friend, 60
   .info
     = link_to friend do
       strong = "@#{friend.username}"
-      '
-      span (备注名)
-      br
     span.tagline = friend.tagline
+  .follow_button class="#{friend.username}"
+    = render 'follow_button', friend: friend
+

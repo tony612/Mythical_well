@@ -2,6 +2,9 @@
 @import "compass/utilities";
 
 .nodes {
+  ul {
+    width: 100%;
+  }
   li {
     background: #FFFFFF;
     padding: 20px;
@@ -11,6 +14,8 @@
     @include display-box;
     @include box-orient(horizontal);
     @include box-align(stretch);
+    max-width: 940px;
+    width: 900px;
     .city {
       margin: 0 40px;
       a {

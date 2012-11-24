@@ -12,6 +12,7 @@
     @include box-align(stretch);
     padding: 20px 0;
     border-bottom: 1px solid #DDD;
+    width: 100%;
     .photo {
       @include box-flex(1);
       img {

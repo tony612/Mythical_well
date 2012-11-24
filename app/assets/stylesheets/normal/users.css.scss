@@ -49,6 +49,7 @@
   color: #FFFFFF;
   padding: 20px;
   margin-bottom: 20px;
+  width: 660px;
   @include border-radius(3px);
   @include display-box;
   @include box-orient(horizontal);
@@ -99,5 +100,24 @@ ul.nav-list {
   }
   a {
     margin: 0px;
+  }
+}
+
+#friends_list {
+  li {
+    @include display-box;
+    @include box-orient(horizontal);
+    @include box-align(stretch);
+    .photo {
+      @include box-flex(1);
+    }
+    .info {
+      @include box-flex(10);
+    }
+    .follow_button {
+      @include box-flex(1);
+    }
+    padding: 20px 0;
+    border-bottom: 1px solid #DDD;
   }
 }

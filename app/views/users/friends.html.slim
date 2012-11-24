@@ -1,9 +1,9 @@
-.main.main-left
+.grid_9
   .box
-    ul#friends_list.unstyled
-      = render :partial => 'friend', :collection => @friends, :user => @user
-    = paginate @friends
+    - unless @friends.blank?
+      ul#friends_list.unstyled
+        = render :partial => 'friend', :collection => @friends
+      = paginate @friends
 
-.right_sidebar
-  .box
-    = render 'user_sidebar', meta: {}, user: @user
+.grid_3
+  = render 'user_sidebar', meta: {}, user: @user
