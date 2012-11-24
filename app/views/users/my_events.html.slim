@@ -1,10 +1,10 @@
-.main.main-left
-  .box.recent_events
+.grid_9
+  .recent_events
     = render 'recent_events',meta: {}, :events => @events
 
-  .box.recent_comments
+  .recent_events
     = render 'recent_comments', meta: {}, :comments => @comments
 
-.right_sidebar
+.grid_3
   = render "user_sidebar", meta: {}, :user => current_user
-  /= render "hot_activity"
+/= render "hot_activity"

@@ -1,85 +1,103 @@
-#friends_list{
+@import "compass/css3";
+@import "compass/utilities";
+.recent_events {
+  background: #FFFFFF;
+  margin-bottom: 20px;
+  @include border-radius(3px);
+  border: 1px solid #DDD;
+  @include box-shadow(rgba(black, 0.3) 0 1px 2px);
+  h4 {
+    padding: 10px 0 10px 20px;
+    margin-top: 0;
+    background: #F1F1F1;
+    @include box-shadow(rgba(black, 0.2) 0px -1px 1px inset);
+  }
+  ul {
+    padding: 20px;
+    padding-top: 10px;
+  }
   li {
-    img, .photo {
-      height: 60px;
-      width: 60px;
+    line-height: 25px;
+    & a {
+      color: black;
     }
+    .time {
+      color: #777777;
+      float:right;
+    }
+    hr {
+      margin: 10px 0;
+    }
+  }
 
-    padding: 8px 10px;
-    margin: 0 -10px;
-    border-top: 1px solid #DDD;
-    overflow: hidden;
-    .follow_button {
+  .title {
+    span {
+      color: #777;
       float: right;
-      position: relative;
-    }
-    .info {
-      margin-right: 100px;
-      margin-left: 70px;
-      margin-top: -60px;
-      margin-bottom: 40px;
-      span {
-        color: #999;
-        text-decoration: none;
-      }
     }
   }
-  
-}
-
-.messages {
-  table {
-    td {
-      vertical-align: top;
-      h4{
-        margin-top:0;
-      }
-    }
-    td.photo {
-      width: 50px;
-    }
-
-    td.action {
-      width: 50px;
-      //text-align: right;
-    }
-  }
-}
-
-.recent_comments {
-  li {
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
-    padding-top: 5px;
-    .body {
-      padding-top: 5px;
-      a {
-        color: #000;
-        font-weight:bold;
-      }
-    }
-  }
-}
-
-.base_info {
-  
-  img {
-    width: 96px;
-    height: 96px;
+  .content {
+    margin-top: 10px;
+    padding: 10px;
+    background: #F3F3F3;
+    @include border-radius(5px);
   }
 }
 
 .profile {
-  .span2 {
-    float: left;
+  background: #343131;
+  color: #FFFFFF;
+  padding: 20px;
+  margin-bottom: 20px;
+  @include border-radius(3px);
+  @include display-box;
+  @include box-orient(horizontal);
+  @include box-align(stretch);
+  .photo {
+    img {
+      text-align: center;
+      vertical-align: middle;
+      border: 2px solid #FFFFFF;
+      @include border-radius(3px);
+    }
+    @include box-flex(1);
   }
   .info {
-    float: left;
-    margin-left: -70px;
+    @include box-flex(8);
+    td {
+      padding: 0 10px;
+    }
+    a {
+      color: #FFFFFF;
+      font-style: italic;
+    }
   }
   .action {
-    float: right;
-    margin-right: 60px;
-    margin-top: 20px;
+    @include box-flex(1);
+  }
+}
+
+#user_sidebar {
+  hr {
+    margin: 5px 0;
+  }
+  .mini_profile {
+    @include display-box;
+    @include box-orient(horizontal);
+    @include box-align(stretch);
+    margin-bottom: 15px;
+    padding: 10px;
+    overflow: hidden;
+  }
+}
+legend {
+  padding: 10px 20px;
+}
+ul.nav-list {
+  .nav-header {
+    font-size: 15px;
+  }
+  a {
+    margin: 0px;
   }
 }

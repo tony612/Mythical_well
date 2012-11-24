@@ -8,16 +8,19 @@ html
     = csrf_meta_tags
   body data-offset="50"
     = render 'layouts/header'
-    
-    .container
+
+    .container_12#layout
       = render 'layouts/breadcrumb', :bread_stack => @bread_stack
 
       - flash.each do |key, value|
-        div class="alert alert-#{key}" 
-          = value.html_safe
-      
+        .grid_12
+          div class="alert alert-#{key}"
+            = value.html_safe
+
       = yield
-    
-    .footer
-    = render 'layouts/footer'
-      
+
+      #layout_footer
+
+    #footer
+      = render 'layouts/footer'
+

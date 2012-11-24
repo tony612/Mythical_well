@@ -23,4 +23,6 @@ bundler_stubs
 coverage
 rails_best_practices_output.html
 /public/uploads
+coverage
+rails_best_practices_output.html
 #/public/assets

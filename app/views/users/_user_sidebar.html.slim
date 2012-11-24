@@ -1,18 +1,17 @@
 .box#user_sidebar
   - unless meta[:profile]
-    dl
-      dt
-        /img src="/assets/avatar.png"
+    .mini_profile
+      .photo
         = avatar_for user, 64
-      dd
-        h4
-          = link_to user.username, user
+      .info
         ul.unstyled
+          li = link_to user.username, user
           li = user.tagline
-          li 
+          li
             | 在
             = link_to user.city, "#"
             | 求学
+    hr
   ul.unstyled
     li
       | 发起了
@@ -23,18 +22,18 @@
     li
       | 关注了
       = link_to "#{user.follow_events.count}个活动", all_events_user_path(user, q: 'follow')
+  /- if meta[:profile]
   hr
-  - if meta[:profile]
-    #followship_info
-      = render 'followship_info', :user => user
+  #followship_info
+    = render 'users/followship_info', :user => user
 
 - if meta[:profile]
   .box.push_follow
-    h5 推荐关注
-    table.table.table-condensed
+    .title 推荐关注
+    table
       - (1..7).each do |index|
         tr
           td
-            img src="/assets/avatar.png"
+            img = avatar_for nil
             = link_to "User #{index}", "/ui/profile"
 

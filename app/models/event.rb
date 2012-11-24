@@ -3,7 +3,7 @@ require 'file_size_validator'
 class Event < ActiveRecord::Base
   attr_accessible :title, :start_date, :end_date, :date_desc, :location, :content, :category, :fee, :image, :tag_tokens, :node_id
   mount_uploader :image, ImageUploader
-  
+
   has_many :comments, :dependent => :destroy
   belongs_to :user, foreign_key: 'user_id'
   delegate :username, :name, :to => :user, :prefix => true, :allow_nil => true
@@ -13,7 +13,7 @@ class Event < ActiveRecord::Base
 
   has_many :event_followers
   has_many :followers, :class_name => 'User', :through => :event_followers
-  
+
   belongs_to :node, foreign_key: 'node_id'
   delegate :name, :to => :node, :prefix => true, :allow_nil => true
 
@@ -26,7 +26,7 @@ class Event < ActiveRecord::Base
   validates :image, :presence => {message: "需要上传海报"}, :file_size => { :maximum => 1.megabytes.to_i, message: "文件大小必须在1M以内"}
   validates :node_id, presence: {message: '需要选择学校'}
   scope :recent, :order => 'start_date DESC'
-  
+
   attr_reader :tag_tokens
   def tag_tokens=(tokens)
     self.tag_ids = Tag.ids_from_tokens(tokens)
@@ -58,4 +58,8 @@ class Event < ActiveRecord::Base
     Tag.find_by_name(tag).events
   end
 
+  after_destroy :delete_img
+  def delete_img
+    remove_image
+  end
 end

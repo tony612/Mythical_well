@@ -1,12 +1,11 @@
-table.table.table-striped.events
+ul.unstyled.events
   - events.each do |event|
-    tr
-      td.photo
-        = link_to event do
-          = image_tag event.image_url(:index).to_s
-      td
-        .title
-          = link_to event.title, event
+    li.item.container_9
+      .photo
+        /= link_to event do
+        = image_tag event.image_url(:show).to_s
+      .content
+        .title = link_to truncate(event.title, :length => 20), event
         .info
           ul.unstyled
             li
@@ -19,11 +18,11 @@ table.table.table-striped.events
               | 分类：
               = link_to event.category, url_for(:category => event.category)
 
-            li 
+            li
               | 发起人：
               = link_to event.user_username, event.user
             li.tag
               | 标签：
               = tag_list event
-              
+    .clear
 

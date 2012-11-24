@@ -50,6 +50,7 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
   gem 'font-awesome-rails'
+  gem 'compass-rails'
 end
 
 # To use ActiveModel has_secure_password
