@@ -5,11 +5,13 @@
         = link_to @event.user do
           = avatar_for @event.user, 56
         = link_to @event.user.username + 'adaheias', @event.user, data: {name: @event.user.name}, :class => 'none'
-      h2.title = @event.title + "为梦扬帆迎新晚会"
+      h2.title = @event.title
       .tag_cat
-        = link_to events_path(:category => @event.category) do
+        = link_to events_path(:category => @event.category), :class => 'category_link' do
           i.icon-tasks
           = @event.category
+        script
+          | $('.category_link').tooltip({title: '分类'})
         - @event.tags.each do |tag|
           = link_to events_path(tag: tag.name) do
             i.icon-tag
@@ -44,6 +46,8 @@
       - if user_signed_in? and current_user == @event.user
         = link_to edit_event_path(@event) do
           i.icon-edit.icon-large
+        script
+          | $('.icon-edit').tooltip({title: '编辑'})
 
     #comments_list
       = render "comments/index", :event => @event

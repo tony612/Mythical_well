@@ -10,7 +10,12 @@
         .controls
           = avatar_for current_user, 96
           '
-          button.btn Upload
+          /button.btn Upload
+          = link_to "到Gravatar修改", "http://en.gravatar.com/", :target => '_blank'
+          i.icon-question-sign.gravatar_help
+          script
+            | $('.gravatar_help').popover({trigger: 'hover', title: '为什么用Gravatar', content: '这是与邮箱相关连的一种全球性服务，只要网站支持，根据邮箱就能自动找到您上传的头像'})
+
       = f.input :name, label: "真实姓名", hint: "填写真实姓名有助于您的朋友找到您"
       = f.input :gender, label: "性别", collection: ["男", "女"], prompt: "保密"
       = f.input :city, label: "现居城市"

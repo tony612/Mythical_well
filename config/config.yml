@@ -1,6 +1,6 @@
 defaults: &defaults
   admin_emails:
-    - "admin@admin.com"
+    - "h.bing612@gmail.com"
 
 development:
   <<: *defaults

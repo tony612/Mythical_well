@@ -9,6 +9,10 @@
     - if comment.user == current_user
       = link_to edit_event_comment_path(@event, comment) do
         i.icon-pencil
+      script
+        | $('.icon-pencil').tooltip({title: '编辑', placement: 'right'})
       br
     = link_to edit_event_comment_path(@event, comment) do
         i.icon-comment
+    script
+      | $('.icon-comment').tooltip({title: '回复', placement: 'right'})
