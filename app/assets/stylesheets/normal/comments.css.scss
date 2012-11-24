@@ -26,10 +26,21 @@
       }
     }
     .content {
-      @include border-radius(3px);
-      background: #232323;
       @include box-flex(9);
-      padding: 10px;
+      .floor {
+        font-size: 13px;
+        color: #AAAAAA;
+      }
+      .body {
+        @include border-radius(3px);
+        background: #232323;
+        padding: 10px;
+        min-height: 20px;
+        color: #FFFFFF;
+        a {
+          color: #B4F1FF;
+        }
+      }
     }
     .action {
       @include box-flex(0.5);
@@ -58,4 +69,7 @@
     float: right;
     margin-right: 15px;
   }
+}
+.comment_edit_help {
+  padding: 20px;
 }

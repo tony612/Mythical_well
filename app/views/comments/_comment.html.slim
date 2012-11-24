@@ -3,16 +3,21 @@
     .photo = avatar_for comment.user, 48
     = link_to comment.user_username, comment.user, data: {name: comment.user_name}, class: 'name'
   .content
-    p
-      = comment_raw comment.content
+    .floor
+      = "#{comment_counter + 1} 楼，#{comment.created_at.to_formatted_s(:short)}"
+    .body
+      p
+        = comment_raw comment.content
   .action
-    - if comment.user == current_user
-      = link_to edit_event_comment_path(@event, comment) do
-        i.icon-pencil
-      script
-        | $('.icon-pencil').tooltip({title: '编辑', placement: 'right'})
-      br
-    = link_to edit_event_comment_path(@event, comment) do
-        i.icon-comment
-    script
-      | $('.icon-comment').tooltip({title: '回复', placement: 'right'})
+    - if user_signed_in?
+      - if comment.user == current_user
+        = link_to edit_event_comment_path(@event, comment) do
+          i.icon-pencil
+        script
+          | $('.icon-pencil').tooltip({title: '编辑', placement: 'right'})
+        br
+      - if comment.user != current_user
+        = link_to '#', :data => {:username => comment.user.username, :floor => comment_counter + 1}, :class => 'comment_link' do
+            i.icon-comment
+        script
+          | $('.icon-comment').tooltip({title: '回复', placement: 'right'})
