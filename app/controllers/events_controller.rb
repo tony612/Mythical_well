@@ -8,6 +8,15 @@ class EventsController < ApplicationController
     @events_hot = Event.recent.limit(5)
   end
 
+  def search
+    @search = Event.search do
+      fulltext params[:q]
+    end
+    @events = @search.results
+    @events_hot = Event.recent.limit(5)
+    render 'index'
+  end
+
   def show
     @event = Event.find(params[:id])
     @comments = @event.comments.order('created_at')
@@ -33,7 +42,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    date_handle   
+    date_handle
     @event = current_user.events.build(params[:event])
 
     respond_to do |format|
@@ -42,7 +51,7 @@ class EventsController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
-        
+
       end
     end
   end
@@ -56,7 +65,7 @@ class EventsController < ApplicationController
     date_handle
 
     @event = Event.find(params[:id])
-      
+
     if @event.update_attributes(params[:event])
       redirect_to @event
     else

@@ -1,11 +1,15 @@
 MythicalWell::Application.routes.draw do
-  
+
   #match 'ui(/:action)', controller: 'ui'
   resources :events, only: [:index, :show, :new, :create, :edit, :update] do
     resources :comments, only: [:create, :edit, :update]
     member do
       post :follow
       post :unfollow
+    end
+
+    collection do
+      get :search
     end
   end
   devise_for :users

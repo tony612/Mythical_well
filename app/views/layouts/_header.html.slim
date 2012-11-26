@@ -5,8 +5,8 @@
       ul.nav
         li.active = link_to "首页", root_path
         /li = link_to "用户", users_path
-      form.navbar-search
-        input.search-query type="text" placeholder="搜索"
+      form.navbar-search action='/events/search' method='get'
+        input.search-query type="text" placeholder="搜索标题或内容" name='q'
       ul.nav.pull-right
         - if user_signed_in?
           li#messages_unread

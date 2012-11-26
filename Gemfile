@@ -1,4 +1,5 @@
-source 'http://ruby.taobao.org'
+#source 'http://ruby.taobao.org'
+source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
 
@@ -10,6 +11,7 @@ gem 'private_pub'
 gem 'bootstrap-wysihtml5-rails'
 gem 'cancan'
 gem 'settingslogic'
+gem 'sunspot_rails'
 
 # asset gems
 gem 'slim-rails'
@@ -31,6 +33,7 @@ group :development, :test do
   gem 'faker'
   gem 'pry'
   gem 'pry-nav'
+  gem 'sunspot_solr'
 end
 group :test do
   gem 'sqlite3'
