@@ -9,7 +9,10 @@ class EventsController < ApplicationController
   end
 
   def search
-    @events = Event.where('title like ?', "%#{params[:q]}%").page params[:page]
+    querys = params[:q].to_s.split.map{|q| "%#{q}%"}
+    conditions = ["title like ? or content like ?"] * querys.length * ' or '
+    querys = querys.zip(querys).flatten!
+    @events = Event.where(conditions, *querys).page params[:page]
     @events_hot = Event.recent.limit(5)
     render 'index'
   end
