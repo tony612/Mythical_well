@@ -9,10 +9,8 @@ class EventsController < ApplicationController
   end
 
   def search
-    @search = Event.search do
-      fulltext params[:q]
-    end
-    @events = @search.results
+    events = Event.arel_table
+    @events = Event.where(events[:title].matches("%#{params[:q]}")).page params[:page]
     @events_hot = Event.recent.limit(5)
     render 'index'
   end

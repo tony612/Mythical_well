@@ -11,8 +11,8 @@ gem 'private_pub'
 gem 'bootstrap-wysihtml5-rails'
 gem 'cancan'
 gem 'settingslogic'
-gem 'sunspot_rails'
-gem 'sunspot_solr'
+#gem 'sunspot_rails'
+#gem 'sunspot_solr'
 
 # asset gems
 gem 'slim-rails'

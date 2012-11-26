@@ -27,10 +27,6 @@ class Event < ActiveRecord::Base
   validates :node_id, presence: {message: '需要选择学校'}
   scope :recent, :order => 'start_date DESC'
 
-  searchable do
-    text :title, :content
-  end
-
   attr_reader :tag_tokens
   def tag_tokens=(tokens)
     self.tag_ids = Tag.ids_from_tokens(tokens)
