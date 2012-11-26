@@ -12,6 +12,7 @@ gem 'bootstrap-wysihtml5-rails'
 gem 'cancan'
 gem 'settingslogic'
 gem 'sunspot_rails'
+gem 'sunspot_solr'
 
 # asset gems
 gem 'slim-rails'
@@ -33,7 +34,6 @@ group :development, :test do
   gem 'faker'
   gem 'pry'
   gem 'pry-nav'
-  gem 'sunspot_solr'
 end
 group :test do
   gem 'sqlite3'
