@@ -1,5 +1,7 @@
 if($('#comments_list .comment').length === 0) {
   document.getElementById('comments_list').innerHTML = "";
 }
-$('#comments_list').append("<%=j render 'comments/comment', :comment => @comment, :comment_counter => @event.comments.count - 1 %>")
+var new_item = $("<%=j render 'comments/comment', :comment => @comment, :comment_counter => @event.comments.count - 1 %>").hide();
+$('#comments_list').append(new_item);
+new_item.slideDown('show');
 document.getElementById("comment_content").value = "";
