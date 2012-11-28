@@ -3,5 +3,6 @@ class NodesController < ApplicationController
     session[:bread_stack] = ""
     @bread_stack = []
     @cities = Node.where(:classify => 'city').order('name').includes(:children)
+    p @cities
   end
 end

@@ -3,17 +3,17 @@
     .container
       .brand Mythical Well
       ul.nav
-        li.active = link_to "首页", root_path
+        li = link_to_current "首页", root_path
         /li = link_to "用户", users_path
       form.navbar-search action='/events/search' method='get'
         input.search-query type="text" placeholder="搜索标题或内容" name='q'
       ul.nav.pull-right
         - if user_signed_in?
           li#messages_unread
-            = link_to "#{current_user.messages.unread.count}消息", user_messages_path(current_user)
+            = link_to_current "#{current_user.messages.unread.count}消息", user_messages_path(current_user)
             = subscribe_to "/messages_unread/#{current_user.username}"
           li
-            = link_to "我的活动", my_events_path
+            = link_to_current "我的活动", my_events_path
           li.dropdown
             = link_to "#", :class => "dropdown-toggle", :'data-toggle' => "dropdown" do
               = current_user.username

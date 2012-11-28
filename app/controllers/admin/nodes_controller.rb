@@ -2,10 +2,10 @@ class Admin::NodesController < Admin::ApplicationController
   def index
     @nodes = Node.page(params[:page]).per(10)
   end
-  
+
   def edit
     @node = Node.find(params[:id])
-    @parents = Node.where(:classify => 'city')
+    @parents = Node.where(:classify => ['city', 'area'])
   end
 
   def update
@@ -20,7 +20,7 @@ class Admin::NodesController < Admin::ApplicationController
 
   def new
     @node = Node.new
-    @parents = Node.where(:classify => 'city')
+    @parents = Node.where(:classify => ['city', 'area'])
   end
 
   def create

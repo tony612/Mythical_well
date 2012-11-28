@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 require 'file_size_validator'
 class Event < ActiveRecord::Base
-  attr_accessible :title, :start_date, :end_date, :date_desc, :location, :content, :category, :fee, :image, :tag_tokens, :node_id
+  attr_accessible :title, :start_date, :end_date, :date_desc, :location, :content, :category, :theme, :fee, :image, :tag_tokens, :node_id
   mount_uploader :image, ImageUploader
 
   has_many :comments, :dependent => :destroy
@@ -22,6 +22,7 @@ class Event < ActiveRecord::Base
   validates :content, presence: {message: "活动详情不能为空"}
   validates :fee, presence: {message: "费用不能为空"}
   validates :category, presence: {message: "分类不能为空"}
+  validates :theme, presence: { message: "主题不能为空" }
   validates :user_id, presence: true
   validates :image, :presence => {message: "需要上传海报"}, :file_size => { :maximum => 1.megabytes.to_i, message: "文件大小必须在1M以内"}
   validates :node_id, presence: {message: '需要选择学校'}
@@ -38,7 +39,11 @@ class Event < ActiveRecord::Base
       node = Node.find_by_short_name(params[:short_name])
       if node.classify == 'school'
         nodes_arr = [node.id]
-      elsif node.classify == 'city' and !node.children.empty?
+      elsif node.classify == 'city'
+        nodes_arr = node.children.map do |ch|
+          ch.classify == 'area' ? ch.children.map(&:id) : ch.id
+        end.flatten
+      elsif node.classify == 'area'
         nodes_arr = node.children.map(&:id)
       end
     end

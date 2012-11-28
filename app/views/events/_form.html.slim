@@ -1,13 +1,14 @@
 = simple_form_for event, validate: true, :html => {class:"form-horizontal", id:"create_event", :multipart => true} do |f|
   legend = meta[:legend]
   = f.input :title, label: "活动标题", input_html: {:style => 'width: 300px', maxlength: 50}
-  = f.input :category, label: "分类", collection: ["生活", "课程", "聚会", "其他"], prompt: "选择分类"
+  = f.input :category, label: "形式", collection: ["户外活动", "户外休闲", "泡吧", "室内娱乐"], prompt: "选择分类"
+  = f.input :theme, label: "主题", collection: ["休闲娱乐", "社交", "专业交流", "经验交流", "领域交流", "爱好者", "聚会"], prompt: "选择主题"
   /.control-group
     = f.label :title, "活动周期", class: 'control-label'
     .controls
       = f.text_field:
   = render 'date_select'
-  = f.input :node_id, label: '所在学校', :collection => schools
+  = f.input :node_id, label: '所在学校或区域', :collection => schools
   = f.input :location, label: "活动地点"
   = f.input :content, label: "活动详情", as: :text, input_html: {:style => "width: 700px;"}, validate: false
   script

@@ -4,6 +4,10 @@
       li
         h4.city
           = link_to city.name, goto_path(city.short_name)
-        .schools
-          - city.children.each do |school|
-            = link_to school.name, goto_path(school.short_name)
+        .areas
+          - city.children.each do |child|
+            = link_to child.name, goto_path(child.short_name), :class => "#{"area" if child.classify == 'area'}"
+            - if child.classify == 'area'
+              - child.children.each do |school|
+                = link_to school.name, goto_path(school.short_name)
+            | |

@@ -36,7 +36,7 @@ MythicalWell::Application.routes.draw do
   namespace :admin do
     resources :events, only: [:index, :edit, :update, :destroy]
     resources :users, only: [:index, :edit, :update]
-    resource :nodes
+    resources :nodes, except: [:show]
     resources :comments, only: [:index]
   end
 

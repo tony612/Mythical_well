@@ -18,7 +18,6 @@ class ApplicationController < ActionController::Base
       nodes = session[:bread_stack].split('|')
     end
     stack = nodes.map{|n| Node.find_by_short_name(n)}
-    #p stack
     unless @bread_stack
       @bread_stack = stack
     end

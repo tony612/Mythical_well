@@ -26,13 +26,17 @@
         }
       }
     }
-    .schools {
+    .areas {
       a {
         color: #333333;
-        margin-right: 30px;
+        margin-right: 20px;
+        margin-left: 20px;
         &:hover {
           text-decoration: none;
           color: black;
+        }
+        &.area {
+          font-weight: bold;
         }
       }
     }

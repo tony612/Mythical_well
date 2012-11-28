@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121122125638) do
+ActiveRecord::Schema.define(:version => 20121128152945) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20121122125638) do
     t.string   "image"
     t.string   "date_desc"
     t.integer  "node_id"
+    t.string   "theme"
   end
 
   add_index "events", ["node_id"], :name => "index_events_on_node_id"
