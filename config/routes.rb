@@ -4,7 +4,8 @@ MythicalWell::Application.routes.draw do
   resources :events, only: [:index, :show, :new, :create, :edit, :update] do
     resources :comments, only: [:create, :edit, :update]
     member do
-      post :follow
+      post :watch
+      post :attend
       post :unfollow
     end
 

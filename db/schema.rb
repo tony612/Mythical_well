@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121128152945) do
+ActiveRecord::Schema.define(:version => 20121129152432) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20121128152945) do
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "classify"
   end
 
   add_index "event_followers", ["event_id"], :name => "index_event_followers_on_event_id"

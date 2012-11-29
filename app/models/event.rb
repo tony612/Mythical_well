@@ -22,7 +22,7 @@ class Event < ActiveRecord::Base
   validates :content, presence: {message: "活动详情不能为空"}
   validates :fee, presence: {message: "费用不能为空"}
   validates :category, presence: {message: "分类不能为空"}
-  validates :theme, presence: { message: "主题不能为空" }
+  #validates :theme, presence: { message: "主题不能为空" }
   validates :user_id, presence: true
   validates :image, :presence => {message: "需要上传海报"}, :file_size => { :maximum => 1.megabytes.to_i, message: "文件大小必须在1M以内"}
   validates :node_id, presence: {message: '需要选择学校'}
@@ -67,4 +67,19 @@ class Event < ActiveRecord::Base
   def delete_img
     remove_image
   end
+
+  def user_follow_type(user)
+    event_followers.where(:user_id => user.id)[0].classify
+  end
+
+  def attendees
+    attendship = event_followers.where(:classify => 'attend')
+    followers.where(:id => attendship.map(&:user_id))
+  end
+
+  def watchers
+    attendship = event_followers.where(:classify => 'watch')
+    followers.where(:id => attendship.map(&:user_id))
+  end
+
 end

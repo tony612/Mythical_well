@@ -41,8 +41,6 @@
                 = "#{@event.location}"
     .event_action
       = events_follow_tag @event
-      = link_to "#" do
-        i.icon-heart-empty.icon-large
       - if user_signed_in? and current_user == @event.user
         = link_to edit_event_path(@event) do
           i.icon-edit.icon-large

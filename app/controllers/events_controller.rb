@@ -27,18 +27,29 @@ class EventsController < ApplicationController
   def follow
     @event = Event.find(params[:id])
     @event.followers << current_user
-    render :text => "1"
   end
 
   def unfollow
     @event = Event.find(params[:id])
     @event.followers.delete(current_user)
-    render :text => "1"
+    redirect_to @event
+  end
+
+  def watch
+    follow
+    @event.event_followers.where(:user_id => current_user)[0].update_attributes(:classify => 'watch')
+    redirect_to @event
+  end
+
+  def attend
+    follow
+    @event.event_followers.where(:user_id => current_user)[0].update_attributes(:classify => 'attend')
+    redirect_to @event
   end
 
   def new
     @event = Event.new
-    @schools = Node.where(:classify => 'school')
+    @schools = Node.where(:classify => ['school', 'area'])
   end
 
   def create
@@ -58,7 +69,7 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
-    @schools = Node.where(:classify => 'school')
+    @schools = Node.where(:classify => ['school', 'area'])
   end
 
   def update
