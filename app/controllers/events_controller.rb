@@ -47,6 +47,18 @@ class EventsController < ApplicationController
     redirect_to @event
   end
 
+  def watchers
+    @event = Event.find(params[:id])
+    @followers = @event.watchers.page(params[:page]).per(96)
+    render 'followers'
+  end
+
+  def attendees
+    @event = Event.find(params[:id])
+    @followers = @event.attendees.page(params[:page]).per(96)
+    render 'followers'
+  end
+
   def new
     @event = Event.new
     @schools = Node.where(:classify => ['school', 'area'])

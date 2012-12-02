@@ -1,0 +1,13 @@
+.box.mini_event_followers
+  .title
+    | 活动成员
+  table
+    - event.followers[0..11].each_slice(4).to_a.each do |group|
+      tr
+        - group.each do |follower|
+          td
+            = link_to follower, :class => 'follower' do
+              = avatar_for follower, 45
+  .follower_links
+    = link_to "#{event.attendees.count}人要参加", attendees_event_path(event)
+    = link_to "#{event.watchers.count}人关注", watchers_event_path(event)

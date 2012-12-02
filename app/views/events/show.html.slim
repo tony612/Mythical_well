@@ -42,7 +42,7 @@
     .event_action
       = events_follow_tag @event
       - if user_signed_in? and current_user == @event.user
-        = link_to edit_event_path(@event) do
+        = link_to edit_event_path(@event), :class => 'edit' do
           i.icon-edit.icon-large
         script
           | $('.icon-edit').tooltip({title: '编辑'})
@@ -54,6 +54,6 @@
       = render "comments/new", :event => @event, :comment => @comment
 
   .grid_3
-    .box.event_photo
-      = my_image_tag @event.image_url(:show).to_s
-    = render 'hot', events_hot: @events_hot
+    = render 'photo', :event => @event
+    /= render 'hot', events_hot: @events_hot
+    = render 'mini_followers', event: @event

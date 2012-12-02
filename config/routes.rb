@@ -7,6 +7,8 @@ MythicalWell::Application.routes.draw do
       post :watch
       post :attend
       post :unfollow
+      get :watchers
+      get :attendees
     end
 
     collection do

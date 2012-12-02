@@ -1,0 +1,18 @@
+.container_12.event_followers
+  .grid_9
+    .box
+      table
+        legend = params[:action] == 'attendees'? '参加者' : '关注者'
+        - @followers.each_slice(8).to_a.each do |group|
+          tr
+            - group.each do |follower|
+              td
+                = link_to follower, :class => 'follower' do
+                  = avatar_for follower, 58
+                  = truncate(follower.username, :length => 10)
+      = paginate @followers
+
+  .grid_3
+    .box.back
+      = link_to "返回#{@event.title}", @event
+    = render 'photo', :event => @event

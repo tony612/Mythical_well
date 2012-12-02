@@ -12,7 +12,7 @@ class Event < ActiveRecord::Base
   has_many :tags, :through => :event_tags
 
   has_many :event_followers
-  has_many :followers, :class_name => 'User', :through => :event_followers
+  has_many :followers, :class_name => 'User', :through => :event_followers, :order => 'event_followers.created_at DESC'
 
   belongs_to :node, foreign_key: 'node_id'
   delegate :name, :to => :node, :prefix => true, :allow_nil => true

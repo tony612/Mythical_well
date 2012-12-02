@@ -135,6 +135,10 @@ ul.events {
     }
 
   }
+  a.edit {
+    margin-left: 650px;
+  }
+
 }
 .event_photo {
   @include box-shadow(rgba(black, 0.3) 2px 2px 10px 4px);
@@ -147,4 +151,36 @@ ul.events {
 }
 ul.token-input-list-facebook {
   padding: 0px;
+}
+
+
+.mini_event_followers {
+  td {
+    margin:0;
+    padding: 0;
+  }
+  a.follower {
+    img {
+      margin: 5px 5px;
+      @include border-radius(100%);
+    }
+  }
+  .follower_links {
+    padding: 10px;
+    a:first-child {
+      margin-right: 30px;
+    }
+  }
+}
+.event_followers {
+  .grid_9 .box {
+    padding: 10px;
+
+    img {
+      margin: 10px 10px;
+    }
+  }
+  .box.back{
+    padding: 10px;
+  }
 }
