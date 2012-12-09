@@ -31,10 +31,14 @@
                 span style="font-weight:bold;" ￥
                 '
                 = "#{@event.fee}"
+              - unless @event.capacity.blank?
+                li
+                  i.icon-group
+                  = "#{@event.capacity}人"
           td
             ul.unstyled
               li
-                i.icon-group
+                i.icon-flag
                 = "#{@event.node.name}"
               li
                 i.icon-map-marker

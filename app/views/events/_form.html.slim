@@ -13,7 +13,8 @@
   = f.input :content, label: "活动详情", as: :text, input_html: {:style => "width: 700px;"}, validate: false
   script
     | $('#event_content').wysihtml5({"image": false, "color": true});
-  = f.input :fee, label: "活动费用", input_html: {value: '0'}
+  = f.input :fee, label: "活动费用", input_html: {value: '0元/人'}
+  = f.input :capacity, label: "限制人数", :hint => "不填为不限制"
   = f.input :image, label: "海报", as: :file, validate: meta[:image], hint: ""
   = f.input :tag_tokens, label: "标签", input_html: {data: {load: event.tags}}
   .form-actions
