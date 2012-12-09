@@ -41,6 +41,9 @@ class Ability
       can :destroy, Message do |msg|
         (msg.user_id == user.id)
       end
+      can :empty, Message do |msg|
+        (msg.user_id == user.id)
+      end
 
       # User
       can :follow, User
@@ -56,7 +59,7 @@ class Ability
 
   def basic_read_only
     can :read, Event
-    
+
     can :read, Comment
 
     can :read, Node
