@@ -2,9 +2,11 @@
   .grid_9
     .event
       .author
-        = link_to @event.user do
+        = link_to @event.user, :class => 'author_photo' do
           = avatar_for @event.user, 56
-        = link_to @event.user.username + 'adaheias', @event.user, data: {name: @event.user.name}, :class => 'none'
+        javascript:
+          $('.author_photo').tooltip({placement: 'right', title: "#{@event.user.name} @#{@event.user.username}"})
+        = link_to @event.user.username, @event.user, data: {name: @event.user.name}, :class => 'none'
       h2.title = @event.title
       .tag_cat
         = link_to events_path(:category => @event.category), :class => 'category_link' do

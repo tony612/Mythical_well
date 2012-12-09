@@ -1,7 +1,7 @@
 $(function(){
   var names = [];
   var names_existed = [];
-  var author_data = {'login': $('.event .author a').text(), 'name': $('.event .author a').data('name')}
+  var author_data = {'login': $('.event .author a:last').text(), 'name': $('.event .author a:last').data('name')};
   names.push(author_data);
   names_existed.push(author_data.login)
   $('.comments tr a.name').each(function(id){
@@ -21,10 +21,8 @@ $(function(){
     tpl: "<li data-value='${login}'>${login} <small>${name}</small></li>",
     'data': names,
     'limit': 7
-  }).atWho(':', {
-    'data': emojis  
   });
-  $('#event_tag_tokens').tokenInput('/tags.json', { 
+  $('#event_tag_tokens').tokenInput('/tags.json', {
     hintText: "输入标签",
     searchingText: "查找中",
     theme: 'facebook',
@@ -61,12 +59,12 @@ $(function(){
               $('.time-select tbody tr:eq('+i+') span').html(arr_now[i]);
             }
           }
-            
+
         }
       }
       dates_arr = this.getSelectedAsText();
       console.log(dates_arr);
-    } 
+    }
   }
   multi_attr = {
     months: 2,
@@ -117,7 +115,7 @@ $(function(){
         $('.time-select tbody tr td span').remove();
         $('.repeat_range').hide();
         if(repeat === 'no'){
-          
+
           $('#calendar').html('');
           my_date_select = new Kalendae('calendar', range_attr);
           $('.date-show').html("时间为：" + my_date_select.getSelected());
