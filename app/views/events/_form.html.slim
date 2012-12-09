@@ -1,7 +1,7 @@
 = simple_form_for event, validate: true, :html => {class:"form-horizontal", id:"create_event", :multipart => true} do |f|
   legend = meta[:legend]
   = f.input :title, label: "活动标题", input_html: {:style => 'width: 300px', maxlength: 50}
-  = f.input :category, label: "分类", collection: ["休闲娱乐", "社交", "专业交流", "分享会", "爱好者", "聚会", "讲座", "表演", "比赛", "其他"], prompt: "选择分类"
+  = f.input :category_id, label: "分类", collection: Category.all.to_a, prompt: "选择分类"
   = f.input :theme, label: "主题"
   /.control-group
     = f.label :title, "活动周期", class: 'control-label'

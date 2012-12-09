@@ -16,7 +16,7 @@ ul.unstyled.events
             li = "费用：#{event.fee}"
             li.category
               | 分类：
-              = link_to event.category, url_for(:category => event.category)
+              = link_to event.category_name, url_for(:category => event.category_name)
             - if event.theme
               li = "主题：#{truncate(event.theme, :length => 25)}"
             li

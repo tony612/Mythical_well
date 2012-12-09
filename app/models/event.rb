@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 require 'file_size_validator'
 class Event < ActiveRecord::Base
-  attr_accessible :title, :start_date, :end_date, :date_desc, :location, :content, :category, :theme, :fee, :image, :tag_tokens, :node_id, :capacity
+  attr_accessible :title, :start_date, :end_date, :date_desc, :location, :content, :category_id, :theme, :fee, :image, :tag_tokens, :node_id, :capacity
   mount_uploader :image, ImageUploader
 
   has_many :comments, :dependent => :destroy
@@ -17,11 +17,14 @@ class Event < ActiveRecord::Base
   belongs_to :node, foreign_key: 'node_id'
   delegate :name, :to => :node, :prefix => true, :allow_nil => true
 
+  belongs_to :category, foreign_key: 'category_id'
+  delegate :name, :to => :category, :prefix => true, :allow_nil => true
+
   validates :title, presence: {message: "标题不能为空"}
   validates :location, presence: {message: "地点不能为空"}
   validates :content, presence: {message: "活动详情不能为空"}
   validates :fee, presence: {message: "费用不能为空"}
-  validates :category, presence: {message: "分类不能为空"}
+  validates :category_id, presence: {message: "分类不能为空"}
   #validates :theme, presence: { message: "主题不能为空" }
   validates :user_id, presence: true
   validates :image, :presence => {message: "需要上传海报"}, :file_size => { :maximum => 1.megabytes.to_i, message: "文件大小必须在1M以内"}
@@ -49,7 +52,10 @@ class Event < ActiveRecord::Base
     end
     with_node = nodes_arr.empty? ? Event : Event.where(:node_id => nodes_arr)
     if params[:category]
-      events = with_node.where(:category => params[:category]).recent.page(params[:page])
+      category = Category.find_by_name(params[:category])
+      unless category.blank?
+        events = with_node.where(:category_id => category.id).recent.page(params[:page])
+      end
     elsif params[:tag]
       events = find_with_tag(params[:tag]).where(:node_id => nodes_arr).recent.page(params[:page]) unless nodes_arr.empty?
       events = find_with_tag(params[:tag]).recent.page(params[:page]) if nodes_arr.empty?

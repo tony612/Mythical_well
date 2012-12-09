@@ -1,0 +1,6 @@
+= simple_form_for [:admin, category], :html => {class: 'form-horizontal'} do |f|
+  = f.input :name, label: '名字'
+  .form-actions
+    = f.submit '提交', class: 'btn btn-primary', :disable_with => '提交中'
+
+

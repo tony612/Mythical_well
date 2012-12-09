@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121209112746) do
+ActiveRecord::Schema.define(:version => 20121209120336) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -51,18 +57,18 @@ ActiveRecord::Schema.define(:version => 20121209112746) do
     t.string   "title"
     t.datetime "start_date"
     t.string   "location"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.text     "content"
     t.integer  "user_id"
     t.string   "fee"
-    t.string   "category"
     t.datetime "end_date"
     t.string   "image"
     t.string   "date_desc"
     t.integer  "node_id"
     t.string   "theme"
     t.integer  "capacity"
+    t.integer  "category_id"
   end
 
   add_index "events", ["node_id"], :name => "index_events_on_node_id"

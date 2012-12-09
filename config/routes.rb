@@ -41,6 +41,7 @@ MythicalWell::Application.routes.draw do
     resources :users, only: [:index, :edit, :update]
     resources :nodes, except: [:show]
     resources :comments, only: [:index]
+    resources :categories, except: [:show]
   end
 
   match '/my/events' => "users#my_events", via: :get

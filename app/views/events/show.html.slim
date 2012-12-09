@@ -9,7 +9,7 @@
       .tag_cat
         = link_to events_path(:category => @event.category), :class => 'category_link' do
           i.icon-tasks
-          = @event.category
+          = @event.category_name
         script
           | $('.category_link').tooltip({title: '分类'})
         - @event.tags.each do |tag|

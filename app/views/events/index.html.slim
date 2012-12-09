@@ -1,6 +1,10 @@
 .grid_9
-  = render 'events_table', events: @events
-  = paginate @events
+  - unless @events.blank?
+    = render('events_table', events: @events)
+    = paginate @events
+  - else
+    .box style="padding: 10px;"
+      | 无活动
 
 .grid_3
   = render 'hot', events_hot: @events_hot

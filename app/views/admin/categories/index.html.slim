@@ -1,0 +1,17 @@
+= link_to "新建节点", new_admin_category_path, class: 'btn btn-primary'
+br
+br
+table.table.table-striped.table-hover
+  th
+    td 名字
+    td 操作
+  - @categories.each do |category|
+    tr
+      td = category.id
+      td = category.name
+      td
+        = link_to edit_admin_category_path(category) do
+          i.icon-edit
+        '
+        = link_to admin_category_path(category), :method => :delete, 'data-confirm' => '确定删除？' do
+          i.icon-trash

@@ -16,7 +16,6 @@
 .box
   .title 分类
   ul.unstyled
-    li = link_to "生活", events_path(:category => "生活")
-    li = link_to "课程", events_path(:category => "课程")
-    li = link_to "聚会", events_path(:category => "聚会")
+    - Category.all.each do |cat|
+      li = link_to cat.name, events_path(:category => cat.name)
 
